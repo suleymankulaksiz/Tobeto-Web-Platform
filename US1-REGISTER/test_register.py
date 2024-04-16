@@ -36,6 +36,7 @@ class Test_Register:
         password.send_keys(input_password)
         password_again.send_keys(input_passwordagain)
 
+        
         sign_up_button = self.waitForElementVisible((By.XPATH, SIGNUPBUTTON_XPATH))
         sign_up_button.click()
         
@@ -66,6 +67,6 @@ class Test_Register:
 
        
 
-
+        sleep(2)
         alertMessage = self.waitForElementVisible((By.XPATH, REGISTERTEXT_XPATH))
         assert alertMessage.text == TRUEREGISTER_TEXT
