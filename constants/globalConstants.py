@@ -90,7 +90,7 @@ FORGOT_EMAIL_POPUP_TEXT="• Şifre sıfırlama linkini e-posta adresinize gönd
 
 
 
-#-----------------------------------------TEST-1-4 My Personal Information------------------------------------
+#-----------------------------------------TEST My Personal Information------------------------------------
 
 #---------TEST-1-4 My Personal Information---------
 
@@ -111,17 +111,30 @@ DROPDOWN_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[9
 TOWNBOX_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[10]/select"
 SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
 TCNO_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/input"
-
+STREET_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[11]/textarea"
+ABOUTME_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[12]/textarea"
+TCNOALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/span[2]"
+DATEOFBIRTHALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/span"
+COUNTRYBOXALERT_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[8]/span"
+DROPDOWNELEMENTCITYALERT_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[9]/span"
+DROPDOWNELEMENTTOWNALERT_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[10]/span"
+STREETBOXALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[11]/span"
+ABOUTMEALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[12]/span"
 
 #INPUT
 input_personal_mail="tobeto@outlook.com.tr"
 input_personal_password="123456"
 input_dateofbirth = "31.08.2000"
 input_country="Türkiye"
+input_incorrect_country="t"
 input_tcno="11111111111"
+input_incorrect_tcno="1111111111"
+input_street=long_text = "a" * 201
+input_aboutme=long_text = "a" * 301
 
 #TEXT
 POPUP_MESSAGE_TEXT="• Giriş başarılı."
+TCNOALERT_TEXT="TC Kimlik Numarası 11 Haneden Az olamaz"
 
 
 

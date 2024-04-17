@@ -72,18 +72,18 @@ class Test_my_personal_information:
         countryBox.send_keys(input_country)
 
         #Şehir seçilir
-        dropdown_element = WebDriverWait(self.driver, 10).until(
+        dropdown_element_city = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, DROPDOWN_XPATH))
         )
-        dropdown = Select(dropdown_element)
+        dropdown = Select(dropdown_element_city)
         # indekse göre seçim yapın
         dropdown.select_by_index(40)
 
         #İlçe seçilir
-        dropdown_element = WebDriverWait(self.driver, 10).until(
+        dropdown_element_town = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, TOWNBOX_XPATH))
         )
-        dropdown = Select(dropdown_element)
+        dropdown = Select(dropdown_element_town )
         #indekse göre seçim 
         sleep(2)
         dropdown.select_by_index(10)
@@ -92,10 +92,47 @@ class Test_my_personal_information:
         saveButton.click()
         sleep(2)
 
+    def test_empty_incorrect_data_entry(self):
+        self.test_login()
+        profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
+        assert profileTitleText.text == "Profilini oluştur"
+        profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
+        profileButton.click()
+
+        #TC No girişi yapılır
+        tcNo=self.waitForElementVisible((By.XPATH,TCNO_XPATH))
+        tcNo.click()
+        tcNo.send_keys(input_incorrect_tcno)
+
+        #Mahalle sokak girişi 
+        streetBox= self.waitForElementVisible((By.XPATH,STREET_XPATH))
+        streetBox.click()
+        streetBox.send_keys(input_street)
+
+        aboutmeBox= self.waitForElementVisible((By.XPATH,ABOUTME_XPATH))
+        aboutmeBox.click()
+        aboutmeBox.send_keys(input_aboutme)
 
 
+        saveButton = self.waitForElementVisible((By.XPATH,SAVEBUTTON_XPATH))
+        saveButton.click()
+        sleep(2)
 
+        tcNo_alert=self.waitForElementVisible((By.XPATH,TCNOALERT_XPATH))
+        Dateofbirth_alert= self.waitForElementVisible((By.XPATH,DATEOFBIRTHALERT_XPATH))
+        countryBox_alert = self.waitForElementVisible((By.XPATH,COUNTRYBOXALERT_XPATH))
+        dropdown_element_city_alert= self.waitForElementVisible((By.XPATH,DROPDOWNELEMENTCITYALERT_XPATH))
+        dropdown_element_town_alert= self.waitForElementVisible((By.XPATH,DROPDOWNELEMENTTOWNALERT_XPATH))
+        streetBox_alert= self.waitForElementVisible((By.XPATH,STREETBOXALERT_XPATH))
+        aboutmeBox_alert= self.waitForElementVisible((By.XPATH,ABOUTMEALERT_XPATH))
+
+        assert tcNo_alert.text== TCNOALERT_TEXT
+        assert Dateofbirth_alert.text == "Doldurulması zorunlu alan*"
+        assert countryBox_alert.text == "Doldurulması zorunlu alan*"
+        assert dropdown_element_city_alert.text == "Doldurulması zorunlu alan*"
+        assert dropdown_element_town_alert.text ==  "Doldurulması zorunlu alan*"
+        assert streetBox_alert.text == "En fazla 200 karakter girebilirsiniz"
+        assert aboutmeBox_alert.text == "En fazla 300 karakter girebilirsiniz"
+        
     
-    
-    
-    
+        
