@@ -61,10 +61,10 @@ class Test_Educations:
         kurumSeciniz=self.waitForElementVisible((By.CSS_SELECTOR,kurumSeciniz_css))
         kurumSeciniz.click()
         kurumSeciniz.send_keys(Keys.RETURN)
-        assert kurumSeciniz.get_attribute("value"), "kurum seciniz filitresi BOŞ!"
+        assert kurumSeciniz.get_attribute("Istanbul Kodluyor"), "kurum seciniz filitresi BOŞ!"
         kurumSecinizBosalt=self.waitForElementVisible((By.CLASS_NAME,kurumSecinizBosalt_class))
         kurumSecinizBosalt.click()
-        assert not  kurumSeciniz.get_attribute("value"), "kurum seciniz filitresi DOLU!"
+        assert not  kurumSeciniz.get_attribute("Istanbul Kodluyor"), "kurum seciniz filitresi DOLU!"
 
         #TC04 FAİL
 
