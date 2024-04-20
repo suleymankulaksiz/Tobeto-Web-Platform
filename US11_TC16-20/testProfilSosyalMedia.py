@@ -16,7 +16,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 class Test_Chatbox: 
-    @pytest.fixture(autouse=True)
+    
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
