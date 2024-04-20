@@ -16,13 +16,17 @@ from selenium.webdriver.common.keys import Keys
 
 
 class Test_Educations: 
+    @pytest.fixture(autouse=True)
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get(LOGIN_URL)
         sleep(2)
 
-    def test_valid_login(self, username, password):
+    def waitForElementVisible(self, locator, timeout=5):
+        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
+
+    def test_valid_login(self):
         userNameInput = self.waitForElementVisible((By.NAME,loginEmail_name))
         passwordInput = self.waitForElementVisible((By.NAME,loginPassword_name))
         userNameInput.send_keys(loginUserName)
@@ -52,7 +56,7 @@ class Test_Educations:
         self.test_valid_login()
         aramaKutusu=self.waitForElementVisible((By.CSS_SELECTOR,aramaKutusu_css))
         aramaKutusu.click()
-        aramaKutusu.send_Keys("is").click()
+        aramaKutusu.send_keys("is").click()
         aramaSonucu=self.waitForElementVisible((By.XPATH,aramaSonucu_xpath))
         assert aramaSonucu.text==sonuc
 
@@ -72,7 +76,7 @@ class Test_Educations:
         self.test_valid_login()
         aramaKutusu=self.waitForElementVisible((By.CSS_SELECTOR,aramaKutusu_css))
         aramaKutusu.click()
-        aramaKutusu.send_Keys("i").click()
+        aramaKutusu.send_keys("i").click()
         kurumSeciniz=self.waitForElementVisible((By.CSS_SELECTOR,kurumSeciniz_css))
         kurumSeciniz.click()
         kurumSeciniz.send_keys(Keys.RETURN)
@@ -81,12 +85,12 @@ class Test_Educations:
         siralama.send_keys(Keys.ARROW_DOWN,Keys.ENTER)
         #doğrulamayı yapamadım 
 
-def test_tc06(self):
+    def test_tc06(self):  
         self.test_valid_login()
         aramaKutusu=self.waitForElementVisible((By.CSS_SELECTOR,aramaKutusu_css))
         aramaKutusu.click()
-        aramaKutusu.send_Keys("tobeto").click()
+        aramaKutusu.send_keys("tobeto").click()
         egitimYokMsj=self.waitForElementVisible((By.XPATH,egitimYokMsj_xpath))
-        assert egitimYokMsj.text()==msj
+        assert egitimYokMsj.text==msj
 
         #TC07 FAİL
