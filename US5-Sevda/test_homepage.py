@@ -77,13 +77,15 @@ class Test_Homepage:
         welcometobeto = self.waitForElementVisible((By.XPATH, WELCOMETOBETO_XPATH))
         tobeto_slogan=self.waitForElementVisible((By.XPATH, TOBETO_SLOGAN_XPATH))
         istanbul_kodluyor_logo=self.waitForElementVisible((By.CSS_SELECTOR, İSTANBUL_KODLUYOR_LOGO_CSS_SELECTOR)) #logo görüntülenmesi için
+        name=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[1]/section[1]/div/div[2]/div/h4"))
         sleep(2)
         self.driver.execute_script("window.scrollTo(0,300)")
         sleep(2)
         free_edu=self.waitForElementVisible((By.XPATH, FREE_EDUC_XPATH))
         aradığın_is_burada = self.waitForElementVisible((By.XPATH, ARADIGIN_İS_XPATH))
 
-        assert {welcometobeto.text == "TOBETO'ya hoş geldin"  and #expectedı kaldır nede
+        assert {welcometobeto.text == "TOBETO'ya hoş geldin"  and #expectedı kaldır 
+                name.text=="Sevda" and
                 istanbul_kodluyor_logo.is_displayed(), "Logo görüntülenmiyor." and #eğer logo görüntülenmezse virgülden sonraki uyarıyı verecek.
                 tobeto_slogan.text == TOBETO_SLOGAN_TEXT and 
                 free_edu.text == FREE_EDUC_TEXT and
