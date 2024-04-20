@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import pytest
 import json
 from time import sleep
-from constantss.globalConstants import *
+from constants.globalConstants import *
 from pathlib import Path
 from datetime import date
 

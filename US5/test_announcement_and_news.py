@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import pytest
 from time import sleep
-from constantss.globalConstants import *
+from constants.globalConstants import *
 from pathlib import Path
 from datetime import date, datetime
 
