@@ -57,7 +57,7 @@ LESSONS_URL= "https://tobeto.com/egitimlerim"
 
 #-------------------------------------INPUT
 tobeto_email="sevdayilmazf@gmail.com"
-tobeto_password="34325Sevo."
+tobeto_password=""
 #-----------------------NAME
 EMAIL_NAME ="email"                        
 PASSWORD_NAME ="password"
