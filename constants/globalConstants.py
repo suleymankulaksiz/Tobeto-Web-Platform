@@ -15,7 +15,8 @@ def generate_random_email():
 #-------------------------------------------
 REGISTER_URL = "https://tobeto.com/kayit-ol"
 LOGIN_URL = "https://tobeto.com/giris"
-SIGN_IN = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=service%3A%3Aaccount.microsoft.com%3A%3AMBI_SSL+openid+profile+offline_access&response_type=code&client_id=81feaced-5ddd-41e7-8bef-3e20a2689bb7&redirect_uri=https%3A%2F%2Faccount.microsoft.com%2Fauth%2Fcomplete-signin-oauth&client-request-id=d7f1d419-964c-4163-a89e-749c64f1940d&x-client-SKU=MSAL.Desktop&x-client-Ver=4.58.1.0&x-client-OS=Windows+Server+2019+Datacenter&prompt=login&client_info=1&state=H4sIAAAAAAAEAAXBS4JDMAAA0LvM1mKMFrWkSEKLUeKzKxWk4pN2krann_e-bKHOe2lKN79DaXRwIoETgaFs8003-8PUZQ0YN9YBbFPAtUbkMvRKRHSm_NogHeNO2kHCpiLzp8u90HRaU-vnvPABG1W2tm3L8HzcY1kPLtF79pQp0XcCpg79BL62qtjQzPLA84xU1KvUMFvDt9mQFI95-JHmJtYY3KIIHaV0F4_sr4ZjQqdI_sS3ONzhzFnFq16x7LLO-On5xoVEU-vGYq5ZWSXau6_ZuKWnWIHqULUPDBcgfazilxzPZ-otL3Y1qE-v8HIK3cKLobOiptkteKMW4g9XPPIAJVuO_PFGCUiHeoxdhCKuWH0ffv0DMZBRVEIBAAA&msaoauth2=true&lc=1055"
+SIGN_IN = "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=ARZ0qKLNZc5pRQzHoOzteY4CudTe8H6l8-KtvsTwhZph01Tk5xET568QYhi7ldsRXg71pdveoNSNLg&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1341264521%3A1713475719969411&theme=mn&ddm=0"
+
 #-------------------------------------------
 FIRSTNAME_NAME = "firstName"
 LASTNAME_NAME = "lastName"
@@ -36,9 +37,9 @@ input_password ="123456"
 input_passwordagain="123456"
 
 #ŞİFRE YENİLEME INPUT
-input_forgot_email ="tobeto@outlook.com.tr"  #şifre yenileme e mail 
+input_forgot_email ="tobetotest3@gmail.com"  #şifre yenileme e mail 
 input_forgot_password = "//*[@id='__next']/div/main/section/div/div/div/input"
-input_sign_in_password = "123456"
+input_sign_in_password = "deneme123"
 input_reset_password = "1234567"    #Buraya tekrar bak
 input_reset_password_again="1234567"  #Buraya tekrar bak
 
@@ -103,6 +104,7 @@ PROFILETITLE_TEXT_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/di
 PROFILEBUTTON_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/button"
 NAMETEXTBOX_XPATH="//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/form[@action='#']//input[@name='name']"
 SURNAMETEXTBOX_XPATH ="//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/form[@action='#']//input[@name='surname']"
+EMAILNAMETEXTBOX_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/input"
 NAME_TEXT_XPATH="//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/form[@action='#']//input[@name='name']"
 DATEOFBIRTH_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/input"
 MAILCLICK_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/input"
@@ -121,14 +123,21 @@ DROPDOWNELEMENTTOWNALERT_XPATH ="//*[@id='__next']/div/main/section/div/div/div[
 STREETBOXALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[11]/span"
 ABOUTMEALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[12]/span"
 
+#ID
+PHONETEXTBOX_ID = "phoneNumber"
+
+
 #INPUT
-input_personal_mail="tobeto@outlook.com.tr"
-input_personal_password="123456"
+input_personal_mail="tobetotest3@gmail.com"
+input_personal_password="deneme123"
 input_dateofbirth = "31.08.2000"
 input_country="Türkiye"
+input_long_country="türkiyetürkiyetürkiyetürkiyetür"
 input_incorrect_country="t"
 input_tcno="11111111111"
 input_incorrect_tcno="1111111111"
+input_string_tcno="e"
+input_incorrect_tcno2="111111111111"
 input_street=long_text = "a" * 201
 input_aboutme=long_text = "a" * 301
 
@@ -137,8 +146,54 @@ POPUP_MESSAGE_TEXT="• Giriş başarılı."
 TCNOALERT_TEXT="TC Kimlik Numarası 11 Haneden Az olamaz"
 
 
+#---------TEST-5-7 My Experience---------
+#ALERT TEXT
+EMPTY_ALERT_ALERT="Doldurulması zorunlu alan*"
+MINCHARACTERS_POSITION_ALERT = "En az 5 karakter girmelisiniz"
+MAXCHARACTER_ORGANIZATION_ALERT = "En fazla 50 karakter girebilirsiniz"
+MINCHARACTERS_DESCRIPTION_ALERT = "En fazla 300 karakter girebilirsiniz"
+CITYFALSEASSERT_TEXT ="Doldurulması zorunlu alan* Gözükmemektedir!"
 
 
+#PATH
+SAVE_SCREENSHOT_PATH = "images//experienceViewing.png"
+
+#COLOR CODE
+city_border_color_text = "rgb(179, 166, 192)"
+
+
+#XPATH
+EXPERIENCEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[1]/div/a[2]/span[2]"
+INPUTORGANIZATIONNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/input"
+POSITIONNAMEXPATH_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/input"
+SECTORNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[3]/input"
+DROPDOWNELEMENTCITY_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[4]/select"
+JOBSTARTDATE_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/div[1]/div/input"
+DROPDOWNELEMENTDATE_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/div/div/input"
+DROPDOWNELEMENTDATEMONTH_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[1]/select"
+SELECTDAY_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]"
+EXPERIENCECHECKBOX_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/label[2]/input"
+JOBDESCRIPTION_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/textarea"
+EXPERIENCEBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[2]/span[2]"
+EXPERIENCESAVEBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
+
+#CSS SELECTOR
+city_border_color_view_CSS = "#__next > div > main > section > div > div > div.col-12.col-lg-9 > form > div > div:nth-child(4) > select"
+
+#ALERT XPATH
+input_organization_name_alert_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/span"
+position_name_name_alert_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/span"
+sector_name_name_alert_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[3]/span"
+job_description_name_alert_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/span"
+#INPUT 
+job_start_date_input="01.01.2024"
+input_organization_name_text = "Tobeto"
+position_name_text ="Tester"
+sector_name_text = "Yazılım"
+job_description_text="abc"
+input_organization_name_text=long_text = "E" * 51
+job_description_name_text= "E"* 301
+position_name_text = "e"
 
 
 

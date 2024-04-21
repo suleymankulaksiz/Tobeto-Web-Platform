@@ -11,29 +11,19 @@ import imaplib
 import email
 from email.header import decode_header
 from selenium.webdriver.common.action_chains import ActionChains
+import time
+import ctypes
 
+
+user32 = ctypes.windll.user32
 
 class Test_password_reset:
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup(self):
         self.driver = webdriver.Chrome()
-        self.driver.maximize_window()                  
+        self.driver.maximize_window()
         self.driver.get(LOGIN_URL)
-
-        # # Outlook IMAP sunucusu ve bağlantı noktası
-        # self.imap_server = 'outlook.office365.com'
-        # self.port = 993
-
-        # # E-posta adresi ve şifre
-        # self.username = input_forgot_email
-        # self.password = input_sign_in_password
-
-        # # IMAP bağlantısı kurma
-        # self.mail = imaplib.IMAP4_SSL(self.imap_server, self.port)
-        # self.mail.login(self.username, self.password)
-        
-                
-
-    def teardown_method(self):
+        yield
         self.driver.quit()
     
     def waitForElementVisible(self, locator, timeout=10):
@@ -52,22 +42,51 @@ class Test_password_reset:
         assert popupMessage.text == FORGOT_EMAIL_POPUP_TEXT
 
         self.driver.get(SIGN_IN)    
-        sign_in_email = self.waitForElementVisible((By.NAME,SIGN_IN_EMAIL_NAME))
+        sign_in_email = self.waitForElementVisible((By.ID,"identifierId"))
         sign_in_email.send_keys(input_forgot_email)
-        next_button = self.waitForElementVisible((By.ID,next_login_button_id))
+        next_button = self.waitForElementVisible((By.XPATH,"//*[@id='identifierNext']/div/button/span"))
         next_button.click()
-        sign_in_password = self.waitForElementVisible((By.NAME,SING_IN_PASSWORD_NAME))
+        sign_in_password = self.waitForElementVisible((By.XPATH,"//*[@id='password']/div[1]/div/div[1]/input"))
         sign_in_password.send_keys(input_sign_in_password)
-        sign_in_button = self.waitForElementVisible((By.ID,sign_in_button_id))
+        sign_in_button = self.waitForElementVisible((By.CSS_SELECTOR, ".VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d"))
         sign_in_button.click()
-        click_no_button = self.waitForElementVisible((By.ID,decline_button_id))
-        click_no_button.click()
+        
+        #Last mail click
+        last_mail_link = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".zA.zE:nth-child(1)"))) 
+        last_mail_link.click()
+
+        # link_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH,"//a[contains(@href,'https://tobeto.com/reset-password')]")))
+        # link_element.click()
+        # link_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div[7]/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div/div/p/span")))
+        # link_element.click()
+
+        # link_script = """
+        # var links = document.querySelectorAll("a");
+        # for(var i = 0; i < links.length; i++) {
+        #     if (links[i].href.startsWith("https://tobeto.com/reset-password?code=")) {
+        #         links[i].click();
+        #         break;
+        #     }
+        # }
+        # """
+        # self.driver.execute_script(link_script)
+
+        email_content_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//*[@id=':1z']/div[1]/div/div/div/p/span/a")))
+        email_content = email_content_element.text
+        link_start_index = email_content.find("https://")  # Linkin başlangıç indeksi
+        link_end_index = email_content.find(" ", link_start_index)  # Linkin sonraki boşluk karakterine kadar olan kısmı alır
+
+        if link_start_index != -1 and link_end_index != -1:
+            link_url = email_content[link_start_index:link_end_index]  # Linki al
+            # Linki tarayıcıda aç
+            self.driver.get(link_url)
+
         sleep(5)
-        click_nav_menu = self.waitForElementVisible((By.XPATH,NAVMENU_XPATH))
-        click_nav_menu.click()
-        click_outlook = self.waitForElementVisible((By.XPATH,NAVMENU_OUTLOOK_XPATH))
-        click_outlook.click()
-        sleep(10)
+        
+
+        # first_message = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.ID, "//a[contains(@href,'https://tobeto.com/reset-password?code=')]")))
+        # first_message.click()
+
         reset_password = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_XPATH))
         reset_password.send_keys(input_reset_password)
         reset_password_again = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_AGAIN_XPATH))

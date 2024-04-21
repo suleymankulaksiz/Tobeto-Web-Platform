@@ -9,12 +9,12 @@ import openpyxl
 from constants.globalConstants import *
 
 class Test_Register:
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup(self):
         self.driver = webdriver.Chrome()
-        self.driver.maximize_window()                   #BU KISIM ORTAK BİR KLASÖR İÇİNE ALIP FONKSİYONU ÇAĞIRABİLİR MİYİZ? BİR BAK.
+        self.driver.maximize_window()
         self.driver.get(REGISTER_URL)
-
-    def teardown_method(self):
+        yield
         self.driver.quit()
 
     def waitForElementVisible(self, locator, timeout=5):
