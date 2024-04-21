@@ -50,7 +50,7 @@ class Test_Announcement_And_News:
     
 
     
-    def test_filter_search_by_headings(self): #tc1 harf harf filtreleme kısmı eklenecek
+    def test_filter_search_by_headings(self): #tc1 DONE
         self.environment()
         sleep(2)
         shown_announce_a_news=self.driver.find_elements(By.XPATH, SHOWN_ANNOUNCEMENT_AND_NEWS_XPATH)
@@ -89,30 +89,27 @@ class Test_Announcement_And_News:
         type_announcement_checkBox=self.waitForElementVisible((By.ID, TYPE_ANNOUNCEMENT_CHECKBOX_ID))
         type_announcement_checkBox.click()
         shown_announcements_page=self.driver.find_elements(By.XPATH, SHOWMORE_BTN_ANNOUNCEMENT_AND_NEWS_XPATH)
-        assert {type_news_page.text== "Bir duyuru bulunmamaktadır." and
-                len(shown_announcements_page)>0, "Bir duyuru bulunmamaktadır"
+        assert {type_news_page.text== NO_ANNOUNCEMENT_TEXT and
+                len(shown_announcements_page)>0, NO_ANNOUNCEMENT_TEXT
                 }
         
-        # if shown_announcements:
-        #     print("Duyurular:")
-        #     for duyurular in shown_announcements:
-        #         print(duyurular.text)
-        #     else:
-        #         print("Bir duyuru bulunmamaktadır.")
 
-    def test_filter_of_organization(self): #tc3 organizasyona harf girişi tekrar dene
+    def test_filter_of_organization(self): #tc3 done
         self.environment()
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
-        istanbul_code_listbox=self.waitForElementVisible((By.XPATH, iSTANBUL_CODE__LİSTBOX_XPATH))
+        istanbul_code_listbox=self.waitForElementVisible((By.ID, iSTANBUL_CODDİNG_ID))
         istanbul_code_listbox.click()
+        organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
+        organization_dropdown.click()
+        assert iSTANBUL_CODDİNG_ID.text==[]
         sleep(2)
         x_button=self.waitForElementVisible((By.CLASS_NAME, X_BUTTON_CLASSNAME))
         x_button.click()
         sleep(2)
-        organizationDropdown1=self.waitForElementVisible((By.XPATH, "//*[@id='react-select-2-input']"))
-        organizationDropdown1.send_keys("L") #niye çalışmıyooooo???
-        sleep(5)
+        organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_INPUT_XPATH))
+        organization_dropdown1.send_keys("L")
+      
         
     def test_filter_by_date(self): #tc4 bitmedi
         self.environment()
@@ -124,23 +121,29 @@ class Test_Announcement_And_News:
         sorting_btn=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         sorting_btn.click()   
         sleep(2)
-        #self.driver.find_element(By.CSS_SELECTOR, ".show:nth-child(1)").click()
         self.driver.find_element(By.LINK_TEXT, "Tarihe Göre (E-Y)").click()
         sleep(2)
         dates=self.driver.find_elements(By.CLASS_NAME, "date")
         
     
     
-    def test_filder_hide_and_show(self): #tc5
+    def test_filder_hide_and_show(self): #tc5 DONE
         self.environment()
-        #no_read=self.driver.find_elements(By.CSS_SELECTOR, "div[style='background-color: rgb(237, 237, 237);']")
-        no_read=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[2]/div[2]/div[2]/div"))
-        read_more_buttons=self.driver.find_element(By.XPATH, READ_MORE_BUTTON_XPATH)
-        read_more_buttons.click()
-        close_X=self.waitForElementVisible((By.XPATH, "/html/body/div[3]/div/div/div[1]/button"))
+        no_read = self.driver.find_elements(By.XPATH, "//div[contains(@style, 'background-color: rgb(237, 237, 237)')]")
+        found_button = False
+        for element in no_read:
+         read_more_button = element.find_elements(By.XPATH, ".//span[contains(text(), 'Devamını Oku')]")
+         if read_more_button:
+            # js ile tıklama işlemi
+            self.driver.execute_script("arguments[0].click();", read_more_button[0])
+            found_button = True
+            break
+        if not found_button:
+         print("Devamını Oku butonu bulunamadı.")
+        close_X=self.waitForElementVisible((By.XPATH, CLOSE_X_XPATH))
         close_X.click()
         self.driver.save_screenshot(f"{self.folderPath}/read_hide_before.png")
-        read_hide=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[2]/button"))
+        read_hide=self.waitForElementVisible((By.XPATH,READ_MORE_BUTTON_XPATH))
         read_hide.click()
         self.driver.save_screenshot(f"{self.folderPath}/read_hide_after.png")
         assert False
@@ -148,7 +151,7 @@ class Test_Announcement_And_News:
              
 
 
-    def test_filter_synchronous_working(self): #tc6 
+    def test_filter_synchronous_working(self): #tc6 DONE
         self.environment() 
         search=self.waitForElementVisible((By.ID, SEARCH_ID))
         search.click()

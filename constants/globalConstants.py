@@ -57,7 +57,7 @@ LESSONS_URL= "https://tobeto.com/egitimlerim"
 
 #-------------------------------------INPUT
 tobeto_email="sevdayilmazf@gmail.com"
-tobeto_password=""
+tobeto_password="34325Sevo."
 #-----------------------NAME
 EMAIL_NAME ="email"                        
 PASSWORD_NAME ="password"
@@ -90,11 +90,15 @@ SHOWN_ANNOUNCEMENT_AND_NEWS_XPATH= "//*[@id='__next']/div/main/div[2]/div[2]"
 TYPE_NEWS_PAGE_XPATH="//*[@id='__next']/div/main/div[2]/div[2]/div/p"
 DROPDOWN_BUTTON_TYPE_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[2]"
 ORGANİZATİON_DROPDOWN_XPATH= "//*[@id='__next']/div/main/div[2]/div[1]/div/div[3]/div[1]"
+ORGANİZATİON_DROPDOWN_INPUT_XPATH="//*[@id='react-select-2-input']"
+
 iSTANBUL_CODE__LİSTBOX_XPATH="/html//div[@id='exaironWebchat']//div[@class='exw-widget-container']/div"
 SORTİNG_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/button"
 DROPDOWN_Y_E_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/ul/li[1]/a"
 DROPDOWN_E_Y_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/ul/li[2]/a"
 READ_MORE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[2]/div[1]/div/div[2]/span[2]"
+CLOSE_X_XPATH="//body/div[@role='dialog']/div//button[@type='button']"
+READ_HİDE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[2]/button"
 #----------------text
 SUCCESSFUL_LOGİN_TEXT="• Giriş başarılı."
 TOBETO_SLOGAN_TEXT="Yeni nesil öğrenme deneyimi ile Tobeto kariyer yolculuğunda senin yanında!"
