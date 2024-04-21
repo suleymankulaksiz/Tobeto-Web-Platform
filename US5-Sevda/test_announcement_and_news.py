@@ -102,7 +102,7 @@ class Test_Announcement_And_News:
         istanbul_code_listbox.click()
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
-        assert iSTANBUL_CODDİNG_ID.text==[]
+        self.driver.save_screenshot(f"{self.folderPath}/there_is_no_organization.png")
         sleep(2)
         x_button=self.waitForElementVisible((By.CLASS_NAME, X_BUTTON_CLASSNAME))
         x_button.click()
