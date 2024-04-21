@@ -37,12 +37,11 @@ class Test_Languages:
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
     
-
     def test_my_languages(self):
         select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
-        selection_almanca=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
+        selection_almanca=self.waitForElementVisible(OPTİON_GERMAN_XPATH).click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH).click()
         add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH).click()
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH).click()
@@ -64,7 +63,7 @@ class Test_Languages:
         select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
-        selection_cince=self.waitForElementVisible(OPTİON_CİNCE_XPATH)
+        selection_cince=self.waitForElementVisible(OPTİON_CHINESE_XPATH)
         selection_cince.click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH)
         select_level.click()
@@ -76,14 +75,14 @@ class Test_Languages:
         lang_edit_elements = langs_section.find_elements(By.XPATH, "//div[@class='lang-edit']")
         assert len(lang_edit_elements)==4 #burası yanlıs     
    
-    def test_required_field(self):
+    def test_required_field(self): #DONE
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH)
         save_button.click()
         language_required_field=self.waitForElementVisible(LANGUAGE_REQUİRED_FİELD_XPATH)
         level_required_field=self.waitForElementVisible(LEVEL_REQUİRED_FİELD_XPATH)
         assert language_required_field, level_required_field== REQUİRED_FİELD_TEXT
     
-    def test_delete_language(self):
+    def test_delete_language(self): #DONE
         go_to_language=self.waitForElementVisible(GO_TO_LANGUAGE_XPATH) 
         actions = ActionChains(self.driver)
         actions.move_to_element(go_to_language).perform()
@@ -96,7 +95,7 @@ class Test_Languages:
         successful_message=self.waitForElementVisible(REMOVED_MESSAGE_XPATH)
         assert successful_message.text==LANGUAGE_REMOVED_TEXT
     
-    def test_added_same_language(self): #done
+    def test_added_same_language(self): #DONE
         select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
@@ -113,7 +112,7 @@ class Test_Languages:
  
         
     #@pytest.mark.skip()
-    def test_my_foreign_language(self): #tukarıdakilerş tek def içinde denedim
+    def test_my_foreign_language(self): #Yukarıdakileri tek def içinde denedim
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH)
         save_button.click()
         language_required_field=self.waitForElementVisible(LANGUAGE_REQUİRED_FİELD_XPATH)
@@ -121,7 +120,7 @@ class Test_Languages:
         select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
-        select_german=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
+        select_german=self.waitForElementVisible(OPTİON_GERMAN_XPATH).click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH).click()
         add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH).click()
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH).click()
@@ -129,7 +128,7 @@ class Test_Languages:
         sleep(2)
         select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         select_the_language_dropdown.click()
-        select_german=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
+        select_german=self.waitForElementVisible(OPTİON_GERMAN_XPATH).click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH).click()
         add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH).click()
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH).click()

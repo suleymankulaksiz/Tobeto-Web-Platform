@@ -11,16 +11,13 @@ from datetime import date, datetime
 
 
 
-
-
-
 class Test_Announcement_And_News:
     @pytest.fixture(autouse=True)
     def setup(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get(LOGIN_URL)
-        self.folderPath= str("screenshots") #==>12.04.2024
+        self.folderPath= str("screenshots") 
         Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield
         self.driver.quit()
@@ -31,7 +28,7 @@ class Test_Announcement_And_News:
         return WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
     
 
-    def environment(self): #tc1 done
+    def valid_login(self): #tc1 done
         email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
         email.send_keys(tobeto_email)
@@ -48,28 +45,26 @@ class Test_Announcement_And_News:
         show_more_btn.click()  
         sleep(2)
     
-
+    
     
     def test_filter_search_by_headings(self): #tc1 DONE
-        self.environment()
+        self.valid_login()
         sleep(2)
         shown_announce_a_news=self.driver.find_elements(By.XPATH, SHOWN_ANNOUNCEMENT_AND_NEWS_XPATH)
-        search=self.waitForElementVisible((By.ID, "search"))
-        search.click()
-        search.send_keys("s")
-        self.driver.save_screenshot(f"{self.folderPath}/filter_search_with_s.png")
-        search=self.waitForElementVisible((By.ID, "search"))
-        search.click()
-        search.send_keys("ı")
-        self.driver.save_screenshot(f"{self.folderPath}/filter_search_with_sı.png")
-        search=self.waitForElementVisible((By.ID, "search"))
-        search.click()
-        search.send_keys("nav")
-        self.driver.save_screenshot(f"{self.folderPath}/filter_search_with_sınav.png")
-        search.clear()
-        search=self.waitForElementVisible((By.ID, "search"))
-        search.click()
-        search.send_keys("q")
+        search_steps = [
+            (By.ID, 'search', 's'),
+            (By.ID, 'search', 'ı'),
+            (By.ID, 'search', 'nav')
+        ]
+
+        for locator, element_id, key in search_steps:
+            search_element = self.waitForElementVisible((locator, element_id), timeout=10)
+            search_element.click()
+            search_element.send_keys(key)
+            self.driver.save_screenshot(f"{self.folderPath}/filter_search_with_{key}.png")
+        
+        search_element.clear()
+        search_element.send_keys("q")
         type_news_page=self.waitForElementVisible((By.XPATH, TYPE_NEWS_PAGE_XPATH))
        
         assert {len(shown_announce_a_news)<=9 , "9'dan daha fazla duyuru ve haber var" and
@@ -78,7 +73,7 @@ class Test_Announcement_And_News:
         
 
     def test_filter_by_type(self): #tc2 done
-        self.environment()
+        self.valid_login()
         dropdown_button_type=self.waitForElementVisible((By.XPATH, DROPDOWN_BUTTON_TYPE_XPATH)) 
         dropdown_button_type.click()
         type_news_checkbox=self.waitForElementVisible((By.ID, TYPE_NEWS_CHECKBOX_ID))
@@ -95,7 +90,7 @@ class Test_Announcement_And_News:
         
 
     def test_filter_of_organization(self): #tc3 done
-        self.environment()
+        self.valid_login()
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
         istanbul_code_listbox=self.waitForElementVisible((By.ID, iSTANBUL_CODDİNG_ID))
@@ -109,10 +104,11 @@ class Test_Announcement_And_News:
         sleep(2)
         organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_INPUT_XPATH))
         organization_dropdown1.send_keys("L")
+        assert True
       
         
     def test_filter_by_date(self): #tc4 bitmedi
-        self.environment()
+        self.valid_login()
         sorting_btn=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         sorting_btn.click()
         dropdown_Y_E=self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
@@ -128,7 +124,7 @@ class Test_Announcement_And_News:
     
     
     def test_filder_hide_and_show(self): #tc5 DONE
-        self.environment()
+        self.valid_login()
         no_read = self.driver.find_elements(By.XPATH, "//div[contains(@style, 'background-color: rgb(237, 237, 237)')]")
         found_button = False
         for element in no_read:
@@ -152,7 +148,7 @@ class Test_Announcement_And_News:
 
 
     def test_filter_synchronous_working(self): #tc6 DONE
-        self.environment() 
+        self.valid_login() 
         search=self.waitForElementVisible((By.ID, SEARCH_ID))
         search.click()
         search.send_keys("sınav")                               

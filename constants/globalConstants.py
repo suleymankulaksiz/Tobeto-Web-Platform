@@ -57,7 +57,7 @@ LESSONS_URL= "https://tobeto.com/egitimlerim"
 
 #-------------------------------------INPUT
 tobeto_email="sevdayilmazf@gmail.com"
-tobeto_password=""
+tobeto_password="34325Sevo."
 #-----------------------NAME
 EMAIL_NAME ="email"                        
 PASSWORD_NAME ="password"
@@ -142,10 +142,10 @@ DROPDOWN_PROFİLE_INFO_CLASS_NAME= (By.CLASS_NAME, "dropdown-item")
 MY_LANGUAGE_SİDEBAR_XPATH=(By.XPATH, "//*[contains(text(),'Yabancı Dillerim')]")
 SELECT_THE_LANGUAGE_DROPDOWN_XPATH= (By.XPATH, "//*[contains(text(), 'Dil Seçiniz')]")
 SELECT_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Seviye Seçiniz')]")
-OPTİON_ALMANCA_XPATH=(By.XPATH, "//*[contains(text(), 'Almanca')]")
+OPTİON_GERMAN_XPATH=(By.XPATH, "//*[contains(text(), 'Almanca')]")
 OPTİON_CEKCE_XPATH=(By.XPATH, "//*[contains(text(), 'Çekçe')]")
-OPTİON_CİNCE_XPATH=(By.XPATH, "//*[contains(text(), 'Çince (Mandarin)')]")
-OPTİON_NORVECCE_XPATH=(By.XPATH, "//*[contains(text(), 'Norveççe')]")
+OPTİON_CHINESE_XPATH=(By.XPATH, "//*[contains(text(), 'Çince (Mandarin)')]")
+OPTİON_NORVEGİAN_XPATH=(By.XPATH, "//*[contains(text(), 'Norveççe')]")
 OPTİON_ENGLİSH_XPATH=(By.XPATH, "//*[contains(text(), 'İngilizce')]")
 BASİC_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Temel Seviye ( A1 , A2)')]")
 INTERMEDİATE_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Orta Seviye (B1 , B2)')]")
