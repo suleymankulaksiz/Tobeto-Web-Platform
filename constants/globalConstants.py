@@ -136,7 +136,7 @@ X_BUTTON_CLASSNAME="css-8mmkcg"
 RİGHT_NAME_DROPDOWN_XPATH= (By.XPATH, "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" )
 DROPDOWN_PROFİLE_INFO_CLASS_NAME= (By.CLASS_NAME, "dropdown-item")
 MY_LANGUAGE_SİDEBAR_XPATH=(By.XPATH, "//*[contains(text(),'Yabancı Dillerim')]")
-SELECT_THE_LANGUAGE_DROPDOWN= (By.XPATH, "//*[contains(text(), 'Dil Seçiniz')]")
+SELECT_THE_LANGUAGE_DROPDOWN_XPATH= (By.XPATH, "//*[contains(text(), 'Dil Seçiniz')]")
 SELECT_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Seviye Seçiniz')]")
 OPTİON_ALMANCA_XPATH=(By.XPATH, "//*[contains(text(), 'Almanca')]")
 OPTİON_CEKCE_XPATH=(By.XPATH, "//*[contains(text(), 'Çekçe')]")
@@ -151,7 +151,7 @@ SELECTED_NORVEGİAN="//*[@id='__next']/div/main/section/div/div/div[2]/div/div/d
 SELECTED_GERMAN_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
 
 SAVE_BUTTON_XPATH=(By.XPATH, "//*[contains(text(), 'Kaydet')]")
-ANSWER_YES_XPATH=(By.XPATH, "/html/body/div[3]/div/div/div/div/div/div[2]/button[2]")
+ANSWER_YES_XPATH=(By.XPATH, "//*[contains(text(), 'Evet')]")
 
 SELECTED_LANGUAGES_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/div/div"
 LANGUAGE_REQUİRED_FİELD_XPATH= (By.XPATH, "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/p")
@@ -161,8 +161,8 @@ LEVEL_REQUİRED_FİELD_XPATH=(By.XPATH, "//*[@id='__next']/div/main/section/div/
 ADDED_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
 REMOVED_MESSAGE_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
 ALREADY_ADDED_MESSAGE_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
-DELETE_XPATH="//div[@id='__next']/div[@class='back-white']/main/section/div[@class='container']//div[@class='col-12 col-lg-9']/div/div/div[3]/span[@class='delete-lang']"
-
+GO_TO_LANGUAGE_XPATH=(By.XPATH,"/html//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/div/div/div[1]")
+DELETE_ELEMENT_XPATH=(By.XPATH,"/html/body/div[1]/div/main/section/div/div/div[2]/div/div/div[1]/span[2]")
 
 REQUİRED_FİELD_TEXT= "Doldurulması zorunlu alan*"
 ADDED_LANGUAGE_TEXT="• Yabancı dil bilgisi eklendi."

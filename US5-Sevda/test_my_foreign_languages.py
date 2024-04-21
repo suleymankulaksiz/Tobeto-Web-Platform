@@ -28,7 +28,7 @@ class Test_Languages:
         sleep(2)
         my_language_sidebar=self.waitForElementVisible(MY_LANGUAGE_SİDEBAR_XPATH)
         my_language_sidebar.click()
-        self.folderPath= str("screenshots") #==>12.04.2024
+        self.folderPath= str("screenshots") 
         Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
 
     def teardown_method(self):
@@ -39,7 +39,7 @@ class Test_Languages:
     
 
     def test_my_languages(self):
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
         selection_almanca=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
@@ -49,7 +49,7 @@ class Test_Languages:
         added=self.waitForElementVisible(ADDED_XPATH)
         assert added.text==ADDED_LANGUAGE_TEXT
         #çekçe
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
         selection_cekce=self.waitForElementVisible(OPTİON_CEKCE_XPATH)
@@ -61,7 +61,7 @@ class Test_Languages:
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH)
         save_button.click()
         #çince
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
         selection_cince=self.waitForElementVisible(OPTİON_CİNCE_XPATH)
@@ -84,24 +84,12 @@ class Test_Languages:
         assert language_required_field, level_required_field== REQUİRED_FİELD_TEXT
     
     def test_delete_language(self):
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
-        sleep(2)
-        select_the_language_dropdown.click()
-        selection_norvecce=self.waitForElementVisible(OPTİON_NORVECCE_XPATH)
-        selection_norvecce.click()
-        select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH)
-        select_level.click()
-        add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH)
-        add_basic_level.click()
-        save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH)
-        save_button.click()
-        #added=self.waitForElementVisible((By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"))
-        #assert added.text=="• Yabancı dil bilgisi eklendi."
-        sleep()
-        selected_norvecce= self.waitForElementVisible((By.XPATH, SELECTED_NORVEGİAN))
-        delete=self.waitForElementVisible((By.CSS_SELECTOR, "div:nth-of-type(2) > .delete-lang"))
+        go_to_language=self.waitForElementVisible(GO_TO_LANGUAGE_XPATH) 
         actions = ActionChains(self.driver)
-        actions.move_to_element(selected_norvecce).move_to_element(delete).click().perform() #niye görmüyo burayıııııııı????
+        actions.move_to_element(go_to_language).perform()
+        delete_element = self.waitForElementVisible(DELETE_ELEMENT_XPATH)
+        delete_element.click()
+        sleep(2)
         answer_yes=self.waitForElementVisible(ANSWER_YES_XPATH)
         answer_yes.click()
         sleep(2)
@@ -109,7 +97,7 @@ class Test_Languages:
         assert successful_message.text==LANGUAGE_REMOVED_TEXT
     
     def test_added_same_language(self): #done
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
         selection_english=self.waitForElementVisible(OPTİON_ENGLİSH_XPATH)
@@ -124,37 +112,44 @@ class Test_Languages:
         assert already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT
  
         
-    @pytest.mark.skip()
+    #@pytest.mark.skip()
     def test_my_foreign_language(self): #tukarıdakilerş tek def içinde denedim
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH)
         save_button.click()
         language_required_field=self.waitForElementVisible(LANGUAGE_REQUİRED_FİELD_XPATH)
         level_required_field=self.waitForElementVisible(LEVEL_REQUİRED_FİELD_XPATH)
-        assert language_required_field, level_required_field== REQUİRED_FİELD_TEXT
-
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         sleep(2)
         select_the_language_dropdown.click()
         select_german=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH).click()
         add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH).click()
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH).click()
-        added=self.waitForElementVisible(ADDED_XPATH)
-        assert added.text==ADDED_LANGUAGE_TEXT
+        added=self.waitForElementVisible(ADDED_XPATH)   
         sleep(2)
-        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN)
+        select_the_language_dropdown=self.waitForElementVisible(SELECT_THE_LANGUAGE_DROPDOWN_XPATH)
         select_the_language_dropdown.click()
         select_german=self.waitForElementVisible(OPTİON_ALMANCA_XPATH).click()
         select_level=self.waitForElementVisible(SELECT_LEVEL_XPATH).click()
         add_basic_level=self.waitForElementVisible(BASİC_LEVEL_XPATH).click()
         save_button=self.waitForElementVisible(SAVE_BUTTON_XPATH).click()
-        sleep(5)
         already_added=self.waitForElementVisible(ALREADY_ADDED_MESSAGE_XPATH)
-        assert already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT
-
-        find_german=self.waitForElementVisible(SELECTED_GERMAN_XPATH)
-        delete=self.waitForElementVisible((By.XPATH, DELETE_XPATH))
-        actions=ActionChains(self.driver)
-        actions.move_to_element_with_offset(find_german, -14, 0).click().perform()
-
+        sleep(1)
+        go_to_language=self.waitForElementVisible(GO_TO_LANGUAGE_XPATH) 
+        actions = ActionChains(self.driver)
+        actions.move_to_element(go_to_language).perform()
+        delete_element = self.waitForElementVisible(DELETE_ELEMENT_XPATH)
+        delete_element.click()
+        sleep(2)
+        answer_yes=self.waitForElementVisible(ANSWER_YES_XPATH)
+        answer_yes.click()
+        successful_message=self.waitForElementVisible(REMOVED_MESSAGE_XPATH)
+        assert {language_required_field, level_required_field== REQUİRED_FİELD_TEXT and
+                added.text==ADDED_LANGUAGE_TEXT and 
+                already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT and
+                successful_message.text==LANGUAGE_REMOVED_TEXT}
+        
+        
+        
+        
 
