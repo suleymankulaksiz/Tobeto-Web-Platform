@@ -10,7 +10,8 @@ from constants.globalConstants import *
 from pathlib import Path
 
 class Test_Languages:
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()                
         self.driver.get(LOGIN_URL)
@@ -30,6 +31,8 @@ class Test_Languages:
         my_language_sidebar.click()
         self.folderPath= str("screenshots") 
         Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
+        yield
+        self.driver.quit()
 
     def teardown_method(self):
         self.driver.quit()
