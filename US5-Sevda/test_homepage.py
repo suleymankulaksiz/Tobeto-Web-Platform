@@ -33,7 +33,7 @@ class Test_Homepage:
         sleep(2)
         
     #anasayfa'ya yönlendirme bildirimi kontrolü
-    def test_valid_login(self): #tc1 done
+    def test_successful_login(self): #tc1 done
         email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
         actions=ActionChains(self.driver)
@@ -50,7 +50,7 @@ class Test_Homepage:
         
     
     def test_top_menu_navigate(self): #tc2 done
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.save_screenshot(f"{self.folderPath}/selected_homepage.png")
         sleep(2)
         profile=self.waitForElementVisible((By.XPATH, PROFİLE_XPATH))
@@ -72,7 +72,7 @@ class Test_Homepage:
     
     
     def test_welcome_and_ik(self): #tc3 done
-        self.test_valid_login()
+        self.test_successful_login()
         sleep(2)
         welcometobeto = self.waitForElementVisible((By.XPATH, WELCOMETOBETO_XPATH))
         tobeto_slogan=self.waitForElementVisible((By.XPATH, TOBETO_SLOGAN_XPATH))
@@ -93,7 +93,7 @@ class Test_Homepage:
     
   
     def test_istanbul_is_coding_panel(self):#tc4 done
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         apply_Btn=self.waitForElementVisible((By.ID, APPLY_ID))
         ariaSelected_Value=apply_Btn.get_attribute("aria-selected")
@@ -122,7 +122,7 @@ class Test_Homepage:
     
     
     def test_my_educations(self): #TC5 done
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,700)")
         sleep(2)
         myLessons_btn=self.waitForElementVisible((By.ID, LESSONS_ID))
@@ -144,7 +144,7 @@ class Test_Homepage:
                 }
        
     def test_announcement_and_news(self): #Tc6 done
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         sleep(2)
         announc_and_news_btn=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_ID))
@@ -165,7 +165,7 @@ class Test_Homepage:
                }
     
     def test_my_exams(self): #tc7 done
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         exams=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/span"))
         assert exams.text=="Sınavlarım"
@@ -187,7 +187,7 @@ class Test_Homepage:
 
    
     def test_bottom_ofthe_homepage(self):  #tc8
-        self.test_valid_login()
+        self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,1000)")
         sleep(2)
         areaContol=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[1]/section[4]/div/div"))

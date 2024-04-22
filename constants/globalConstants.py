@@ -104,7 +104,7 @@ SUCCESSFUL_LOGİN_TEXT="• Giriş başarılı."
 TOBETO_SLOGAN_TEXT="Yeni nesil öğrenme deneyimi ile Tobeto kariyer yolculuğunda senin yanında!"
 FREE_EDUC_TEXT= "Ücretsiz eğitimlerle, geleceğin mesleklerinde sen de yerini al."
 ARADIGIN_İS_TEXT = "Aradığın  “İş”  Burada!"
-#MEMBER_NAME_TEXT="Sevda"
+MEMBER_NAME_TEXT="Sevda"
 WELCOMETOBETO_TEXT= "TOBETO'ya hoş geldin"
 NO_SURVEY_TEXT="Atanmış herhangi bir anketiniz bulunmamaktadır"
 NO_ANNOUNCEMENT_TEXT="Bir duyuru bulunmamaktadır."
@@ -133,40 +133,41 @@ iSTANBUL_CODDİNG_ID="react-select-2-listbox"
 
 #-----------CLASS NAME
 X_BUTTON_CLASSNAME="css-8mmkcg"
+DROPDOWN_PROFİLE_INFO_CLASS_NAME=  "dropdown-item"
 
 
 #YABANCI DİL:
 
-RİGHT_NAME_DROPDOWN_XPATH= (By.XPATH, "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" )
-DROPDOWN_PROFİLE_INFO_CLASS_NAME= (By.CLASS_NAME, "dropdown-item")
-MY_LANGUAGE_SİDEBAR_XPATH=(By.XPATH, "//*[contains(text(),'Yabancı Dillerim')]")
-SELECT_THE_LANGUAGE_DROPDOWN_XPATH= (By.XPATH, "//*[contains(text(), 'Dil Seçiniz')]")
-SELECT_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Seviye Seçiniz')]")
-OPTİON_GERMAN_XPATH=(By.XPATH, "//*[contains(text(), 'Almanca')]")
-OPTİON_CEKCE_XPATH=(By.XPATH, "//*[contains(text(), 'Çekçe')]")
-OPTİON_CHINESE_XPATH=(By.XPATH, "//*[contains(text(), 'Çince (Mandarin)')]")
-OPTİON_NORVEGİAN_XPATH=(By.XPATH, "//*[contains(text(), 'Norveççe')]")
-OPTİON_ENGLİSH_XPATH=(By.XPATH, "//*[contains(text(), 'İngilizce')]")
-BASİC_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Temel Seviye ( A1 , A2)')]")
-INTERMEDİATE_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'Orta Seviye (B1 , B2)')]")
-ADVANCED_LEVEL_XPATH=(By.XPATH, "//*[contains(text(), 'İleri Seviye (C1 , C2)')]")
-MOTHER_LANGUAGE_LEVEL_XPATH= (By.XPATH, "//*[contains(text(), 'Anadil')]")
+RİGHT_NAME_DROPDOWN_XPATH= "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" 
+MY_LANGUAGE_SİDEBAR_XPATH="//*[contains(text(),'Yabancı Dillerim')]"
+SELECT_THE_LANGUAGE_DROPDOWN_XPATH="//*[contains(text(), 'Dil Seçiniz')]"
+SELECT_LEVEL_XPATH= "//*[contains(text(), 'Seviye Seçiniz')]"
+OPTİON_GERMAN_XPATH="//*[contains(text(), 'Almanca')]"
+OPTİON_CEKCE_XPATH= "//*[contains(text(), 'Çekçe')]"
+OPTİON_CHINESE_XPATH="//*[contains(text(), 'Çince (Mandarin)')]"
+OPTİON_NORVEGİAN_XPATH="//*[contains(text(), 'Norveççe')]"
+OPTİON_ENGLİSH_XPATH= "//*[contains(text(), 'İngilizce')]"
+BASİC_LEVEL_XPATH= "//*[contains(text(), 'Temel Seviye ( A1 , A2)')]"
+INTERMEDİATE_LEVEL_XPATH="//*[contains(text(), 'Orta Seviye (B1 , B2)')]"
+ADVANCED_LEVEL_XPATH="//*[contains(text(), 'İleri Seviye (C1 , C2)')]"
+MOTHER_LANGUAGE_LEVEL_XPATH="//*[contains(text(), 'Anadil')]"
 SELECTED_NORVEGİAN="//*[@id='__next']/div/main/section/div/div/div[2]/div/div/div[2]"
-SELECTED_GERMAN_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
+SELECTED_GERMAN_XPATH="//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
 
-SAVE_BUTTON_XPATH=(By.XPATH, "//*[contains(text(), 'Kaydet')]")
-ANSWER_YES_XPATH=(By.XPATH, "//*[contains(text(), 'Evet')]")
-
+SAVE_BUTTON_XPATH= "//*[contains(text(), 'Kaydet')]"
+ANSWER_YES_XPATH= "//*[contains(text(), 'Evet')]"
+LANS_SECTİON_XPATH="//div[@class='tobeto-light-bg section-p my-langs']"
+LANG_EDİT_ELEMENT_XPATH="//div[@class='lang-edit']"
 SELECTED_LANGUAGES_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/div/div"
-LANGUAGE_REQUİRED_FİELD_XPATH= (By.XPATH, "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/p")
-LEVEL_REQUİRED_FİELD_XPATH=(By.XPATH, "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/p")
+LANGUAGE_REQUİRED_FİELD_XPATH=  "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/p"
+LEVEL_REQUİRED_FİELD_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/p"
 
 
-ADDED_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
-REMOVED_MESSAGE_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
-ALREADY_ADDED_MESSAGE_XPATH=(By.XPATH, "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']")
-GO_TO_LANGUAGE_XPATH=(By.XPATH,"/html//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/div/div/div[1]")
-DELETE_ELEMENT_XPATH=(By.XPATH,"/html/body/div[1]/div/main/section/div/div/div[2]/div/div/div[1]/span[2]")
+ADDED_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
+REMOVED_MESSAGE_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
+ALREADY_ADDED_MESSAGE_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
+GO_TO_LANGUAGE_XPATH="/html//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/div/div/div[1]"
+DELETE_ELEMENT_XPATH="/html/body/div[1]/div/main/section/div/div/div[2]/div/div/div[1]/span[2]"
 
 REQUİRED_FİELD_TEXT= "Doldurulması zorunlu alan*"
 ADDED_LANGUAGE_TEXT="• Yabancı dil bilgisi eklendi."
