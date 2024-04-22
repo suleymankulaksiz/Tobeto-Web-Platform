@@ -127,11 +127,14 @@ class Test_Announcement_And_News:
         #self.valid_login()
         dropdown_sorting=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         dropdown_sorting.click()
-        sleep(2)
-        old_to_new=self.waitForElementVisible((By.CSS_SELECTOR, "li:nth-of-type(2) > .createdAt.dropdown-item"))
-        old_to_new.click()
         new_to_old=self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
         new_to_old.click()
+        self.driver.save_screenshot(f"{self.folderPath}/filter_new_to_old.png")
+        dropdown_sorting=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        dropdown_sorting.click()
+        old_to_new=self.waitForElementVisible((By.XPATH, DROPDOWN_E_Y_XPATH))
+        old_to_new.click()
+        self.driver.save_screenshot(f"{self.folderPath}/filter_old_to_new.png")
         # Y_E_default=self.waitForElementVisible((By.XPATH, "//*[contains(@class, 'active')]"))
         # if Y_E_default:
         #    assert True
