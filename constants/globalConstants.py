@@ -5,45 +5,13 @@ import string
 #-------------------------------------------
 REGISTER_URL = "https://tobeto.com/kayit-ol"
 LOGIN_URL = "https://tobeto.com/giris"
-#-------------------------------------------
-FIRSTNAME_NAME = "firstName"
-LASTNAME_NAME = "lastName"
+#-------------------------
 EMAIL_NAME ="email"                        #  BUNLAR KAYIT OL AŞAMASINDAKİ FORMUN LOCATORLARI
 PASSWORD_NAME ="password"
-PASSWORDAGAIN_NAME= "passwordAgain"
-#-------------------------------------------
-input_firstname ="Can"
-input_lastname ="Canan"
-input_email ="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXtobeto@hotmail.com"          #BURADA KAYIT OL AŞAMASINDA FORM VERİLERİ VAR.
-input_password ="123456"
-input_passwordagain="123456"
-#------------------------------------------
-SIGNUPBUTTON_XPATH ="//*[@id='__next']/div/main/section/div/div/div[1]/div/div/button"    #-KAYIT OL AŞAMASINDAKİ BUTON
-#------------------------------------------
-CHECKBOX1_XPATH = "/html/body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']/div[@class='modal-content']//input[@name='contact']"
-CHECKBOX2_XPATH ="/html/body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']/div[@class='modal-content']//input[@name='membershipContrat']"
-CHECKBOX3_XPATH ="/html/body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']/div[@class='modal-content']//input[@name='emailConfirmation']"
-CHECKBOX4_XPATH ="/html/body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']/div[@class='modal-content']//input[@name='phoneConfirmation']"
-#------------------------------------------
-PHONECHECK = "/html//input[@id='phoneNumber']"
-input_phone ="549 490 30 04"
-#------------------------------------------
-CONTINUEBUTTON_XPATH ="/html/body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']//button[@class='btn btn-yes my-3']"
-#------------------------------------------
-REGISTERTEXT_XPATH = "/html/body/div[1]/div/main/section/div/div/div/div/span"
-
-TRUEREGISTER_TEXT="Tobeto Platform'a kaydınız başarıyla gerçekleşti.\nGiriş yapabilmek için e-posta adresinize iletilen doğrulama linkine tıklayarak hesabınızı aktifleştirin."
 
 
 
-
-
-
-
-#sevda
-from selenium.webdriver.common.by import By
-
-
+#SEVDA
 LOGIN_URL = "https://tobeto.com/giris"
 HOMEPAGE_URL="https://tobeto.com/platform"
 PROFİLE_URL="https://tobeto.com/profilim"
@@ -91,7 +59,6 @@ TYPE_NEWS_PAGE_XPATH="//*[@id='__next']/div/main/div[2]/div[2]/div/p"
 DROPDOWN_BUTTON_TYPE_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[2]"
 ORGANİZATİON_DROPDOWN_XPATH= "//*[@id='__next']/div/main/div[2]/div[1]/div/div[3]/div[1]"
 ORGANİZATİON_DROPDOWN_INPUT_XPATH="//*[@id='react-select-2-input']"
-
 iSTANBUL_CODE__LİSTBOX_XPATH="/html//div[@id='exaironWebchat']//div[@class='exw-widget-container']/div"
 SORTİNG_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/button"
 DROPDOWN_Y_E_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/ul/li[1]/a"
@@ -99,45 +66,8 @@ DROPDOWN_E_Y_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/u
 READ_MORE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[2]/div[1]/div/div[2]/span[2]"
 CLOSE_X_XPATH="//body/div[@role='dialog']/div//button[@type='button']"
 READ_HİDE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[2]/button"
-#----------------text
-SUCCESSFUL_LOGİN_TEXT="• Giriş başarılı."
-TOBETO_SLOGAN_TEXT="Yeni nesil öğrenme deneyimi ile Tobeto kariyer yolculuğunda senin yanında!"
-FREE_EDUC_TEXT= "Ücretsiz eğitimlerle, geleceğin mesleklerinde sen de yerini al."
-ARADIGIN_İS_TEXT = "Aradığın  “İş”  Burada!"
-MEMBER_NAME_TEXT="Sevda"
-WELCOMETOBETO_TEXT= "TOBETO'ya hoş geldin"
-NO_SURVEY_TEXT="Atanmış herhangi bir anketiniz bulunmamaktadır"
-NO_ANNOUNCEMENT_TEXT="Bir duyuru bulunmamaktadır."
 
-
-
-
-
-
-#--------------ID
-APPLY_ID = "apply-tab"
-LESSONS_ID = "lessons-tab"  #daha fazla gösteri kapsıyor
-ANNOUNCEMENT_AND_NEWS_ID = "notification-tab"
-SURVEY_ID = "mySurvey-tab"
-APPLY_CONTENT_ID = "apply-tab-pane"
-LESSONS_CONTENT_ID = "lessons-tab-pane"
-ALL_LESSONS_ID="all-lessons-tab-pane"
-ANNOUNCEMENT_AND_NEWS_CONTENT_ID= "notification-tab-pane"
-SURVEY_CONTENT_ID="mySurvey-tab-pane"  
-TYPE_NEWS_CHECKBOX_ID="typeNews"
-TYPE_ANNOUNCEMENT_CHECKBOX_ID="typeAnnouncement"
-SEARCH_ID="search"
-iSTANBUL_CODDİNG_ID="react-select-2-listbox"
-#------------CSS SELECTOR
-İSTANBUL_KODLUYOR_LOGO_CSS_SELECTOR= ".p-4 > span > img"
-
-#-----------CLASS NAME
-X_BUTTON_CLASSNAME="css-8mmkcg"
-DROPDOWN_PROFİLE_INFO_CLASS_NAME=  "dropdown-item"
-
-
-#YABANCI DİL:
-
+#YABANCI DİL XPATH:
 RİGHT_NAME_DROPDOWN_XPATH= "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" 
 MY_LANGUAGE_SİDEBAR_XPATH="//*[contains(text(),'Yabancı Dillerim')]"
 SELECT_THE_LANGUAGE_DROPDOWN_XPATH="//*[contains(text(), 'Dil Seçiniz')]"
@@ -153,7 +83,6 @@ ADVANCED_LEVEL_XPATH="//*[contains(text(), 'İleri Seviye (C1 , C2)')]"
 MOTHER_LANGUAGE_LEVEL_XPATH="//*[contains(text(), 'Anadil')]"
 SELECTED_NORVEGİAN="//*[@id='__next']/div/main/section/div/div/div[2]/div/div/div[2]"
 SELECTED_GERMAN_XPATH="//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
-
 SAVE_BUTTON_XPATH= "//*[contains(text(), 'Kaydet')]"
 ANSWER_YES_XPATH= "//*[contains(text(), 'Evet')]"
 LANS_SECTİON_XPATH="//div[@class='tobeto-light-bg section-p my-langs']"
@@ -161,18 +90,49 @@ LANG_EDİT_ELEMENT_XPATH="//div[@class='lang-edit']"
 SELECTED_LANGUAGES_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/div/div"
 LANGUAGE_REQUİRED_FİELD_XPATH=  "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/p"
 LEVEL_REQUİRED_FİELD_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/p"
-
-
 ADDED_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
 REMOVED_MESSAGE_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
 ALREADY_ADDED_MESSAGE_XPATH= "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
 GO_TO_LANGUAGE_XPATH="/html//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/div/div/div[1]"
 DELETE_ELEMENT_XPATH="/html/body/div[1]/div/main/section/div/div/div[2]/div/div/div[1]/span[2]"
 
+#----------------TEXT
+SUCCESSFUL_LOGİN_TEXT="• Giriş başarılı."
+TOBETO_SLOGAN_TEXT="Yeni nesil öğrenme deneyimi ile Tobeto kariyer yolculuğunda senin yanında!"
+FREE_EDUC_TEXT= "Ücretsiz eğitimlerle, geleceğin mesleklerinde sen de yerini al."
+ARADIGIN_İS_TEXT = "Aradığın  “İş”  Burada!"
+MEMBER_NAME_TEXT="Sevda"
+WELCOMETOBETO_TEXT= "TOBETO'ya hoş geldin"
+NO_SURVEY_TEXT="Atanmış herhangi bir anketiniz bulunmamaktadır"
+NO_ANNOUNCEMENT_TEXT="Bir duyuru bulunmamaktadır."
 REQUİRED_FİELD_TEXT= "Doldurulması zorunlu alan*"
 ADDED_LANGUAGE_TEXT="• Yabancı dil bilgisi eklendi."
 LANGUAGE_REMOVED_TEXT="• Yabancı dil kaldırıldı."
 ALREADY_EXİSTS_LANGUAGE_TEXT="• Bu dil zaten mevcut."
+
+#--------------ID
+APPLY_ID = "apply-tab"
+LESSONS_ID = "lessons-tab"  #daha fazla gösteri kapsıyor
+ANNOUNCEMENT_AND_NEWS_ID = "notification-tab"
+SURVEY_ID = "mySurvey-tab"
+APPLY_CONTENT_ID = "apply-tab-pane"
+LESSONS_CONTENT_ID = "lessons-tab-pane"
+ALL_LESSONS_ID="all-lessons-tab-pane"
+ANNOUNCEMENT_AND_NEWS_CONTENT_ID= "notification-tab-pane"
+SURVEY_CONTENT_ID="mySurvey-tab-pane"  
+TYPE_NEWS_CHECKBOX_ID="typeNews"
+TYPE_ANNOUNCEMENT_CHECKBOX_ID="typeAnnouncement"
+SEARCH_ID="search"
+iSTANBUL_CODDİNG_ID="react-select-2-listbox"
+
+#------------CSS SELECTOR
+İSTANBUL_KODLUYOR_LOGO_CSS_SELECTOR= ".p-4 > span > img"
+
+#-----------CLASS NAME
+X_BUTTON_CLASSNAME="css-8mmkcg"
+DROPDOWN_PROFİLE_INFO_CLASS_NAME=  "dropdown-item"
+
+
 
 
 

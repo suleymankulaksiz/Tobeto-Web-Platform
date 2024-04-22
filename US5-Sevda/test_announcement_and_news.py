@@ -7,7 +7,7 @@ import pytest
 from time import sleep
 from constants.globalConstants import *
 from pathlib import Path
-from datetime import date, datetime
+
 
 
 
