@@ -8,6 +8,7 @@ import json
 from time import sleep
 from constants.globalConstants import *
 from pathlib import Path
+from datetime import date
 
 class Test_Homepage:
     @pytest.fixture(autouse=True)
@@ -47,6 +48,7 @@ class Test_Homepage:
     def test_top_menu_navigate(self): 
         self.test_successful_login()
         self.driver.save_screenshot(f"{self.folderPath}/selected_homepage.png")
+        sleep(2)
         profile=self.waitForElementVisible((By.XPATH, PROFİLE_XPATH))
         profile.click()
         sleep(2)
@@ -72,6 +74,7 @@ class Test_Homepage:
         tobeto_slogan=self.waitForElementVisible((By.XPATH, TOBETO_SLOGAN_XPATH))
         istanbul_kodluyor_logo=self.waitForElementVisible((By.CSS_SELECTOR, İSTANBUL_KODLUYOR_LOGO_CSS_SELECTOR)) #logo görüntülenmesi için
         name=self.waitForElementVisible((By.XPATH, NAME_XPATH))
+        sleep(2)
         self.driver.execute_script("window.scrollTo(0,300)")
         sleep(2)
         free_edu=self.waitForElementVisible((By.XPATH, FREE_EDUC_XPATH))
@@ -90,15 +93,20 @@ class Test_Homepage:
         self.driver.execute_script("window.scrollTo(0,500)")
         apply_Btn=self.waitForElementVisible((By.ID, APPLY_ID))
         ariaSelected_Value=apply_Btn.get_attribute("aria-selected")
+        sleep(2)
         myLessons=self.waitForElementVisible((By.ID, LESSONS_ID))
         myLessons.click()
         myLessonsContent=self.waitForElementVisible((By.ID, LESSONS_CONTENT_ID))
+        sleep(2)
         notification=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_ID))
         no_read_announcements=self.waitForElementVisible((By.XPATH, NO_READ_ANNOUNCEMENT_XPATH))
         notification.click()
+        sleep(2)
         notificationContent=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_CONTENT_ID))
+        sleep(2)
         mySurveys=self.waitForElementVisible((By.ID, SURVEY_ID))
         mySurveys.click()
+        sleep(2)
         mySurveysContent=self.waitForElementVisible((By.ID, SURVEY_CONTENT_ID))
 
         assert {ariaSelected_Value=="true" and
@@ -116,11 +124,13 @@ class Test_Homepage:
         myLessons_btn=self.waitForElementVisible((By.ID, LESSONS_ID))
         myLessons_btn.click()
         shown_lessons=self.driver.find_elements(By.ID, ALL_LESSONS_ID)
+        sleep(2)
         showMoreBtn=self.waitForElementVisible((By.XPATH, SHOWMORE_BTN_LESSONS_XPATH))
         showMoreBtn.click()  
+        sleep(2)
         go_to_lesson_button=self.waitForElementVisible((By.XPATH, GOTO_LESSON_XPATH))  #herkes için kodlama-3a seçildi
         go_to_lesson_button.click()
-        sleep(2)
+        sleep(3)
         details=self.waitForElementVisible((By.XPATH, DETAİLS_XPATH))
 
         self.driver.save_screenshot(f"{self.folderPath}/details_lesson.png")
@@ -136,8 +146,11 @@ class Test_Homepage:
         announc_and_news_btn=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_ID))
         announc_and_news_btn.click()
         shown_announc_and_news=self.driver.find_elements(By.ID, ANNOUNCEMENT_AND_NEWS_CONTENT_ID)
+        sleep(2)
         show_more_button=self.waitForElementVisible((By.XPATH, SHOWMORE_BTN_ANNOUNCEMENT_AND_NEWS_XPATH))
+        sleep(2)
         show_more_button.click()  
+        sleep(2)
         read_more_button=self.waitForElementVisible((By.XPATH, READ_MORE_BUTTON_XPATH))
         read_more_button.click()
         sleep(2)
@@ -177,10 +190,13 @@ class Test_Homepage:
         areaContol.text=='Profilini oluştur\nBaşla\n\nKendini değerlendir\nBaşla\n\nÖğrenmeye başla\nBaşla'
         cr_profile_btn=self.waitForElementVisible((By.XPATH, CR_PROFİLE_BUTTON_XPATH))
         cr_profile_btn.click()
+        sleep(2)
+        #expected_url=PROFİLE_INFO_URL
         self.homePage_btn_click()
         self.driver.execute_script("window.scrollTo(0,1000)")
         imp_yourself_btn=self.waitForElementVisible((By.XPATH,IMP_YOURSELF_BTN_XPATH ))
         imp_yourself_btn.click()
+        sleep(2)
         self.homePage_btn_click()
         sleep(2)
         start_to_learn_btn=self.waitForElementVisible((By.XPATH, START_TO_LEARN_BTN_XPATH))
