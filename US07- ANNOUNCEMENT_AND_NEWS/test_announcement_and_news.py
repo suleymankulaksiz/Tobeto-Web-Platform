@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import pytest
-from time import sleep
+from time import sleep,time
 from constants.globalConstants import *
 from pathlib import Path
 
@@ -91,10 +91,10 @@ class Test_Announcement_And_News:
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
         self.driver.save_screenshot(f"{self.folderPath}/there_is_no_organization.png")
-        sleep(2)
+        time.sleep(2)
         x_button=self.waitForElementVisible((By.CLASS_NAME, X_BUTTON_CLASSNAME))
         x_button.click()
-        sleep(2)
+        time.sleep(2)
         organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_INPUT_XPATH))
         organization_dropdown1.send_keys("L")
         assert True
@@ -158,7 +158,9 @@ class Test_Announcement_And_News:
         istanbul_code_listbox.click()
         sorting_btn=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         sorting_btn.click()
-        dropdown_E_Y=self.driver.find_element(By.XPATH, DROPDOWN_E_Y_XPATH)
+        dropdown_E_Y=self.waitForElementVisible((By.XPATH, "/html/body/div[1]/div/main/div[2]/div[1]/div/div[4]/div[1]/ul/li[2]/a"))
+        actions = ActionChains(self.driver)
+        actions.move_to_element(dropdown_E_Y).perform()
         dropdown_E_Y.click()
         self.driver.save_screenshot(f"{self.folderPath}/filter_synchronous_working.png")
         assert True

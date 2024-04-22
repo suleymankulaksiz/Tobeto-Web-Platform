@@ -131,7 +131,7 @@ class Test_Homepage:
         go_to_lesson_button=self.waitForElementVisible((By.XPATH, GOTO_LESSON_XPATH))  #herkes için kodlama-3a seçildi
         go_to_lesson_button.click()
         sleep(3)
-        details=self.waitForElementVisible((By.XPATH, DETAİLS_XPATH))
+        details=self.waitForElementVisible((By.XPATH, "//*[@id='dynamicContent']"))
 
         self.driver.save_screenshot(f"{self.folderPath}/details_lesson.png")
         assert {len(shown_lessons)<=4, "4'ten fazla ders görüntülendi." and
@@ -192,12 +192,11 @@ class Test_Homepage:
         cr_profile_btn.click()
         sleep(2)
         #expected_url=PROFİLE_INFO_URL
-        self.homePage_btn_click()
+        self.homepage_btn_click()
         self.driver.execute_script("window.scrollTo(0,1000)")
         imp_yourself_btn=self.waitForElementVisible((By.XPATH,IMP_YOURSELF_BTN_XPATH ))
         imp_yourself_btn.click()
-        sleep(2)
-        self.homePage_btn_click()
+        self.homepage_btn_click()
         sleep(2)
         start_to_learn_btn=self.waitForElementVisible((By.XPATH, START_TO_LEARN_BTN_XPATH))
         start_to_learn_btn.click()
