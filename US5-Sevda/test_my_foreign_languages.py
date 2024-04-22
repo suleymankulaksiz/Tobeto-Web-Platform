@@ -21,7 +21,7 @@ class Test_Languages:
         password.send_keys(tobeto_password)
         loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
         loginBtn.click()
-        sleep(10)
+        sleep(5)
         right_name_dropdown=self.waitForElementVisible((By.XPATH, RİGHT_NAME_DROPDOWN_XPATH))
         right_name_dropdown.click()
         dropdown_profile_info=self.waitForElementVisible((By.CLASS_NAME, DROPDOWN_PROFİLE_INFO_CLASS_NAME))
@@ -88,14 +88,14 @@ class Test_Languages:
         assert len(lang_edit_elements)==3     
         
    
-    def test_required_field(self): #DONE
+    def test_required_field(self): 
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()
         language_required_field=self.waitForElementVisible((By.XPATH, LANGUAGE_REQUİRED_FİELD_XPATH))
         level_required_field=self.waitForElementVisible((By.XPATH, LEVEL_REQUİRED_FİELD_XPATH))
         assert language_required_field, level_required_field== REQUİRED_FİELD_TEXT
     
-    def test_delete_language(self): #DONE
+    def test_delete_language(self): 
         go_to_language=self.waitForElementVisible((By.XPATH, GO_TO_LANGUAGE_XPATH)) 
         actions = ActionChains(self.driver)
         actions.move_to_element(go_to_language).perform()
@@ -114,7 +114,7 @@ class Test_Languages:
         assert already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT
  
         
-    #@pytest.mark.skip()
+    @pytest.mark.skip()
     def test_my_foreign_language(self): #Yukarıdakileri tek def içinde denedim
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()

@@ -101,7 +101,6 @@ class Test_Announcement_And_News:
       
         
     def test_filter_by_date(self): #tc4 bitmedi
-        #self.valid_login()
         dropdown_sorting=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         dropdown_sorting.click()
         new_to_old=self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
@@ -122,10 +121,10 @@ class Test_Announcement_And_News:
     
     
     def test_filder_hide_and_show(self): 
-        no_read = self.driver.find_elements(By.XPATH, "//div[contains(@style, 'background-color: rgb(237, 237, 237)')]")
+        no_read = self.driver.find_elements(By.XPATH, NO_READ_XPATH)
         found_button = False
         for i in no_read:
-         read_more_button = i.find_elements(By.XPATH, ".//span[contains(text(), 'Devamını Oku')]")
+         read_more_button = i.find_elements(By.XPATH, READ_MORE_BUTON_XPATH)
          if read_more_button:
             # js ile tıklama işlemi
             self.driver.execute_script("arguments[0].click();", read_more_button[0]) #standart yaklaşım 

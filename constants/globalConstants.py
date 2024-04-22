@@ -66,7 +66,16 @@ DROPDOWN_E_Y_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[1]/u
 READ_MORE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[2]/div[1]/div/div[2]/span[2]"
 CLOSE_X_XPATH="//body/div[@role='dialog']/div//button[@type='button']"
 READ_HİDE_BUTTON_XPATH="//*[@id='__next']/div/main/div[2]/div[1]/div/div[4]/div[2]/button"
-
+NO_READ_XPATH="//div[contains(@style, 'background-color: rgb(237, 237, 237)')]"
+READ_MORE_BUTON_XPATH=".//span[contains(text(), 'Devamını Oku')]"
+ABOUT_CLİCK_BUTTON_XPATH="/html/body/div[4]/div/div/div[2]"
+EXAMS_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/span"
+EXAMS_CONTENT_XPATH="/html/body/div[1]/div/main/div[1]/section[3]/div/div/div[2]/div"
+EXAMS_BUTTON_XPATH="//div[@id='__next']/div[@class='back-white']//div[@class='plaform-page']/section[3]//div[@class='exams my-3']/div"
+EXAMS_WİNDOW_XPATH="/html/body/div[4]/div/div"
+VİEW_THE_REPORT_BUTTON_XPATH="/html/body/div[4]/div/div/div/div/div[2]/div[2]/button"
+REPORT_POPUP_XPATH="/html/body/div[4]/div/div/div/div/div/div[1]"
+DETAİLS_XPATH="//*[@id='dynamicContent']"
 #YABANCI DİL XPATH:
 RİGHT_NAME_DROPDOWN_XPATH= "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" 
 MY_LANGUAGE_SİDEBAR_XPATH="//*[contains(text(),'Yabancı Dillerim')]"
@@ -109,6 +118,8 @@ REQUİRED_FİELD_TEXT= "Doldurulması zorunlu alan*"
 ADDED_LANGUAGE_TEXT="• Yabancı dil bilgisi eklendi."
 LANGUAGE_REMOVED_TEXT="• Yabancı dil kaldırıldı."
 ALREADY_EXİSTS_LANGUAGE_TEXT="• Bu dil zaten mevcut."
+EXAMS_CONTENT_TEXT='Herkes İçin Kodlama 3A Değerlendirme Sınavı\nHerkes İçin Kodlama - 3A\n45 Dakika'
+REPORT_POPUP_TEXT='Doğru\nYanlış\nBoş\n0\nPuan' 
 
 #--------------ID
 APPLY_ID = "apply-tab"
