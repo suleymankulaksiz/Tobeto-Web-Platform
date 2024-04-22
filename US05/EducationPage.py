@@ -1,5 +1,5 @@
 #-------------------BASEURL-----------------------
-LOGIN_URL="https://tobeto.com/giris"
+LOGIN_URL_M="https://tobeto.com/giris"
 
 
 

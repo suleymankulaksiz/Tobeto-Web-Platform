@@ -19,7 +19,7 @@ class Test_Educations:
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
-        self.driver.get(LOGIN_URL)
+        self.driver.get(LOGIN_URL_M)
         sleep(2)
 
     def waitForElementVisible(self, locator, timeout=5):
