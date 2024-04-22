@@ -33,7 +33,6 @@ class Test_Announcement_And_News:
         sleep(2)
         show_more_btn.click()  
         sleep(2)
-    
         self.folderPath= str("screenshots") 
         Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield
@@ -44,28 +43,8 @@ class Test_Announcement_And_News:
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
     
-
-    # def valid_login(self): 
-    #     email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
-    #     password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
-    #     email.send_keys(tobeto_email)
-    #     password.send_keys(tobeto_password)
-    #     loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
-    #     loginBtn.click()
-    #     sleep(2)
-    #     self.driver.execute_script("window.scrollTo(0,500)")
-    #     sleep(2)
-    #     announc_and_news_btn=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_ID))
-    #     announc_and_news_btn.click()
-    #     show_more_btn=self.waitForElementVisible((By.XPATH,SHOWMORE_BTN_ANNOUNCEMENT_AND_NEWS_XPATH))
-    #     sleep(2)
-    #     show_more_btn.click()  
-    #     sleep(2)
     
-    
-    
-    def test_filter_search_by_headings(self): #tc1 DONE
-        #self.valid_login()
+    def test_filter_search_by_headings(self): 
         shown_announce_a_news=self.driver.find_elements(By.XPATH, SHOWN_ANNOUNCEMENT_AND_NEWS_XPATH)
         search_steps = [
             (By.ID, 'search', 's'),
@@ -88,8 +67,7 @@ class Test_Announcement_And_News:
                 }
         
 
-    def test_filter_by_type(self): #tc2 done
-        #self.valid_login()
+    def test_filter_by_type(self): 
         dropdown_button_type=self.waitForElementVisible((By.XPATH, DROPDOWN_BUTTON_TYPE_XPATH)) 
         dropdown_button_type.click()
         type_news_checkbox=self.waitForElementVisible((By.ID, TYPE_NEWS_CHECKBOX_ID))
@@ -105,8 +83,7 @@ class Test_Announcement_And_News:
                 }
         
 
-    def test_filter_of_organization(self): #tc3 done
-        #self.valid_login()
+    def test_filter_of_organization(self): 
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
         istanbul_code_listbox=self.waitForElementVisible((By.ID, iSTANBUL_CODDİNG_ID))
@@ -144,8 +121,7 @@ class Test_Announcement_And_News:
         
     
     
-    def test_filder_hide_and_show(self): #tc5 DONE
-        #self.valid_login()
+    def test_filder_hide_and_show(self): 
         no_read = self.driver.find_elements(By.XPATH, "//div[contains(@style, 'background-color: rgb(237, 237, 237)')]")
         found_button = False
         for i in no_read:
@@ -168,8 +144,7 @@ class Test_Announcement_And_News:
              
 
 
-    def test_filter_synchronous_working(self): #tc6 DONE
-        #self.valid_login() 
+    def test_filter_synchronous_working(self): 
         search=self.waitForElementVisible((By.ID, SEARCH_ID))
         search.click()
         search.send_keys("sınav")                               

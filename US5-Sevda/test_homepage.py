@@ -11,14 +11,14 @@ from pathlib import Path
 from datetime import date
 
 class Test_Homepage:
-    def setup_method(self):
+    @pytest.fixture(autouse=True)
+    def setup(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()                
         self.driver.get(LOGIN_URL)
-        self.folderPath= str("screenshots") #==>12.04.2024
+        self.folderPath= str("screenshots")
         Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
-
-    def teardown_method(self):
+        yield
         self.driver.quit()
 
     def waitForElementVisible(self, locator, timeout=5):
@@ -33,15 +33,11 @@ class Test_Homepage:
         sleep(2)
         
     #anasayfa'ya yönlendirme bildirimi kontrolü
-    def test_successful_login(self): #tc1 done
+    def test_successful_login(self): 
         email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
-        actions=ActionChains(self.driver)
-        actions.send_keys_to_element(email, tobeto_email)
-        actions.send_keys_to_element(password, tobeto_password)
-        actions.perform()
-        # email.send_keys(tobeto_email)
-        # password.send_keys(tobeto_password)
+        email.send_keys(tobeto_email)
+        password.send_keys(tobeto_password)
         loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
         loginBtn.click()
         sleep(2)
@@ -49,7 +45,7 @@ class Test_Homepage:
         assert "• Giriş başarılı." in successLogin.text and self.driver.current_url == HOMEPAGE_URL
         
     
-    def test_top_menu_navigate(self): #tc2 done
+    def test_top_menu_navigate(self): 
         self.test_successful_login()
         self.driver.save_screenshot(f"{self.folderPath}/selected_homepage.png")
         sleep(2)
@@ -71,7 +67,7 @@ class Test_Homepage:
                self.driver.current_url==İSTANBUL_K_URL}
     
     
-    def test_welcome_and_ik(self): #tc3 done
+    def test_welcome_and_ik(self):
         self.test_successful_login()
         sleep(2)
         welcometobeto = self.waitForElementVisible((By.XPATH, WELCOMETOBETO_XPATH))
@@ -92,7 +88,7 @@ class Test_Homepage:
                 aradığın_is_burada.text == ARADIGIN_İS_TEXT}
     
   
-    def test_istanbul_is_coding_panel(self):#tc4 done
+    def test_istanbul_is_coding_panel(self):
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         apply_Btn=self.waitForElementVisible((By.ID, APPLY_ID))
@@ -121,7 +117,7 @@ class Test_Homepage:
                }
     
     
-    def test_my_educations(self): #TC5 done
+    def test_my_educations(self): 
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,700)")
         sleep(2)
@@ -143,7 +139,7 @@ class Test_Homepage:
                 details.text=="Herkes İçin Kodlama - 3A\nBaşardın"   #eğitime git butonuna tıkladıktan sonra açılan sayfada görmek istediğim içerik
                 }
        
-    def test_announcement_and_news(self): #Tc6 done
+    def test_announcement_and_news(self): 
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         sleep(2)
@@ -186,7 +182,7 @@ class Test_Homepage:
 
 
    
-    def test_bottom_ofthe_homepage(self):  #tc8
+    def test_bottom_ofthe_homepage(self):  
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,1000)")
         sleep(2)
