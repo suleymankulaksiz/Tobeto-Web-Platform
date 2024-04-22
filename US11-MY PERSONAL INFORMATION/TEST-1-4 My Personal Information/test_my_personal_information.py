@@ -10,7 +10,7 @@ from constants.globalConstants import *
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
-
+#Kişisel Bilgilerim TC 1-4
 class Test_my_personal_information:
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -24,7 +24,7 @@ class Test_my_personal_information:
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
 
-    def test_precondition(self):
+    def precondition(self):
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
         login_email.send_keys(input_personal_mail)
         login_password = self.waitForElementVisible((By.XPATH,LOGIN_PASSWORD_XPATH))
@@ -38,15 +38,15 @@ class Test_my_personal_information:
         assert profileTitleText.text == "Profilini oluştur"
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
-        
+    #TC 1
     def test_updating_personal_information(self): 
         #Login call testi çağrılır
-        self.test_precondition()
+        self.precondition()
         #Profil bilgilerinin dolu olarak geldiğini kontrol eder
         nameTextBox=self.waitForElementVisible((By.XPATH,NAMETEXTBOX_XPATH))
         surnameTextBox=self.waitForElementVisible((By.XPATH,SURNAMETEXTBOX_XPATH))
         phoneTextBox=self.waitForElementVisible((By.ID,PHONETEXTBOX_ID))
-        emailTextBox=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/input"))
+        emailTextBox=self.waitForElementVisible((By.XPATH,EMAILNAMETEXTBOX_XPATH))
 
         # TextBox'ların içerisinin dolu olma durumunu assert ile kontrol etme
         assert {
@@ -92,11 +92,10 @@ class Test_my_personal_information:
         saveButton = self.waitForElementVisible((By.XPATH,SAVEBUTTON_XPATH))
         saveButton.click()
         sleep(2)
-
+    #TC 2
     def test_empty_incorrect_data_entry(self):
-        self.test_precondition()
+        self.precondition()
         
-
         #TC No girişi yapılır
         tcNo=self.waitForElementVisible((By.XPATH,TCNO_XPATH))
         tcNo.click()
@@ -107,19 +106,18 @@ class Test_my_personal_information:
         streetBox.click()
         streetBox.send_keys(input_street)
 
+        #Hakkımda kısmı
         aboutmeBox= self.waitForElementVisible((By.XPATH,ABOUTME_XPATH))
         aboutmeBox.click()
         aboutmeBox.send_keys(input_aboutme)
 
-
+        #Kaydetme butonu
         saveButton = self.waitForElementVisible((By.XPATH,SAVEBUTTON_XPATH))
         saveButton.click()
         sleep(2)
 
-        
         tcNo.clear()
         
-
         tcNo_alert=self.waitForElementVisible((By.XPATH,TCNOALERT_XPATH))
         Dateofbirth_alert= self.waitForElementVisible((By.XPATH,DATEOFBIRTHALERT_XPATH))
         countryBox_alert = self.waitForElementVisible((By.XPATH,COUNTRYBOXALERT_XPATH))
@@ -129,12 +127,12 @@ class Test_my_personal_information:
         aboutmeBox_alert= self.waitForElementVisible((By.XPATH,ABOUTMEALERT_XPATH))
 
         assert {
-        tcNo_alert.text== TCNOALERT_TEXT and Dateofbirth_alert.text == "Doldurulması zorunlu alan*" and 
-        countryBox_alert.text == "Doldurulması zorunlu alan*" and
-        dropdown_element_city_alert.text == "Doldurulması zorunlu alan*" and 
-        dropdown_element_town_alert.text ==  "Doldurulması zorunlu alan*" and 
-        streetBox_alert.text == "En fazla 200 karakter girebilirsiniz" and
-        aboutmeBox_alert.text == "En fazla 300 karakter girebilirsiniz" 
+        tcNo_alert.text== TCNOALERT_TEXT and Dateofbirth_alert.text == DATEOFBIRTH_ALERT_TEXT_XPATH and 
+        countryBox_alert.text == COUNTRYBOX_ALERT_TEXT and
+        dropdown_element_city_alert.text == DROPDOWNELEMENTCITY_ALERT_TEXT and 
+        dropdown_element_town_alert.text == DROPDOWNELEMENTTOWN_ALERT_TEXT and 
+        streetBox_alert.text == STREETBOX_ALERT_TEXT  and
+        aboutmeBox_alert.text == ABOUTME_ALERT_TEXT
         }
 
         
@@ -152,29 +150,25 @@ class Test_my_personal_information:
         countryBox.click()
         countryBox.send_keys(input_long_country)
 
+        countryBox_alert = self.waitForElementVisible((By.XPATH,COUNTRYBOXALERT_XPATH))
+        assert countryBox_alert.text == COUNTRYBOXALERT_TEXT
 
         #Hata mesajlarını kontrol eder
         tcNo_alert = self.waitForElementVisible((By.XPATH, TCNOALERT_XPATH))
 
         self.driver.save_screenshot("images/registeredNumber.png")
-        self.driver.take_and_show_screenshot("images/registeredNumber.png")
         # Beklenen hata mesajını kontrol eder ve hatayı belirtir
         assert False,"HATA"
-        
+    #TC 3
     def test_add_profile_picture(self):
-        self.test_precondition()
+        self.precondition()
 
-        avatar_button=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[1]/div"))
+        avatar_button=self.waitForElementVisible((By.XPATH,AVATARBUTTON_XPATH))
         avatar_button.click()
         
-        # textx = self.waitForElementVisible((By.XPATH, "/html/body/div[1]/div/main/div[1]/section[1]/div/div[2]/div/h3"))
-        # assert textx.text == "TOBETO'ya hoş geldin"
-
-        # assert textx.text.replace('\n', '') == "TOBETO'ya hoş geldin".replace('\n', '')
-
-        
-        avatar_popup_text1=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[2]/div[1]"))
-        assert avatar_popup_text1.text == "Sürükleyip bırak, yapıştır veya\ngözat"
+     
+        avatar_popup_text1=self.waitForElementVisible((By.XPATH,AVATARPOPUPTEXT1_XPATH))
+        assert avatar_popup_text1.text == AVATARPOPUPALERT_TEXT1
 
         #Sürükleyeceğiniz dosyanın yolunu belirtin
         dosya_yolu = ("images/tobeto.png")
@@ -185,13 +179,13 @@ class Test_my_personal_information:
         # Hedef alana sürükleyip bırakmak için ActionChains kullanın
         
 
-        imageUploadButton = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[4]/div[1]/div[2]/button"))
+        imageUploadButton = self.waitForElementVisible((By.XPATH,IMAGEUPLOADBUTTON_XPATH))
         imageUploadButton.click()
         sleep(2)
 
-
+    #TC 4
     def test_leave_fields_empty(self):
-        self.test_precondition()
+        self.precondition()
 
         nameTextBox=self.waitForElementVisible((By.XPATH,NAMETEXTBOX_XPATH))
         surnameTextBox=self.waitForElementVisible((By.XPATH,SURNAMETEXTBOX_XPATH))

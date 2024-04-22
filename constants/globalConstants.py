@@ -12,7 +12,7 @@ def generate_random_email():
         return emailrandom
 
 
-#-------------------------------------------
+#--------------------URL-----------------------
 REGISTER_URL = "https://tobeto.com/kayit-ol"
 LOGIN_URL = "https://tobeto.com/giris"
 SIGN_IN = "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=ARZ0qKLNZc5pRQzHoOzteY4CudTe8H6l8-KtvsTwhZph01Tk5xET568QYhi7ldsRXg71pdveoNSNLg&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1341264521%3A1713475719969411&theme=mn&ddm=0"
@@ -25,8 +25,8 @@ PASSWORD_NAME ="password"
 PASSWORDAGAIN_NAME= "passwordAgain"
 SIGN_IN_EMAIL_NAME= "loginfmt"
 SING_IN_PASSWORD_NAME= "passwd"
-RESET_PASSWORD_XPATH= "///input[@name='password']"
-RESET_PASSWORD_AGAIN_XPATH="//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form//input[@name='passwordConfirmation']"
+
+
 
 
 #-------------------------------------------
@@ -37,11 +37,10 @@ input_password ="123456"
 input_passwordagain="123456"
 
 #ŞİFRE YENİLEME INPUT
-input_forgot_email ="tobetotest3@gmail.com"  #şifre yenileme e mail 
+
 input_forgot_password = "//*[@id='__next']/div/main/section/div/div/div/input"
-input_sign_in_password = "deneme123"
-input_reset_password = "1234567"    #Buraya tekrar bak
-input_reset_password_again="1234567"  #Buraya tekrar bak
+
+  #Buraya tekrar bak
 
 
 #------------------------------------------
@@ -52,7 +51,7 @@ SIGNUPBUTTON_XPATH ="//*[@id='__next']/div/main/section/div/div/div[1]/div/div/b
 NAVMENU_XPATH ="//*[@id='O365_MainLink_NavMenu']"
 NAVMENU_OUTLOOK_XPATH="//*[@id='O365_AppTile_Mail']/div[1]/div/span"
 CLICK_MAIL_LINK_XPATH = "//*[@id='UniqueMessageBody']/div/div/div/div/div"
-SENDBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/form/div/div/button"
+
 CLICK_MAIL_XPATH="//*[@id='MailList']/div/div/div/div/div/div/div/div[2]"
 
 
@@ -61,12 +60,16 @@ CLICK_MAIL_XPATH="//*[@id='MailList']/div/div/div/div/div/div/div/div[2]"
 
 #ŞİFREMİ UNUTTUM
 FORGOT_PASSWORD_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/form/label/small/p"  #ŞİFREMİ UNUTTUM BUTONU
-FORGOT_EMAIL_XPATH="//*[@id='__next']/div/main/section/div/div/div/input"
+
 SENDBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div/button"
 
 next_login_button_id = "idSIButton9"
 sign_in_button_id = "idSIButton9"
 decline_button_id = "declineButton"
+
+
+
+
 
 
 #------------------------------------------
@@ -82,13 +85,48 @@ CONTINUEBUTTON_XPATH ="/html/body/div[@role='dialog']/div[@class='modal-dialog m
 #------------------------------------------
 REGISTERTEXT_XPATH = "/html/body/div[1]/div/main/section/div/div/div/div/span"
 
-FORGOT_EMAIL_POPUP_XPATH = "//*[@id='__next']/div/main/div[2]/div/div[2]"
+
 
 TRUEREGISTER_TEXT="Tobeto Platform'a kaydınız başarıyla gerçekleşti.\nGiriş yapabilmek için e-posta adresinize iletilen doğrulama linkine tıklayarak hesabınızı aktifleştirin."
+
+
+
+#-----------------------------------------S03 TEST User Password Reset TC 1-4 ----------------------------------------
+
+#XPATH
+
+#ŞİFREMİ UNUTTUM BUTONU
+FORGOT_PASSWORD_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/form/label/small/p"
+
+
+FORGOT_EMAIL_XPATH="//*[@id='__next']/div/main/section/div/div/div/input"
+SENDBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div/button"
+RESETSENDBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/form/div/div/button"
+FORGOT_EMAIL_POPUP_XPATH = "//*[@id='__next']/div/main/div[2]/div/div[2]"
 FORGOT_EMAIL_POPUP_TEXT="• Şifre sıfırlama linkini e-posta adresinize gönderdik. Lütfen gelen kutunuzu kontrol edin."
+RESET_PASSWORD_XPATH= "//*[@id='__next']/div/main/section/div/form/div/div/input[1]"
+RESET_PASSWORD_AGAIN_XPATH="//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form//input[@name='passwordConfirmation']"
+PASSWORDNOTMATCHEDPOPUP_XPATH="//*[@id='__next']/div/main/div[2]/div/div[2]"
+INVALIDMAILPOPUP_XPATH="//*[@id='__next']/div/main/div[2]/div/div[2]"
 
-
-
+#INPUT
+input_forgot_email ="tobetotest3@gmail.com" 
+input_not_found_email = "tobetokayıtsız@gmail.com"
+input_forgot_invalid_email ="a"
+input_sign_in_password = "deneme123"
+input_reset_password = "1234567"    
+input_reset_password_again="1234567"
+input_min_reset_password = "9876"    
+input_min_reset_password_again="9876"
+input_different_password = "9876"
+input_different_password_again = "98765"
+input_same_old_password = "deneme123"
+input_same_old_password_again = "deneme123"
+#ALERT TEXT
+INCORRECTPASSWORDPOPUP_TEXT ="Şifreniz en az 6 karakterden oluşmalıdır."
+SAMEOLDPASSWORDPOPUP_TEXT="Yeni şifreniz mevcut şifrenizden farklı olmalıdır."
+NOTFOUNDEMAILPOPUP_TEXT = "Kullanıcı bulunamadı."
+PASSWORDNOTMATCHEDPOPUP_TEXT = "• Şifreler Eşleşmedi"
 
 
 #-----------------------------------------TEST My Personal Information------------------------------------
@@ -122,6 +160,11 @@ DROPDOWNELEMENTCITYALERT_XPATH ="//*[@id='__next']/div/main/section/div/div/div[
 DROPDOWNELEMENTTOWNALERT_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[10]/span"
 STREETBOXALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[11]/span"
 ABOUTMEALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[12]/span"
+COUNTRYBOXALERT_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[8]/span"
+AVATARBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[1]/div"
+AVATARPOPUPTEXT1_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[2]/div[1]"
+IMAGEUPLOADBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[4]/div[1]/div[2]/button"
+
 
 #ID
 PHONETEXTBOX_ID = "phoneNumber"
@@ -129,7 +172,7 @@ PHONETEXTBOX_ID = "phoneNumber"
 
 #INPUT
 input_personal_mail="tobetotest3@gmail.com"
-input_personal_password="deneme123"
+input_personal_password="1234567"
 input_dateofbirth = "31.08.2000"
 input_country="Türkiye"
 input_long_country="türkiyetürkiyetürkiyetürkiyetür"
@@ -141,9 +184,19 @@ input_incorrect_tcno2="111111111111"
 input_street=long_text = "a" * 201
 input_aboutme=long_text = "a" * 301
 
-#TEXT
+#ASSERT TEXT
 POPUP_MESSAGE_TEXT="• Giriş başarılı."
 TCNOALERT_TEXT="TC Kimlik Numarası 11 Haneden Az olamaz"
+DATEOFBIRTH_ALERT_TEXT_XPATH = "Doldurulması zorunlu alan*"
+COUNTRYBOX_ALERT_TEXT = "Doldurulması zorunlu alan*"
+DROPDOWNELEMENTCITY_ALERT_TEXT = "Doldurulması zorunlu alan*"
+DROPDOWNELEMENTTOWN_ALERT_TEXT = "Doldurulması zorunlu alan*"
+STREETBOX_ALERT_TEXT = "En fazla 200 karakter girebilirsiniz"
+ABOUTME_ALERT_TEXT = "En fazla 300 karakter girebilirsiniz" 
+COUNTRYBOXALERT_TEXT = "En fazla 30 karakter girebilirsiniz"
+AVATARPOPUPALERT_TEXT1 = "Sürükleyip bırak, yapıştır veya\ngözat"
+
+
 
 
 #---------TEST-5-7 My Experience---------

@@ -10,7 +10,7 @@ from constants.globalConstants import *
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
-
+#Deneyimlerim TC 5-7
 class Test_my_personal_information:
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -23,7 +23,7 @@ class Test_my_personal_information:
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
-    def test_precondition(self):
+    def precondition(self):
         #Login
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
         login_email.send_keys(input_personal_mail)
@@ -43,7 +43,7 @@ class Test_my_personal_information:
         experienceButton.click()
 
 
-    def job_start_end_date(self):
+    def test_job_start_end_date(self):
         #İş başlangıç ve bitiş tarihleri seçilir
         job_start_date = self.waitForElementVisible((By.XPATH,JOBSTARTDATE_XPATH))
         job_start_date.send_keys(job_start_date_input)
@@ -60,8 +60,9 @@ class Test_my_personal_information:
         select_day = self.waitForElementVisible((By.XPATH, SELECTDAY_XPATH))
         select_day.click()
 
+    #TC 5
     def test_adding_experience(self):
-        self.test_precondition()
+        self.precondition()
 
         #Görüntüleme işlemi için ekran görüntüsü alınır
         self.driver.save_screenshot(SAVE_SCREENSHOT_PATH)
@@ -83,7 +84,6 @@ class Test_my_personal_information:
         # indekse göre seçim yapın
         dropdown.select_by_index(40)
 
-
         #İş başlangıç ve bitiş tarihleri seçilir
         self.job_start_end_date()
         
@@ -100,9 +100,9 @@ class Test_my_personal_information:
         experience_save_button.click()
 
         sleep(3)
-        
+    #TC 6
     def test_fields_left_empty(self):
-        self.test_precondition()
+        self.precondition()
 
         #Görüntüleme işlemi için ekran görüntüsü alınır
         self.driver.save_screenshot(SAVE_SCREENSHOT_PATH)
@@ -125,7 +125,7 @@ class Test_my_personal_information:
         dropdown.select_by_index(40)
 
         #İş başlangıç ve bitiş tarihleri seçilir
-        self.job_start_end_date()
+        self.test_job_start_end_date()
 
         #İş açıklaması
         job_description = self.waitForElementVisible((By.XPATH,JOBDESCRIPTION_XPATH))
@@ -147,10 +147,10 @@ class Test_my_personal_information:
         }
         sleep(3)
     
-
+    #TC 7
     def test_color_marker(self):
         
-        self.test_precondition()
+        self.precondition()
 
         #Görüntüleme işlemi için ekran görüntüsü alınır
         self.driver.save_screenshot(SAVE_SCREENSHOT_PATH)
@@ -165,7 +165,7 @@ class Test_my_personal_information:
         sector_name.send_keys(sector_name_text)
 
         #İş başlangıç ve bitiş tarihleri seçilir
-        self.job_start_end_date()
+        self.test_job_start_end_date()
         
         #İş açıklaması
         job_description = self.waitForElementVisible((By.XPATH,JOBDESCRIPTION_XPATH))

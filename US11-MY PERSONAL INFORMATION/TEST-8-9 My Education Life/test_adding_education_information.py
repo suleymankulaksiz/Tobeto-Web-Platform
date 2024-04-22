@@ -10,7 +10,7 @@ from constants.globalConstants import *
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
-
+#Eğitim TC 8-9
 class Test_adding_education_information:
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -23,6 +23,10 @@ class Test_adding_education_information:
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
+    def save_buttons(self):
+        education_save_button = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/button"))
+        education_save_button.click()
+
     def precondition(self):
         #Login
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
@@ -42,8 +46,9 @@ class Test_adding_education_information:
         education_information= self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[1]/div/a[3]/span[2]"))
         education_information.click()
 
+    #TC-8
     def test_adding_education_information(self):
-        self.test_precondition()
+        self.precondition()
         #Eğitim seçilir
         dropdown_element_education = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/select"))
@@ -68,8 +73,18 @@ class Test_adding_education_information:
         select_end_year = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/div[2]/div[2]/div/div/div[2]/div[2]/div/div[7]"))
         select_end_year.click()
         
-        education_click_button = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/button"))
-        education_click_button.click()
+        self.save_buttons()
+    #TC-9
+    def test_warning_messages(self):
+        section_name = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[3]/input"))
+        section_name.send_keys("e")
+
+        university_name = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/input"))
+        university_name.send_keys("e"* 301)  
+
+        self.save_buttons()
+
+
 
         
 

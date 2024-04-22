@@ -13,10 +13,15 @@ from email.header import decode_header
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import ctypes
+from imap_tools import MailBox
+from imap_tools import AND, OR, NOT
+import re
+import requests
 
 
-user32 = ctypes.windll.user32
+# user32 = ctypes.windll.user32
 
+#Password Reset TC 1-6
 class Test_password_reset:
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -29,8 +34,7 @@ class Test_password_reset:
     def waitForElementVisible(self, locator, timeout=10):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
-
-    def test_password_reset(self):
+    def precondition(self):
         forgot_password_button = self.waitForElementVisible((By.XPATH,FORGOT_PASSWORD_XPATH))
         forgot_password_button.click()
         forgot_email = self.waitForElementVisible((By.XPATH, FORGOT_EMAIL_XPATH))
@@ -50,51 +54,102 @@ class Test_password_reset:
         sign_in_password.send_keys(input_sign_in_password)
         sign_in_button = self.waitForElementVisible((By.CSS_SELECTOR, ".VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d"))
         sign_in_button.click()
-        
         #Last mail click
         last_mail_link = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".zA.zE:nth-child(1)"))) 
         last_mail_link.click()
-
-        # link_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH,"//a[contains(@href,'https://tobeto.com/reset-password')]")))
-        # link_element.click()
-        # link_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div[7]/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div/div/p/span")))
-        # link_element.click()
-
-        # link_script = """
-        # var links = document.querySelectorAll("a");
-        # for(var i = 0; i < links.length; i++) {
-        #     if (links[i].href.startsWith("https://tobeto.com/reset-password?code=")) {
-        #         links[i].click();
-        #         break;
-        #     }
-        # }
-        # """
-        # self.driver.execute_script(link_script)
-
-        email_content_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//*[@id=':1z']/div[1]/div/div/div/p/span/a")))
+        sleep(4)
+        #Açılan sayfaya geçer
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        #Mail içerisindeki linke tıklar.
+        email_content_xpath = "/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div"
+        email_content_element = self.waitForElementVisible((By.XPATH,email_content_xpath))
         email_content = email_content_element.text
         link_start_index = email_content.find("https://")  # Linkin başlangıç indeksi
         link_end_index = email_content.find(" ", link_start_index)  # Linkin sonraki boşluk karakterine kadar olan kısmı alır
 
-        if link_start_index != -1 and link_end_index != -1:
+        if link_start_index != -1:
             link_url = email_content[link_start_index:link_end_index]  # Linki al
             # Linki tarayıcıda aç
             self.driver.get(link_url)
 
-        sleep(5)
-        
-
-        # first_message = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.ID, "//a[contains(@href,'https://tobeto.com/reset-password?code=')]")))
-        # first_message.click()
+    #TC 1
+    def test_password_reset(self):
+        self.precondition()
 
         reset_password = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_XPATH))
         reset_password.send_keys(input_reset_password)
         reset_password_again = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_AGAIN_XPATH))
         reset_password_again.send_keys(input_reset_password_again)
-        send_button = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
-        send_button.click()
+        reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
+        reset_send_button.click()
 
+    #TC 2
+    def test_password_less_than_six_characters(self):
+        self.precondition()
+        #Ekran görüntüsü alır
+        self.driver.save_screenshot("images/sendButtonPassive.png")
+        #Butonun pasif olma durumunu kontrol eder.
+        try:
+           reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
+           assert reset_send_button is not None, "Button is visible"
+           print("Button is visible")
+        except Exception :
+           print("Button is not visible")
 
+        reset_password = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_XPATH))
+        reset_password.send_keys(input_min_reset_password)
+        reset_password_again = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_AGAIN_XPATH))
+        reset_password_again.send_keys(input_min_reset_password_again)
+        reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
+        reset_send_button.click()
+        assert False,INCORRECTPASSWORDPOPUP_TEXT
+
+    #TC 3
+    def test_passwords_not_matching(self):
+        self.precondition()
+
+        reset_password = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_XPATH))
+        reset_password.send_keys(input_different_password)
+        reset_password_again = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_AGAIN_XPATH))
+        reset_password_again.send_keys(input_different_password_again)
+        reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
+        reset_send_button.click()
+        password_not_matched_popup = self.waitForElementVisible((By.XPATH,PASSWORDNOTMATCHEDPOPUP_XPATH))
+        assert password_not_matched_popup.text == PASSWORDNOTMATCHEDPOPUP_TEXT
+    
+    #TC 4
+    def test_same_old_password(self):
+        self.precondition()
+
+        reset_password = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_XPATH))
+        reset_password.send_keys(input_same_old_password)
+        reset_password_again = self.waitForElementVisible((By.XPATH,RESET_PASSWORD_AGAIN_XPATH))
+        reset_password_again.send_keys(input_same_old_password_again)
+        reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
+        reset_send_button.click()
+        assert False,SAMEOLDPASSWORDPOPUP_TEXT
+
+    #TC 5   
+    def test_email_invalid_format(self):
+        forgot_password_button = self.waitForElementVisible((By.XPATH,FORGOT_PASSWORD_XPATH))
+        forgot_password_button.click()
+        forgot_email = self.waitForElementVisible((By.XPATH, FORGOT_EMAIL_XPATH))
+        forgot_email.send_keys(input_forgot_invalid_email)
+        sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
+        sendButton.click()
+        invalid_mail_popup = self.waitForElementVisible((By.XPATH,INVALIDMAILPOPUP_XPATH))
+        assert invalid_mail_popup.text == "• Girdiğiniz e-posta geçersizdir."
+
+    #TC 6
+    def test_user_not_found_warning_message(self):
+        forgot_password_button = self.waitForElementVisible((By.XPATH,FORGOT_PASSWORD_XPATH))
+        forgot_password_button.click()
+        forgot_email = self.waitForElementVisible((By.XPATH, FORGOT_EMAIL_XPATH))
+        forgot_email.send_keys(input_not_found_email)
+        sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
+        sendButton.click()
+        assert False,NOTFOUNDEMAILPOPUP_TEXT
 
 
 
