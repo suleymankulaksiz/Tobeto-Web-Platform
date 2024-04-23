@@ -165,6 +165,148 @@ basariylaSilindiMsj_css=".toast-body"
 
 
 
+#-------------------------------------KEVSER--------------------------------------
+#-------------------------------------US2-----------------------------------------
+LOGIN_URL = "https://tobeto.com/giris"
+HOMEPAGE_URL= "https://tobeto.com/platform"
+
+#-------------------------------------LOCATORS------------------------------------
+loginEmail_name = "email"
+loginPassword_name= "password"
+loginButton_xpath= "//*[@id='__next']/div/main/section/div/div/div[1]/div/form/button"
+invalidLoginError_xpath= "//div[@id='__next']/div/main/div[2]/div/div[2]"
+loginEmptyEmail_xpath="//*[@id='__next']/div/main/section/div/div/div[1]/div/form/p[1]"
+loginEmptyPassword_xpath= "//*[@id='__next']/div/main/section/div/div/div[1]/div/form/p[2]"
+loginSignUp_xpath= "//*[@id='__next']/div/main/section/div/div/div[1]/div/div[2]/label/small/a"
+#-------------------------------------INPUTS------------------------------------
+input_loginEmail= "kvsyilmaz98@gmail.com"
+input_loginPassword= "201618"
+input_empty= ""
+
+#------------------------------------TEXTS---------------------------------------
+login_invalidLogin_text= "• Geçersiz e-posta veya şifre."
+empty_fields_text= "Doldurulması zorunlu alan*"
+
+
+#------------------------------------US8-----------------------------------------
+#------------------------------------URL-----------------------------------------
+ASSESSMENTS_URL = "https://tobeto.com/degerlendirmeler"
+ASSESSMENT_URL = "https://tobeto.com/profilim/degerlendirmeler/tobeto-iste-basari-modeli/1"
+
+#-------------------------------------LOCATORS------------------------------------
+assessments_xpath = "//*[@id='__next']/div/nav/div[1]/ul/li[3]/a" 
+assessments_header_xpath= "//*[@id='__next']/div/main/section[1]/div/div[2]/div/h3"
+assessment_element_xpath = "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div"
+assessmentStart_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
+assessmentStart2_xpath= "//*[@id='__next']/div/main/section/div/div/div/div[3]/a"
+assessmentPage_xpath= "//*[@id='__next']/div/main/section/div/div/div[2]/div[1]/table/tbody/tr[1]/td[1]/span/p"
+softwareTestInformation1_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[3]/div"
+softwareTest_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[4]/div/div[1]/div/span"
+SoftwareTestStart_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[4]/div/div[1]/button"
+SoftwareTestStart2_xpath= "/html/body/div[4]/div/div/div/div/div[2]/div[2]/button"
+softwareTestControl_xpath= "/html/body/div[5]/div/div/div/div/div[1]/div/div[1]"
+subscribe_xpath= "//*[@id='__next']/div/main/section[3]/div/div[2]/div/h3"
+subscribeInformation1_xpath= "//*[@id='__next']/div/main/section[4]/div/div/div[1]/div"
+subscribeInformation2_xpath= "//*[@id='__next']/div/main/section[4]/div/div/div[2]/div"
+
+#------------------------------------TEXTS---------------------------------------
+assessmentsHeader_text= "Yetkinliklerini ücretsiz ölç, bilgilerini test et."
+assessment_element_text= "Tobeto İşte Başarı Modeli\n80 soru ile yetkinliklerini ölç, önerilen eğitimleri tamamla, rozetini kazan.\nBaşla"
+assessmentPage_text= "Belirsizliğin yüksek olduğu zaman ya da ortamlarda ortaya çıkan koşullara uygun olarak anlık çözümler geliştirebilirim."
+softwareTestInformation1_text= "Yazılımda Başarı Testi\nÇoktan seçmeli sorular ile teknik bilgini test et.\n>>>"
+softwareTest_text= "Front End"
+softwareTestStart_text= "Başla"
+softwareTestControl_text= "1/25"
+subscribe_text= "Aboneliğe özel değerlendirme araçları için"
+subscribeInformation1_text= "Kazanım Odaklı Testler\nDijital gelişim kategorisindeki eğitimlere başlamadan öncekonuyla ilgili bilgin ölçülür ve seviyene göre yönlendirilirsin."
+subscribeInformation2_text= "Huawei Talent Interview\nTeknik Bilgi Sınavı*\nSertifika alabilmen için, eğitim yolculuğunun sonunda teknik yetkinliklerin ve kod bilgin ölçülür.\n\n4400+ soru | 30+ programlama dili\n4 zorluk seviyesi\n*Türkiye Ar-Ge Merkezi tarafından tasarlanmıştır."
+
+
+
+#------------------------------------US9----------------------------------------------
+#------------------------------------URL----------------------------------------------
+MYPROFILE_URL= "https://tobeto.com/profilim"
+EDITPROFILE_URL= "https://tobeto.com/profilim/profilimi-duzenle/kisisel-bilgilerim"
+REALUSER_URL= "https://tobeto.com/profiller/5bfda759-7de5-42e4-9d30-158a8d25b6cd"
+PROFILETEST_URL= "https://tobeto.com/profilim/degerlendirmeler/tobeto-iste-basari-modeli"
+
+#-----------------------------------LOCATORS------------------------------------------
+MYPROFILE_XPATH= "//*[@id='__next']/div/nav/div[1]/ul/li[2]/a"
+SHARELINK_ID= "dropdown-basic"
+SHARELINKCONTROL_XPATH= "//*[@id='__next']/div/main/div/div[1]/div/div/div/div[1]/p"
+COPYLINK_XPATH= "//*[@id='__next']/div/main/div/div[1]/div/div/div/div[2]/div/i"
+COPYLINKCONTROL_XPATH= "//div[@id='__next']/div/div[2]/div/div[2]"
+EDITICON_CLASSNAME= "cv-edit-icon"
+HEADERSCONTROL_CLASSNAME= "cv-box-header"
+INFORMATIONSCONTROL_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[1]/div/div[2]/div[2]/div[2]/span[2]"
+INFORMATIONSBOX_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[1]"
+ABOUT_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[2]/div"
+COMPETENCIES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[3]/div"
+FOREIGNLANGUAGES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[4]/div"
+CERTIFICATES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[5]/div"
+SOCIALMEDIA_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[6]/div"
+SEEICON_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[3]/div/div[1]/div/span[2]"
+OPENCOMPETENCIESCONTROL_XPATH= "/html/body/div[4]/div/div/div[1]"
+COMPETENCIESCLOSE_XPATH= "/html/body/div[4]/div/div/div[1]/button"
+DOWNLOADCERTIFICATE_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[5]/div/div[2]/div"
+SHOWSOCIALMEDIA_XPATH= "//div[@id='__next']/div/main/div/div[2]/div/div/div[6]/div/div[2]/a"
+PROFILERIGHTPART_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]"
+EDUCATIONLIFEELEMENT_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]/div/div[5]/div/div[2]"
+PROFILETESTSTARTBUTTON_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]/div/div[1]/div/div[2]/div/a"
+PROFILETESTREVIEWBUTTON_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]/div/div[1]/div/div[1]/div/span[2]"
+PROFILETESTALERT_XPATH= "//div[@id='__next']/div/div[3]/div/div[2]"
+MYACTIVITY_CSS= ".react-calendar-heatmap-week:nth-child(1) > .empty-data:nth-child(1)"
+#------------------------------------TEXTS--------------------------------------------
+SHARELINKCONTROL_TEXT= "Profilimi paylaş"
+COPYLINKCONTROL_TEXT= "• Url kopyalandı."
+HEADERSCONTROL_TEXTS= ['Hakkımda', 'Yetkinliklerim', 'Yabancı Dillerim', 'Sertifikalarım', 'Medya Hesaplarım', 'Tobeto İşte Başarı Modelim', 'Tobeto Seviye Testlerim', 'Yetkinlik Rozetlerim', 'Aktivite Haritam', 'Eğitim Hayatım ve Deneyimlerim']
+INFORMATIONSCONTROL_TEXT= "Girilmemiş"
+ABOUT_TEXT= "Hakkımda\nKendini kısaca anlat"
+COMPETENCIES_TEXT= "Yetkinliklerim\nHenüz bir yetkinlik eklemedin."
+FOREIGNLANGUAGES_TEXT= "Yabancı Dillerim\nHenüz bir yabancı dil eklemedin."
+CERTIFICATES_TEXT= "Sertifikalarım\nHenüz bir sertifika yüklemedin."
+SOCIALMEDIA_TEXT= "Medya Hesaplarım\nHenüz bir hesap eklemedin."
+OPENCOMPETENCIESCONTROL_TEXT= "Tüm Yetkinliklerim"
+PROFILETESTALERT_TEXT= "• Sınavı bitirmediniz."
+MYACTIVITY_TEXT= "Herhangi bir aktiviteniz yok : 0"
+
+#-----------------------------------US10--------------------------------------
+#--------------------------------------URL----------------------------------
+TESTREPORT_URL= "https://tobeto.com/profilim/degerlendirmeler/rapor/tobeto-iste-basari-modeli/1"
+
+#---------------------------------------LOCATORS-------------------------------
+SHOWREPORT_XPATH= "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
+REPORTHEADER_XPATH= "//*[@id='__next']/div/main/div/div"
+REPORTINFORMATION_CLASSNAME= "legendName"
+#REPORTVIEWCONTROL_XPATH= "//*[@id='__next']/div/main/section/div/div"
+#REPORTINFORMATION_XPATH= "//*[@id='__next']/div/main/section/div/div/div/div/div[2]/div"
+#---------------------------------------TEXTS------------------------------------
+REPORTINFORMATIONS_TEXTS= ['Yeni dünyaya hazırlanıyorum', 'Profesyonel duruşumu geliştiriyorum', 'Kendimi tanıyor ve yönetiyorum', 'Yaratıcı ve doğru çözümler geliştiriyorum', 'Başkaları ile birlikte çalışıyorum', 'Kendimi sürekli geliştiriyorum', 'Sonuç ve başarı odaklıyım', 'Anlıyorum ve anlaşılıyorum']
+
+#---------------------------------------------US11-----------------------------
+#------------------------------------------URL---------------------------------
+SETTINGS_URL= "https://tobeto.com/profilim/profilimi-duzenle/kisisel-bilgilerim"
+COMPETENCIES_URL= "https://tobeto.com/profilim/profilimi-duzenle/yetkinliklerim"
+
+#------------------------------------------LOCATORS----------------------------
+CLOSEALERT_XPATH= "//div[@id='__next']/div/div[2]/div/div/button"
+CREATEPROFILBUTTON_XPATH= "//*[@id='__next']/div/main/div[1]/section[4]/div/div/div[1]/div/button"
+SETTINGSCOMPETENCIESBUTTON_XPATH= "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[4]"
+DROPDOWNCOMPETENCIES_XPATH= "//div[2]/div/div/div/div/div/div[2]"
+DROPDOWNOPTION1_ID= "react-select-2-option-0"
+DROPDOWNOPTION2_ID= "react-select-2-option-1"
+DELETEFIRSTOPTION_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]"
+SAVECOMPETENCIES_XPATH= "//div[@id='__next']/div/main/section/div/div/div[2]/button"
+COMPETECENTIES_SAVED_CONTROL_XPATH= "//div[@id='__next']/div/div[2]/div/div[2]"
+EMPTYCOMPETENCEALERT_XPATH= "//div[@id='__next']/div/div[2]/div/div[2]"
+DELETECOMPETENCEBUTTON_XPATH="/html/body/div/div/main/section/div/div/div[2]/div[2]/div[8]/div/span"
+DELETECOMPETENCEBUTTON2_XPATH= "//button[2]"
+COMPETENCEDELETEDALERT_XPATH= "//div[@id='__next']/div/div[2]/div/div[2]"
+#------------------------------------------TEXTS-------------------------------
+COMPETENCIES_SAVED_CONTROL_TEXT= "• Yetenek eklendi."
+EMPTYCOMPETENCEALERT_TEXT= "• Herhangi bir yetenek seçmediniz!"
+COMPETENCEDELETEDALERT_TEXT= "• Yetenek kaldırıldı."
+
 
 
 
