@@ -91,6 +91,19 @@ TRUEREGISTER_TEXT="Tobeto Platform'a kaydınız başarıyla gerçekleşti.\nGiri
 
 
 
+#---------------------------Preconditions-------------------------
+#Login
+profileTitleText= "Profilini oluştur"
+LOGIN_MAIL_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='email']"
+LOGIN_PASSWORD_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='password']"
+LOGIN_BUTTON_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/button[.='Giriş Yap']"
+LOGIN_POPUP_XPATH = "//div[@id='__next']/div[@class='back-white']//div[@role='alert']//button[@type='button']"
+PROFILETITLE_TEXT_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/h1"
+PROFILEBUTTON_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/button"
+
+
+
+
 #-----------------------------------------S03 TEST User Password Reset TC 1-4 ----------------------------------------
 
 #XPATH
@@ -134,12 +147,6 @@ PASSWORDNOTMATCHEDPOPUP_TEXT = "• Şifreler Eşleşmedi"
 #---------TEST-1-4 My Personal Information---------
 
 #XPATH
-LOGIN_MAIL_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='email']"
-LOGIN_PASSWORD_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='password']"
-LOGIN_BUTTON_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/button[.='Giriş Yap']"
-LOGIN_POPUP_XPATH = "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
-PROFILETITLE_TEXT_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/h1"
-PROFILEBUTTON_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/button"
 NAMETEXTBOX_XPATH="//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/form[@action='#']//input[@name='name']"
 SURNAMETEXTBOX_XPATH ="//div[@id='__next']/div[@class='back-white']/main/section//div[@class='col-12 col-lg-9']/form[@action='#']//input[@name='surname']"
 EMAILNAMETEXTBOX_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/input"
@@ -149,7 +156,7 @@ MAILCLICK_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[
 COUNTRYBOXCLICK_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[8]/input"
 DROPDOWN_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[9]/select"
 TOWNBOX_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[10]/select"
-SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
+
 TCNO_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/input"
 STREET_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[11]/textarea"
 ABOUTME_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[12]/textarea"
@@ -165,6 +172,21 @@ AVATARBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/d
 AVATARPOPUPTEXT1_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[2]/div[1]"
 IMAGEUPLOADBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[4]/div[1]/div[2]/button"
 
+
+DUSTBIN_CSS=".photo-delete"
+
+
+
+UPLOAD_AREA_CLASS="uppy-Dashboard-overlay"
+UPLOAD_FILE_BUTTON_XPATH1="//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[1]/div[2]/button"
+
+#PATH
+avatar_photo_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto.png"
+tobeto_png_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto.png"
+tobeto_png2_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto2.png"
+
+certificates_data_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/data/Tobeto.pdf"
+txt_data_path ="C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/data/Tobeto.txt"
 
 #ID
 PHONETEXTBOX_ID = "phoneNumber"
@@ -206,6 +228,7 @@ MINCHARACTERS_POSITION_ALERT = "En az 5 karakter girmelisiniz"
 MAXCHARACTER_ORGANIZATION_ALERT = "En fazla 50 karakter girebilirsiniz"
 MINCHARACTERS_DESCRIPTION_ALERT = "En fazla 300 karakter girebilirsiniz"
 CITYFALSEASSERT_TEXT ="Doldurulması zorunlu alan* Gözükmemektedir!"
+PROFILETITLETEXT = "Profilini oluştur"
 
 
 #PATH
@@ -250,15 +273,38 @@ position_name_text = "e"
 
 
 
+#---------TEST-8-9 Education---------
+
+#XPATH
+EDUCATIONSAVEBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
+EDUCATIONSAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[1]/div/a[3]/span[2]"
+DROPDOWNELEMENTEDUCATION_XPATH= "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/select"
+EDUCATIONUNIVERSITYNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/input"
+EDUCATIONSECTIONNAME_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[3]/input"
+EDUCATIONSTARTYEAR_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[4]/div[1]/div/input"
+EDUCATIONSELECTYEAR_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[4]/div[2]/div[2]/div/div/div[2]/div[2]/div/div[1]"
+EDUCATIONENDYEAR_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/div[1]/div/input"
+EDUCATIONSELECTENDYEAR_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[5]/div[2]/div[2]/div/div/div[2]/div[2]/div/div[7]"
+EDUCATIONUNIVERSITYNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/input"
+
+#TEXT
+profileTitleText= "Profilini oluştur"
+universityNameText = "Gebze Teknik Üniversitesi"
+education_section_name = "Bilgisayar Mühendisliği"
 
 
 
 
 
+#------------------Sertifikalarım TC 13-15
 
-
-
-
+#XPATH 
+UPLOAD_AREA_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div"
+SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
+UPLOAD_XPATH="(//input[@type='file'])[1]"
+UPLOAD_AREA_XPATH2="//div[contains(@class, 'uppy-Dashboard')]"
+UPLOAD_FILE_BUTTON_XPATH="//button[@class='uppy-u-reset uppy-c-btn uppy-StatusBar-actionBtn uppy-StatusBar-actionBtn--upload uppy-c-btn-primary']"
+CERTIFICATES = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
 
 
 

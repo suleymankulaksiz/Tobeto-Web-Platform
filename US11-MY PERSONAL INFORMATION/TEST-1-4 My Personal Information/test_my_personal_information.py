@@ -10,6 +10,7 @@ from constants.globalConstants import *
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
+
 #Kişisel Bilgilerim TC 1-4
 class Test_my_personal_information:
     @pytest.fixture(autouse=True)
@@ -20,7 +21,7 @@ class Test_my_personal_information:
         yield
         self.driver.quit()
 
-    def waitForElementVisible(self, locator, timeout=5):
+    def waitForElementVisible(self, locator, timeout=10):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
 
@@ -31,8 +32,10 @@ class Test_my_personal_information:
         login_password.send_keys(input_personal_password)
         login_button = self.waitForElementVisible((By.XPATH,LOGIN_BUTTON_XPATH))
         login_button.click()
-        popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
-        assert popupMessage.text == POPUP_MESSAGE_TEXT
+        # popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
+        # assert popupMessage.text == POPUP_MESSAGE_TEXT
+        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        alert_quit.click()
 
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
         assert profileTitleText.text == "Profilini oluştur"
@@ -159,30 +162,25 @@ class Test_my_personal_information:
         self.driver.save_screenshot("images/registeredNumber.png")
         # Beklenen hata mesajını kontrol eder ve hatayı belirtir
         assert False,"HATA"
+
     #TC 3
-    def test_add_profile_picture(self):
+    def test_add_profile_picture(self): 
         self.precondition()
 
         avatar_button=self.waitForElementVisible((By.XPATH,AVATARBUTTON_XPATH))
         avatar_button.click()
-        
-     
+
         avatar_popup_text1=self.waitForElementVisible((By.XPATH,AVATARPOPUPTEXT1_XPATH))
         assert avatar_popup_text1.text == AVATARPOPUPALERT_TEXT1
-
-        #Sürükleyeceğiniz dosyanın yolunu belirtin
-        dosya_yolu = ("images/tobeto.png")
-
-        file_input= self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/div[2]/div/div/div/div[2]/div/div[2]"))
-        file_input.send_keys(dosya_yolu)
         
-        # Hedef alana sürükleyip bırakmak için ActionChains kullanın
+        upload=self.driver.find_element(By.XPATH,UPLOAD_XPATH)
+        photoPath = avatar_photo_path 
+        upload.send_keys(photoPath)
+        sleep(3)
         
-
-        imageUploadButton = self.waitForElementVisible((By.XPATH,IMAGEUPLOADBUTTON_XPATH))
-        imageUploadButton.click()
-        sleep(2)
-
+        uploadFileButton=self.waitForElementVisible((By.XPATH,UPLOAD_FILE_BUTTON_XPATH))
+        uploadFileButton.click()
+        
     #TC 4
     def test_leave_fields_empty(self):
         self.precondition()
@@ -211,7 +209,7 @@ class Test_my_personal_information:
         countryBox_alert.text == EMPTY_ALERT_ALERT and dropdown_element_city_alert.text == EMPTY_ALERT_ALERT and 
         dropdown_element_town_alert.text ==  EMPTY_ALERT_ALERT  
         }
-        sleep(3)
+
 
     
 

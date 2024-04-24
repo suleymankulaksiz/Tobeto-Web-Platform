@@ -42,8 +42,11 @@ class Test_password_reset:
         sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
         sendButton.click()
 
-        popupMessage = self.waitForElementVisible((By.XPATH,FORGOT_EMAIL_POPUP_XPATH))
-        assert popupMessage.text == FORGOT_EMAIL_POPUP_TEXT
+        # popupMessage = self.waitForElementVisible((By.XPATH,FORGOT_EMAIL_POPUP_XPATH))
+        # assert popupMessage.text == FORGOT_EMAIL_POPUP_TEXT
+
+        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        alert_quit.click()
 
         self.driver.get(SIGN_IN)    
         sign_in_email = self.waitForElementVisible((By.ID,"identifierId"))

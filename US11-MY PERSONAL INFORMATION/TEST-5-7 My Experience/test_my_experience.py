@@ -31,11 +31,14 @@ class Test_my_personal_information:
         login_password.send_keys(input_personal_password)
         login_button = self.waitForElementVisible((By.XPATH,LOGIN_BUTTON_XPATH))
         login_button.click()
+        # popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
+        # assert popupMessage.text == POPUP_MESSAGE_TEXT
         popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
         assert popupMessage.text == POPUP_MESSAGE_TEXT
+        
         #Profilimi oluştur
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
-        assert profileTitleText.text == "Profilini oluştur"
+        assert profileTitleText.text == PROFILETITLETEXT
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
         #Deneyimler bölümüne gidilir
