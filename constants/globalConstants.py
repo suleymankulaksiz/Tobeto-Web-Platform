@@ -1,16 +1,3 @@
-import random
-import string
-
-
-#-------------------------------------------
-REGISTER_URL = "https://tobeto.com/kayit-ol"
-LOGIN_URL = "https://tobeto.com/giris"
-#-------------------------
-EMAIL_NAME ="email"                        #  BUNLAR KAYIT OL AŞAMASINDAKİ FORMUN LOCATORLARI
-PASSWORD_NAME ="password"
-
-
-
 #SEVDA
 LOGIN_URL = "https://tobeto.com/giris"
 HOMEPAGE_URL="https://tobeto.com/platform"
