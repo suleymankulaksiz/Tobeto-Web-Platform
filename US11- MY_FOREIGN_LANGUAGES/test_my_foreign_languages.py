@@ -19,23 +19,20 @@ class Test_Languages:
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
         email.send_keys(tobeto_email)
         password.send_keys(tobeto_password)
-        loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
+        loginBtn=self.waitForElementVisible((By.XPATH, LOGINBUTTON_XPATH))
         loginBtn.click()
         sleep(5)
-        right_name_dropdown=self.waitForElementVisible((By.XPATH, RİGHT_NAME_DROPDOWN_XPATH))
+        right_name_dropdown=self.waitForElementVisible((By.XPATH, RIGHT_NAME_DROPDOWN_XPATH))
         right_name_dropdown.click()
-        dropdown_profile_info=self.waitForElementVisible((By.CLASS_NAME, DROPDOWN_PROFİLE_INFO_CLASS_NAME))
+        dropdown_profile_info=self.waitForElementVisible((By.CLASS_NAME, DROPDOWN_PROFILE_INFO_CLASS_NAME))
         dropdown_profile_info.click()
         sleep(2)
-        my_language_sidebar=self.waitForElementVisible((By.XPATH, MY_LANGUAGE_SİDEBAR_XPATH))
+        my_language_sidebar=self.waitForElementVisible((By.XPATH, MY_LANGUAGE_SIDEBAR_XPATH))
         my_language_sidebar.click()
         existing_folder_path= "US11- MY_FOREİGN_LANGUAGES/screenshots"
         self.folderPath= existing_folder_path#str("screenshots") 
         Path(self.folderPath).mkdir(parents=True, exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield
-        self.driver.quit()
-
-    def teardown_method(self):
         self.driver.quit()
 
     def waitForElementVisible(self, locator, timeout=5):
@@ -45,11 +42,11 @@ class Test_Languages:
         select_the_language_dropdown=self.waitForElementVisible((By.XPATH, SELECT_THE_LANGUAGE_DROPDOWN_XPATH))
         sleep(2)
         select_the_language_dropdown.click()
-        selection_german=self.waitForElementVisible((By.XPATH, OPTİON_GERMAN_XPATH))
+        selection_german=self.waitForElementVisible((By.XPATH, OPTION_GERMAN_XPATH))
         selection_german.click()
         select_level=self.waitForElementVisible((By.XPATH, SELECT_LEVEL_XPATH))
         select_level.click()
-        add_basic_level=self.waitForElementVisible((By.XPATH, BASİC_LEVEL_XPATH))
+        add_basic_level=self.waitForElementVisible((By.XPATH, BASIC_LEVEL_XPATH))
         add_basic_level.click()
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()
@@ -63,7 +60,7 @@ class Test_Languages:
         select_the_language_dropdown=self.waitForElementVisible((By.XPATH, SELECT_THE_LANGUAGE_DROPDOWN_XPATH))
         sleep(2)
         select_the_language_dropdown.click()
-        selection_cekce=self.waitForElementVisible((By.XPATH, OPTİON_CEKCE_XPATH))
+        selection_cekce=self.waitForElementVisible((By.XPATH, OPTION_CEKCE_XPATH))
         selection_cekce.click()
         select_level=self.waitForElementVisible((By.XPATH, SELECT_LEVEL_XPATH))
         select_level.click()
@@ -75,7 +72,7 @@ class Test_Languages:
         select_the_language_dropdown=self.waitForElementVisible((By.XPATH, SELECT_THE_LANGUAGE_DROPDOWN_XPATH))
         sleep(2)
         select_the_language_dropdown.click()
-        selection_cince=self.waitForElementVisible((By.XPATH, OPTİON_CHINESE_XPATH))
+        selection_cince=self.waitForElementVisible((By.XPATH, OPTION_CHINESE_XPATH))
         selection_cince.click()
         select_level=self.waitForElementVisible((By.XPATH, SELECT_LEVEL_XPATH))
         select_level.click()
@@ -83,18 +80,18 @@ class Test_Languages:
         add_mother_language_level.click()
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()
-        langs_section = self.driver.find_element(By.XPATH, LANS_SECTİON_XPATH)
+        langs_section = self.driver.find_element(By.XPATH, LANS_SECTION_XPATH)
         sleep(2)
-        lang_edit_elements = langs_section.find_elements(By.XPATH, LANG_EDİT_ELEMENT_XPATH)
+        lang_edit_elements = langs_section.find_elements(By.XPATH, LANG_EDIT_ELEMENT_XPATH)
         assert len(lang_edit_elements)==3     
         
    
     def test_required_field(self): 
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()
-        language_required_field=self.waitForElementVisible((By.XPATH, LANGUAGE_REQUİRED_FİELD_XPATH))
-        level_required_field=self.waitForElementVisible((By.XPATH, LEVEL_REQUİRED_FİELD_XPATH))
-        assert language_required_field, level_required_field== REQUİRED_FİELD_TEXT
+        language_required_field=self.waitForElementVisible((By.XPATH, LANGUAGE_REQUIRED_FIELD_XPATH))
+        level_required_field=self.waitForElementVisible((By.XPATH, LEVEL_REQUIRED_FIELD_XPATH))
+        assert language_required_field, level_required_field== REQUIRED_FIELD_TEXT
     
     def test_delete_language(self): 
         go_to_language=self.waitForElementVisible((By.XPATH, GO_TO_LANGUAGE_XPATH)) 
@@ -112,15 +109,15 @@ class Test_Languages:
     def test_added_same_language(self): #DONE
         self.select_german()
         already_added=self.waitForElementVisible((By.XPATH, ALREADY_ADDED_MESSAGE_XPATH))
-        assert already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT
+        assert already_added.text==ALREADY_EXISTS_LANGUAGE_TEXT
  
         
     @pytest.mark.skip()
     def test_my_foreign_language(self): #Yukarıdakileri tek def içinde denedim
         save_button=self.waitForElementVisible((By.XPATH, SAVE_BUTTON_XPATH))
         save_button.click()
-        language_required_field=self.waitForElementVisible((By.XPATH, LANGUAGE_REQUİRED_FİELD_XPATH))
-        level_required_field=self.waitForElementVisible((By.XPATH, LEVEL_REQUİRED_FİELD_XPATH))
+        language_required_field=self.waitForElementVisible((By.XPATH, LANGUAGE_REQUIRED_FIELD_XPATH))
+        level_required_field=self.waitForElementVisible((By.XPATH, LEVEL_REQUIRED_FIELD_XPATH))
         self.select_german()
         added=self.waitForElementVisible((By.XPATH, ADDED_XPATH))   
         sleep(2)
@@ -136,9 +133,9 @@ class Test_Languages:
         answer_yes=self.waitForElementVisible((By.XPATH, ANSWER_YES_XPATH))
         answer_yes.click()
         successful_message=self.waitForElementVisible((By.XPATH, REMOVED_MESSAGE_XPATH))
-        assert {language_required_field, level_required_field== REQUİRED_FİELD_TEXT and
+        assert {language_required_field, level_required_field== REQUIRED_FIELD_TEXT and
                 added.text==ADDED_LANGUAGE_TEXT and 
-                already_added.text==ALREADY_EXİSTS_LANGUAGE_TEXT and
+                already_added.text==ALREADY_EXISTS_LANGUAGE_TEXT and
                 successful_message.text==LANGUAGE_REMOVED_TEXT}
         
         

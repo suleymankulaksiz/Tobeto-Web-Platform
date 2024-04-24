@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import pytest
-from time import sleep,time
+from time import sleep
 from constants.globalConstants import *
 from pathlib import Path
 from datetime import datetime
@@ -22,7 +22,7 @@ class Test_Announcement_And_News:
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
         email.send_keys(tobeto_email)
         password.send_keys(tobeto_password)
-        loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
+        loginBtn=self.waitForElementVisible((By.XPATH, LOGINBUTTON_XPATH))
         loginBtn.click()
         sleep(2)
         self.driver.execute_script("window.scrollTo(0,500)")
@@ -86,24 +86,24 @@ class Test_Announcement_And_News:
         
 
     def test_filter_of_organization(self): 
-        organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
+        organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANIZATION_DROPDOWN_XPATH))
         organization_dropdown.click()
-        istanbul_code_listbox=self.waitForElementVisible((By.ID, iSTANBUL_CODDİNG_ID))
+        istanbul_code_listbox=self.waitForElementVisible((By.ID, ISTANBUL_CODDING_ID))
         istanbul_code_listbox.click()
-        organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
+        organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANIZATION_DROPDOWN_XPATH))
         organization_dropdown.click()
         self.driver.save_screenshot(f"{self.folderPath}/there_is_no_organization.png")
         sleep(2)
         x_button=self.waitForElementVisible((By.CLASS_NAME, X_BUTTON_CLASSNAME))
         x_button.click()
         sleep(2)
-        organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_INPUT_XPATH))
+        organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANIZATION_DROPDOWN_INPUT_XPATH))
         organization_dropdown1.send_keys("L")
         assert True
       
         
     def test_filter_by_date(self): 
-        sorting_elements = self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        sorting_elements = self.waitForElementVisible((By.XPATH, SORTING_BUTTON_XPATH))
         sorting_elements.click()
         Y_E= self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
         Y_E.click()
@@ -120,7 +120,7 @@ class Test_Announcement_And_News:
         ordered_dates_str = [date.strftime("%d.%m.%Y") for date in ordered_dates]
         self.driver.save_screenshot(f"{self.folderPath}/filter_new_to_old.png")
     
-        sorting_elements = self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        sorting_elements = self.waitForElementVisible((By.XPATH, SORTING_BUTTON_XPATH))
         sorting_elements.click()
         self.driver.execute_script("window.scrollTo(0,300)")
         sleep(2)
@@ -177,11 +177,11 @@ class Test_Announcement_And_News:
         sleep(2)
         type_announcement_checkBox=self.waitForElementVisible((By.ID, TYPE_ANNOUNCEMENT_CHECKBOX_ID))
         type_announcement_checkBox.click()
-        organization_dropdown=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_XPATH))
+        organization_dropdown=self.waitForElementVisible((By.XPATH, ORGANIZATION_DROPDOWN_XPATH))
         organization_dropdown.click()
-        istanbul_code_listbox=self.waitForElementVisible((By.ID, iSTANBUL_CODDİNG_ID))
+        istanbul_code_listbox=self.waitForElementVisible((By.ID, ISTANBUL_CODDING_ID))
         istanbul_code_listbox.click()
-        sorting_btn=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        sorting_btn=self.waitForElementVisible((By.XPATH, SORTING_BUTTON_XPATH))
         sorting_btn.click()
         self.driver.execute_script("window.scrollTo(0,300)")
         sleep(2)

@@ -40,10 +40,10 @@ class Test_Homepage:
         password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
         email.send_keys(tobeto_email)
         password.send_keys(tobeto_password)
-        loginBtn=self.waitForElementVisible((By.XPATH, LOGİNBUTTON_XPATH))
+        loginBtn=self.waitForElementVisible((By.XPATH, LOGINBUTTON_XPATH))
         loginBtn.click()
         sleep(2)
-        successLogin=self.waitForElementVisible((By.XPATH, SUCCESSFUL_LOGİN_TEXT_XPATH))
+        successLogin=self.waitForElementVisible((By.XPATH, SUCCESSFUL_LOGIN_TEXT_XPATH))
         assert "• Giriş başarılı." in successLogin.text and self.driver.current_url == HOMEPAGE_URL
         
     
@@ -51,7 +51,7 @@ class Test_Homepage:
         self.test_successful_login()
         self.driver.save_screenshot(f"{self.folderPath}/selected_homepage.png")
         sleep(2)
-        profile=self.waitForElementVisible((By.XPATH, PROFİLE_XPATH))
+        profile=self.waitForElementVisible((By.XPATH, PROFILE_XPATH))
         profile.click()
         sleep(2)
         assessments=self.waitForElementVisible((By.XPATH,ASSESSMENTS_XPATH))
@@ -60,13 +60,13 @@ class Test_Homepage:
         catalog.click()
         calendar=self.waitForElementVisible((By.XPATH, CALENDAR_XPATH))
         calendar.click()
-        istanbul_kodluyor=self.waitForElementVisible((By.XPATH,İSTANBUL_K_XPATH))
+        istanbul_kodluyor=self.waitForElementVisible((By.XPATH,ISTANBUL_K_XPATH))
         istanbul_kodluyor.click()
-        assert{self.driver.current_url==PROFİLE_URL and 
+        assert{self.driver.current_url==PROFILE_URL and 
                self.driver.current_url==ASSESSMENTS_URL and 
                self.driver.current_url==CATALOG_URL and 
                self.driver.current_url==CALENDAR_URL and 
-               self.driver.current_url==İSTANBUL_K_URL}
+               self.driver.current_url==ISTANBUL_K_URL}
     
     
     def test_welcome_and_ik(self):
@@ -74,20 +74,20 @@ class Test_Homepage:
         sleep(2)
         welcometobeto = self.waitForElementVisible((By.XPATH, WELCOMETOBETO_XPATH))
         tobeto_slogan=self.waitForElementVisible((By.XPATH, TOBETO_SLOGAN_XPATH))
-        istanbul_kodluyor_logo=self.waitForElementVisible((By.CSS_SELECTOR, İSTANBUL_KODLUYOR_LOGO_CSS_SELECTOR)) #logo görüntülenmesi için
+        istanbul_kodluyor_logo=self.waitForElementVisible((By.CSS_SELECTOR, ISTANBUL_KODLUYOR_LOGO_CSS_SELECTOR)) #logo görüntülenmesi için
         name=self.waitForElementVisible((By.XPATH, NAME_XPATH))
         sleep(2)
         self.driver.execute_script("window.scrollTo(0,300)")
         sleep(2)
         free_edu=self.waitForElementVisible((By.XPATH, FREE_EDUC_XPATH))
-        aradığın_is_burada = self.waitForElementVisible((By.XPATH, ARADIGIN_İS_XPATH))
+        aradığın_is_burada = self.waitForElementVisible((By.XPATH, ARADIGIN_IS_XPATH))
 
         assert {welcometobeto.text == WELCOMETOBETO_TEXT  and 
                 name.text=="Sevda" and
                 istanbul_kodluyor_logo.is_displayed(), "Logo görüntülenmiyor." and #eğer logo görüntülenmezse virgülden sonraki uyarıyı verecek.
                 tobeto_slogan.text == TOBETO_SLOGAN_TEXT and 
                 free_edu.text == FREE_EDUC_TEXT and
-                aradığın_is_burada.text == ARADIGIN_İS_TEXT}
+                aradığın_is_burada.text == ARADIGIN_IS_TEXT}
     
   
     def test_istanbul_is_coding_panel(self):
@@ -133,12 +133,12 @@ class Test_Homepage:
         go_to_lesson_button=self.waitForElementVisible((By.XPATH, GOTO_LESSON_XPATH))  #herkes için kodlama-3a seçildi
         go_to_lesson_button.click()
         sleep(3)
-        details=self.waitForElementVisible((By.XPATH, DETAİLS_XPATH))
+        details=self.waitForElementVisible((By.XPATH, DETAILS_XPATH))
 
         self.driver.save_screenshot(f"{self.folderPath}/details_lesson.png")
         assert {len(shown_lessons)<=4, "4'ten fazla ders görüntülendi." and
                 self.driver.current_url==LESSONS_URL and
-                details.text==DETAİLS_TEXT  #eğitime git butonuna tıkladıktan sonra açılan sayfada görmek istediğim içerik
+                details.text==DETAILS_TEXT  #eğitime git butonuna tıkladıktan sonra açılan sayfada görmek istediğim içerik
                 }
        
     def test_announcement_and_news(self): 
@@ -156,7 +156,7 @@ class Test_Homepage:
         read_more_button=self.waitForElementVisible((By.XPATH, READ_MORE_BUTTON_XPATH))
         read_more_button.click()
         sleep(2)
-        about_clickBtn=self.waitForElementVisible((By.XPATH, ABOUT_CLİCK_BUTTON_XPATH))
+        about_clickBtn=self.waitForElementVisible((By.XPATH, ABOUT_CLICK_BUTTON_XPATH))
 
         assert { len(shown_announc_and_news)<=3, "3'ten fazla ders görüntülendi." and
                  self.driver.current_url==ANNOUNCEMENTS_URL
@@ -171,7 +171,7 @@ class Test_Homepage:
         exam_Btn=self.waitForElementVisible((By.XPATH, EXAMS_BUTTON_XPATH))       
         exam_Btn.click()
         exam_window=self.waitForElementVisible((By.XPATH, EXAMS_WİNDOW_XPATH))
-        view_the_report_Btn=self.waitForElementVisible((By.XPATH, VİEW_THE_REPORT_BUTTON_XPATH))
+        view_the_report_Btn=self.waitForElementVisible((By.XPATH, VIEW_THE_REPORT_BUTTON_XPATH))
         view_the_report_Btn.click()
         report_popup=self.waitForElementVisible((By.XPATH, REPORT_POPUP_XPATH))
 
@@ -191,7 +191,7 @@ class Test_Homepage:
         sleep(2)
         areaContol=self.waitForElementVisible((By.XPATH, AREA_CONTROL_BOTTOM_XPATH))
         areaContol.text==AREA_CONTROL_BOTTOM_TEXT
-        cr_profile_btn=self.waitForElementVisible((By.XPATH, CR_PROFİLE_BUTTON_XPATH))
+        cr_profile_btn=self.waitForElementVisible((By.XPATH, CR_PROFILE_BUTTON_XPATH))
         cr_profile_btn.click()
         sleep(2)
         #expected_url=PROFİLE_INFO_URL
@@ -205,7 +205,7 @@ class Test_Homepage:
         start_to_learn_btn.click()
         
         assert {areaContol.text==AREA_CONTROL_BOTTOM_TEXT and
-                self.driver.current_url==PROFİLE_INFO_URL and
+                self.driver.current_url==PROFILE_INFO_URL and
                 self.driver.current_url==IMP_YOURSELF_URL and
                 self.driver.current_url==LESSONS_URL, f"{LESSONS_URL} değil https://tobeto.com/platform-egitimler adresi geliyor"  #fail done
                }
