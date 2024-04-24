@@ -50,7 +50,7 @@ class Test_adding_certificates:
         upload.send_keys(photoPath)
         sleep(3)
     def UploadPathPng2(self):
-        upload=self.driver.find_element(By.CLASS_NAME,UPLOAD_XPATH)
+        upload=self.driver.find_element(By.CLASS_NAME,UPLOAD_AREA_XPATH2)
         photoPath = tobeto_png2_path
         upload.send_keys(photoPath)
         sleep(3)
@@ -159,10 +159,10 @@ class Test_adding_certificates:
         #Tobeto.png ve Tobeto2.png dosyaları alana sürüklenir.
         self.UploadPathPng()
 
-        sleep(3) #Manuel olarak 2.dosya sürüklenmek zorunda!
+        # self.UploadPathPng2() bu kod çalışmalı 
+
+        sleep(3) #Manuel olarak 2.dosya sürüklenmek zorunda
         
-        # self.UploadPathPng2()
-        # self.UploadPathBetweenPng()
 
         #Sadece 1 dosya yükleyebilirsiniz"" uyarı mesajı ekranda görüntülenmelidir.
         two_file_upload_alert=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[2]/span/div/p"))
