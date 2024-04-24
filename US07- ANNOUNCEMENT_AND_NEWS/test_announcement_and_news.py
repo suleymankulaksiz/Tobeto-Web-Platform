@@ -7,7 +7,7 @@ import pytest
 from time import sleep,time
 from constants.globalConstants import *
 from pathlib import Path
-
+from datetime import datetime
 
 
 
@@ -91,33 +91,55 @@ class Test_Announcement_And_News:
         organization_dropdown=self.waitForElementVisible((By.XPATH,ORGANİZATİON_DROPDOWN_XPATH))
         organization_dropdown.click()
         self.driver.save_screenshot(f"{self.folderPath}/there_is_no_organization.png")
-        time.sleep(2)
+        sleep(2)
         x_button=self.waitForElementVisible((By.CLASS_NAME, X_BUTTON_CLASSNAME))
         x_button.click()
-        time.sleep(2)
+        sleep(2)
         organization_dropdown1=self.waitForElementVisible((By.XPATH, ORGANİZATİON_DROPDOWN_INPUT_XPATH))
         organization_dropdown1.send_keys("L")
         assert True
       
         
-    def test_filter_by_date(self): #tc4 bitmedi
-        dropdown_sorting=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
-        dropdown_sorting.click()
-        new_to_old=self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
-        new_to_old.click()
+    def test_filter_by_date(self): 
+        sorting_elements = self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        sorting_elements.click()
+        Y_E= self.waitForElementVisible((By.XPATH, DROPDOWN_Y_E_XPATH))
+        Y_E.click()
+      
+        dates_class= self.driver.find_elements(By.CLASS_NAME, "date")
+        sleep(5)
+        date_list= []
+        for dateelement in dates_class:
+            date_texts= dateelement.text
+            date_list.append(date_texts)
+        #tarih_listesi artık tarihleri icinde tutan bir liste.
+        date_objects= [datetime.strptime(date, "%d.%m.%Y") for date in date_list]
+        ordered_dates = sorted(date_objects, reverse= True)
+        ordered_dates_str = [date.strftime("%d.%m.%Y") for date in ordered_dates]
         self.driver.save_screenshot(f"{self.folderPath}/filter_new_to_old.png")
-        dropdown_sorting=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
-        dropdown_sorting.click()
-        old_to_new=self.waitForElementVisible((By.XPATH, DROPDOWN_E_Y_XPATH))
-        old_to_new.click()
+    
+        sorting_elements = self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
+        sorting_elements.click()
+        self.driver.execute_script("window.scrollTo(0,300)")
+        sleep(2)
+        E_Y = self.waitForElementVisible((By.XPATH, DROPDOWN_E_Y_XPATH))
+        E_Y.click()
+        sleep(2)
+       
+        dates_class= self.driver.find_elements(By.CLASS_NAME, "date")
+        sleep(5)
+        date_list= []
+        for dateelement in dates_class:
+            date_texts= dateelement.text
+            date_list.append(date_texts)
+        #tarih_listesi artık tarihleri icinde tutan bir liste.
+        date_objects= [datetime.strptime(date, "%d.%m.%Y") for date in date_list]
+        ordered_dates = sorted(date_objects, reverse= True)
+        ordered_dates_str = [date.strftime("%d.%m.%Y") for date in ordered_dates]
         self.driver.save_screenshot(f"{self.folderPath}/filter_old_to_new.png")
-        # Y_E_default=self.waitForElementVisible((By.XPATH, "//*[contains(@class, 'active')]"))
-        # if Y_E_default:
-        #    assert True
-        # else: 
-        #    assert False
 
-        
+        assert{ordered_dates_str == date_list and ordered_dates_str == date_list }
+
     
     
     def test_filder_hide_and_show(self): 
@@ -127,7 +149,7 @@ class Test_Announcement_And_News:
          read_more_button = i.find_elements(By.XPATH, READ_MORE_BUTON_XPATH)
          if read_more_button:
             # js ile tıklama işlemi
-            self.driver.execute_script("arguments[0].click();", read_more_button[0]) #standart yaklaşım 
+            self.driver.execute_script("arguments[0].click();", read_more_button[0]) 
             found_button = True
             break
         if not found_button:
@@ -137,6 +159,7 @@ class Test_Announcement_And_News:
         self.driver.save_screenshot(f"{self.folderPath}/read_hide_before.png")
         read_hide=self.waitForElementVisible((By.XPATH,READ_MORE_BUTTON_XPATH))
         read_hide.click()
+        sleep(2)
         self.driver.save_screenshot(f"{self.folderPath}/read_hide_after.png")
         assert False
 
@@ -158,10 +181,11 @@ class Test_Announcement_And_News:
         istanbul_code_listbox.click()
         sorting_btn=self.waitForElementVisible((By.XPATH, SORTİNG_BUTTON_XPATH))
         sorting_btn.click()
-        dropdown_E_Y=self.waitForElementVisible((By.XPATH, "/html/body/div[1]/div/main/div[2]/div[1]/div/div[4]/div[1]/ul/li[2]/a"))
-        actions = ActionChains(self.driver)
-        actions.move_to_element(dropdown_E_Y).perform()
-        dropdown_E_Y.click()
+        self.driver.execute_script("window.scrollTo(0,300)")
+        sleep(2)
+        E_Y = self.waitForElementVisible((By.XPATH, DROPDOWN_E_Y_XPATH))
+        E_Y.click()
+        sleep(2)
         self.driver.save_screenshot(f"{self.folderPath}/filter_synchronous_working.png")
         assert True
    

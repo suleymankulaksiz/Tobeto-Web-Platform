@@ -8,7 +8,8 @@ import json
 from time import sleep
 from constants.globalConstants import *
 from pathlib import Path
-from datetime import date
+
+
 
 class Test_Homepage:
     @pytest.fixture(autouse=True)
@@ -80,7 +81,7 @@ class Test_Homepage:
         free_edu=self.waitForElementVisible((By.XPATH, FREE_EDUC_XPATH))
         aradığın_is_burada = self.waitForElementVisible((By.XPATH, ARADIGIN_İS_XPATH))
 
-        assert {welcometobeto.text == "TOBETO'ya hoş geldin"  and #expectedı kaldır 
+        assert {welcometobeto.text == WELCOMETOBETO_TEXT  and 
                 name.text=="Sevda" and
                 istanbul_kodluyor_logo.is_displayed(), "Logo görüntülenmiyor." and #eğer logo görüntülenmezse virgülden sonraki uyarıyı verecek.
                 tobeto_slogan.text == TOBETO_SLOGAN_TEXT and 
@@ -131,12 +132,12 @@ class Test_Homepage:
         go_to_lesson_button=self.waitForElementVisible((By.XPATH, GOTO_LESSON_XPATH))  #herkes için kodlama-3a seçildi
         go_to_lesson_button.click()
         sleep(3)
-        details=self.waitForElementVisible((By.XPATH, "//*[@id='dynamicContent']"))
+        details=self.waitForElementVisible((By.XPATH, DETAİLS_XPATH))
 
         self.driver.save_screenshot(f"{self.folderPath}/details_lesson.png")
         assert {len(shown_lessons)<=4, "4'ten fazla ders görüntülendi." and
                 self.driver.current_url==LESSONS_URL and
-                details.text=="Herkes İçin Kodlama - 3A\nBaşardın"   #eğitime git butonuna tıkladıktan sonra açılan sayfada görmek istediğim içerik
+                details.text==DETAİLS_TEXT  #eğitime git butonuna tıkladıktan sonra açılan sayfada görmek istediğim içerik
                 }
        
     def test_announcement_and_news(self): 
@@ -157,26 +158,27 @@ class Test_Homepage:
         about_clickBtn=self.waitForElementVisible((By.XPATH, ABOUT_CLİCK_BUTTON_XPATH))
 
         assert { len(shown_announc_and_news)<=3, "3'ten fazla ders görüntülendi." and
-                 self.driver.current_url=="https://tobeto.com/duyurular"
+                 self.driver.current_url==ANNOUNCEMENTS_URL
                }
     
     def test_my_exams(self): 
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,500)")
         exams=self.waitForElementVisible((By.XPATH, EXAMS_XPATH))
-        assert exams.text=="Sınavlarım"
         exams_content=self.waitForElementVisible((By.XPATH, EXAMS_CONTENT_XPATH))
-        assert exams_content.text== EXAMS_CONTENT_TEXT
         sleep(2)
         exam_Btn=self.waitForElementVisible((By.XPATH, EXAMS_BUTTON_XPATH))       
         exam_Btn.click()
         exam_window=self.waitForElementVisible((By.XPATH, EXAMS_WİNDOW_XPATH))
-        assert exam_window.is_displayed(), "Sınava ait detaylar görüntülenmedi"
         view_the_report_Btn=self.waitForElementVisible((By.XPATH, VİEW_THE_REPORT_BUTTON_XPATH))
         view_the_report_Btn.click()
         report_popup=self.waitForElementVisible((By.XPATH, REPORT_POPUP_XPATH))
-        assert report_popup.text== REPORT_POPUP_TEXT #niye 0 var?
 
+        assert{exams.text=="Sınavlarım" and
+               exams_content.text== EXAMS_CONTENT_TEXT and
+               exam_window.is_displayed(), "Sınava ait detaylar görüntülenmedi" and
+               report_popup.text== REPORT_POPUP_TEXT #niye 0 var?
+              }
 
         
 
@@ -186,8 +188,8 @@ class Test_Homepage:
         self.test_successful_login()
         self.driver.execute_script("window.scrollTo(0,1000)")
         sleep(2)
-        areaContol=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[1]/section[4]/div/div"))
-        areaContol.text=='Profilini oluştur\nBaşla\n\nKendini değerlendir\nBaşla\n\nÖğrenmeye başla\nBaşla'
+        areaContol=self.waitForElementVisible((By.XPATH, AREA_CONTROL_BOTTOM_XPATH))
+        areaContol.text==AREA_CONTROL_BOTTOM_TEXT
         cr_profile_btn=self.waitForElementVisible((By.XPATH, CR_PROFİLE_BUTTON_XPATH))
         cr_profile_btn.click()
         sleep(2)
@@ -201,11 +203,11 @@ class Test_Homepage:
         start_to_learn_btn=self.waitForElementVisible((By.XPATH, START_TO_LEARN_BTN_XPATH))
         start_to_learn_btn.click()
         
-        assert {areaContol.text=='Profilini oluştur\nBaşla\n\nKendini değerlendir\nBaşla\n\nÖğrenmeye başla\nBaşla' and
+        assert {areaContol.text==AREA_CONTROL_BOTTOM_TEXT and
                 self.driver.current_url==PROFİLE_INFO_URL and
                 self.driver.current_url==IMP_YOURSELF_URL and
                 self.driver.current_url==LESSONS_URL, f"{LESSONS_URL} değil https://tobeto.com/platform-egitimler adresi geliyor"  #fail done
-        }
+               }
       
 
 

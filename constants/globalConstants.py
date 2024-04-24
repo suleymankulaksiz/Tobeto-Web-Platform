@@ -22,10 +22,11 @@ CALENDAR_URL="https://tobeto.com/takvim"
 PROFİLE_INFO_URL="https://tobeto.com/profilim/profilimi-duzenle/kisisel-bilgilerim"
 IMP_YOURSELF_URL= "https://tobeto.com/degerlendirmeler"
 LESSONS_URL= "https://tobeto.com/egitimlerim"
+ANNOUNCEMENTS_URL="https://tobeto.com/duyurular"
 
 #-------------------------------------INPUT
 tobeto_email="sevdayilmazf@gmail.com"
-tobeto_password="34325Sevo."
+tobeto_password="34325Keys."
 #-----------------------NAME
 EMAIL_NAME ="email"                        
 PASSWORD_NAME ="password"
@@ -76,6 +77,7 @@ EXAMS_WİNDOW_XPATH="/html/body/div[4]/div/div"
 VİEW_THE_REPORT_BUTTON_XPATH="/html/body/div[4]/div/div/div/div/div[2]/div[2]/button"
 REPORT_POPUP_XPATH="/html/body/div[4]/div/div/div/div/div/div[1]"
 DETAİLS_XPATH="//*[@id='dynamicContent']"
+AREA_CONTROL_BOTTOM_XPATH="//*[@id='__next']/div/main/div[1]/section[4]/div/div"
 #YABANCI DİL XPATH:
 RİGHT_NAME_DROPDOWN_XPATH= "//*[@id='__next']/div/nav/div[1]/div/div/div[2]/button/div[2]" 
 MY_LANGUAGE_SİDEBAR_XPATH="//*[contains(text(),'Yabancı Dillerim')]"
@@ -120,7 +122,8 @@ LANGUAGE_REMOVED_TEXT="• Yabancı dil kaldırıldı."
 ALREADY_EXİSTS_LANGUAGE_TEXT="• Bu dil zaten mevcut."
 EXAMS_CONTENT_TEXT='Herkes İçin Kodlama 3A Değerlendirme Sınavı\nHerkes İçin Kodlama - 3A\n45 Dakika'
 REPORT_POPUP_TEXT='Doğru\nYanlış\nBoş\n0\nPuan' 
-
+AREA_CONTROL_BOTTOM_TEXT='Profilini oluştur\nBaşla\n\nKendini değerlendir\nBaşla\n\nÖğrenmeye başla\nBaşla'
+DETAİLS_TEXT="Herkes İçin Kodlama - 3A\nBaşardın" 
 #--------------ID
 APPLY_ID = "apply-tab"
 LESSONS_ID = "lessons-tab"  #daha fazla gösteri kapsıyor
