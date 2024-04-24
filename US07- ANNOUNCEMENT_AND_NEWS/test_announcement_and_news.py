@@ -29,12 +29,14 @@ class Test_Announcement_And_News:
         sleep(2)
         announc_and_news_btn=self.waitForElementVisible((By.ID, ANNOUNCEMENT_AND_NEWS_ID))
         announc_and_news_btn.click()
+        sleep(2)
         show_more_btn=self.waitForElementVisible((By.XPATH,SHOWMORE_BTN_ANNOUNCEMENT_AND_NEWS_XPATH))
         sleep(2)
         show_more_btn.click()  
         sleep(2)
-        self.folderPath= str("screenshots") 
-        Path(self.folderPath).mkdir(exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
+        existing_folder_path= "US07- ANNOUNCEMENT_AND_NEWS/screenshots"
+        self.folderPath= existing_folder_path#str("screenshots") 
+        Path(self.folderPath).mkdir(parents=True, exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield
         self.driver.quit()
      
@@ -63,7 +65,7 @@ class Test_Announcement_And_News:
         type_news_page=self.waitForElementVisible((By.XPATH, TYPE_NEWS_PAGE_XPATH))
        
         assert {len(shown_announce_a_news)<=9 , "9'dan daha fazla duyuru ve haber var" and
-                type_news_page.text== NO_ANNOUNCEMENT_TEXT
+                type_news_page.text== 'Bir duyuru bulunmamaktadır.'
                 }
         
 
