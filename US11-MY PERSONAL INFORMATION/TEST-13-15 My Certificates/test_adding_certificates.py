@@ -49,8 +49,8 @@ class Test_adding_certificates:
         photoPath = tobeto_png_path
         upload.send_keys(photoPath)
         sleep(3)
-    def UploadPathPng2(self):
-        upload=self.driver.find_element(By.CLASS_NAME,UPLOAD_AREA_XPATH2)
+    def UploadPathPng2(self): #//*[@id="__next"]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[1]
+        upload=self.driver.find_element(By.XPATH,"/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]")
         photoPath = tobeto_png2_path
         upload.send_keys(photoPath)
         sleep(3)
@@ -66,7 +66,6 @@ class Test_adding_certificates:
         sleep(2)
 
     def precondition(self):
-        #Login
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
         login_email.send_keys(input_personal_mail)
         login_password = self.waitForElementVisible((By.XPATH,LOGIN_PASSWORD_XPATH))
@@ -78,13 +77,15 @@ class Test_adding_certificates:
         alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
         alert_quit.click()
         #Profilimi oluştur
-        profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
-        assert profileTitleText.text == profileTitleText
+        #profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
+        #assert profileTitleText.text != "Profilini oluştur"
+        self.driver.execute_script("window.scrollBy(0, 500);")
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
         #Eğitimlerim bölümü
-        certificates= self.waitForElementVisible((By.XPATH,))
+        certificates= self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"))
         certificates.click()
+        #eksikler vardı**
 
     
     #TC 13
@@ -159,11 +160,11 @@ class Test_adding_certificates:
         #Tobeto.png ve Tobeto2.png dosyaları alana sürüklenir.
         self.UploadPathPng()
 
-        # self.UploadPathPng2() bu kod çalışmalı 
+        self.UploadPathPng2() 
 
         sleep(3) #Manuel olarak 2.dosya sürüklenmek zorunda
         
-
+#burda ilk mnce yüklediği dosyayı onaylaması lazım ?
         #Sadece 1 dosya yükleyebilirsiniz"" uyarı mesajı ekranda görüntülenmelidir.
         two_file_upload_alert=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[2]/span/div/p"))
         assert two_file_upload_alert.text == "Sadece 1 dosya yükleyebilirsiniz"

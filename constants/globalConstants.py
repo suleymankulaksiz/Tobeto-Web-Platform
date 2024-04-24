@@ -302,7 +302,7 @@ education_section_name = "Bilgisayar Mühendisliği"
 UPLOAD_AREA_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div"
 SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
 UPLOAD_XPATH="(//input[@type='file'])[1]"
-UPLOAD_AREA_XPATH2="//div[contains(@class, 'uppy-Dashboard')]"
+UPLOAD_AREA_XPATH2="/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div"
 UPLOAD_FILE_BUTTON_XPATH="//button[@class='uppy-u-reset uppy-c-btn uppy-StatusBar-actionBtn uppy-StatusBar-actionBtn--upload uppy-c-btn-primary']"
 CERTIFICATES = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
 
