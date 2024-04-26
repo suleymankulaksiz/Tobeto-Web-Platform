@@ -1,0 +1,14 @@
+{
+    "invalid_login_users": [
+        {"firstnamex": "", "lastnamex": "Canan", "emailx": "tobeto@hotmail.com", "passwordx": "123456", "passwordagainx": "123456"},
+        {"firstnamex": "Can", "lastnamex": "", "emailx": "tobeto@hotmail.com", "passwordx": "123456", "passwordagainx": "123456"},
+        {"firstnamex": "Can", "lastnamex": "Canan", "emailx": "", "passwordx": "123456", "passwordagainx": "123456"},
+        {"firstnamex": "Can", "lastnamex": "Canan", "emailx": "tobeto@hotmail.com", "passwordx": "", "passwordagainx": "123456"},
+        {"firstnamex": "Can", "lastnamex": "Canan", "emailx": "tobeto@hotmail.com", "passwordx": "123456", "passwordagainx": ""}
+
+    ]
+}
+       
+
+
+
