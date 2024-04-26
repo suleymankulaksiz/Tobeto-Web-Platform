@@ -83,13 +83,13 @@ class Test_adding_certificates:
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
         #Eğitimlerim bölümü
-        certificates= self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"))
+        certificates= self.waitForElementVisible((By.XPATH,CERTIFICATES_XPATH))
         certificates.click()
         #eksikler vardı**
 
     
     #TC 13
-    def test_adding_education_information(self):
+    def test_adding_certificates (self):
         self.precondition()
         #Dosya yükleme alanına tıklanır
         self.upload_area()
@@ -98,7 +98,7 @@ class Test_adding_certificates:
         self.uploadPath()
         sleep(2)
         #Çarpı butonuna tıklanır
-        click_x_button = self.waitForElementVisible((By.XPATH,"//*[@id='uppy_uppy-tobeto/pdf-1e-application/pdf-3578407-1713434434961']/div[2]/div[2]/button"))
+        click_x_button = self.waitForElementVisible((By.XPATH,CLICKXBUTTON_XPATH))
         click_x_button.click()
         #Dosya sürükleme kodu ve seçme kodu
         self.uploadPath()
@@ -129,18 +129,18 @@ class Test_adding_certificates:
         self.driver.save_screenshot(SAVE_SCREENSHOT_PATH)
 
         #Dosya indirme kodu
-        download_file_button = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[1]"))
+        download_file_button = self.waitForElementVisible((By.XPATH,DOWNLOADFILEBUTTON))
         download_file_button.click()
 
         #Dosya silme kodu
-        delete_file_button = self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]"))
+        delete_file_button = self.waitForElementVisible((By.XPATH,DELETEFILEBUTTON))
         delete_file_button.click()
         #Dosya silme evet butonuna bas
-        delete_file_yes_button = self.waitForElementVisible((By.XPATH,"/html/body/div[4]/div/div/div/div/div/div[2]/button[2]"))
+        delete_file_yes_button = self.waitForElementVisible((By.XPATH,DELETEFILEYESBUTTON))
         delete_file_yes_button.click()
         
-        delete_button_click_text=self.waitForElementVisible((By.XPATH,"/html/body/div[4]/div/div/div/div/div/p[1]"))
-        assert delete_button_click_text.text == "Seçilen sertifikayı silmek istediğinize emin misiniz?"
+        delete_button_click_text=self.waitForElementVisible((By.XPATH,DELETEBUTTONCLICKTEXT_XPATH))
+        assert delete_button_click_text.text == DELETEBUTTONCLICK_TEXT
 
     #TC 15
     def test_certificates_warning_messages(self):
@@ -153,8 +153,8 @@ class Test_adding_certificates:
         self.uploadPathTxt()        
     
         #Sadece image/jpeg, image/png, application/pdf yükleyebilirsiniz uyarı mesajı ekranda görüntülenmelidir."
-        txt_file_upload_alert=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div[2]/span/div/p"))
-        assert txt_file_upload_alert.text == "Sadece image/jpeg, image/png, application/pdf yükleyebilirsiniz"
+        txt_file_upload_alert=self.waitForElementVisible((By.XPATH,TXTFILEUPLOADALERT_XPATH))
+        assert txt_file_upload_alert.text == TXTFILEUPLOADALERT_TEXT
         sleep(3)
             
         #Tobeto.png ve Tobeto2.png dosyaları alana sürüklenir.
@@ -164,10 +164,10 @@ class Test_adding_certificates:
 
         sleep(3) #Manuel olarak 2.dosya sürüklenmek zorunda
         
-#burda ilk mnce yüklediği dosyayı onaylaması lazım ?
+        #burda ilk mnce yüklediği dosyayı onaylaması lazım ?
         #Sadece 1 dosya yükleyebilirsiniz"" uyarı mesajı ekranda görüntülenmelidir.
-        two_file_upload_alert=self.waitForElementVisible((By.XPATH,"//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[2]/span/div/p"))
-        assert two_file_upload_alert.text == "Sadece 1 dosya yükleyebilirsiniz"
+        two_file_upload_alert=self.waitForElementVisible((By.XPATH,TWOFILEUPLOADALERT_XPATH))
+        assert two_file_upload_alert.text == TWOFILEUPLOADALERT_TEXT
             
 
         

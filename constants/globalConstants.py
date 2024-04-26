@@ -100,6 +100,13 @@ LOGIN_BUTTON_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-fron
 LOGIN_POPUP_XPATH = "//div[@id='__next']/div[@class='back-white']//div[@role='alert']//button[@type='button']"
 PROFILETITLE_TEXT_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/h1"
 PROFILEBUTTON_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/button"
+SIGNINEMAIL_ID="identifierId"
+LOGINNEXTBUTTON_XPATH = "//*[@id='identifierNext']/div/button/span"
+SINGINPASSWORD_XPATH = "//*[@id='password']/div[1]/div/div[1]/input"
+LOGINSINGINBUTTON_XPATH = ".VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d"
+LASTMAILLINK_CSS = ".zA.zE:nth-child(1)"
+EMAILCONTENT_XPATH = "/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div"
+
 
 
 
@@ -140,6 +147,7 @@ INCORRECTPASSWORDPOPUP_TEXT ="Şifreniz en az 6 karakterden oluşmalıdır."
 SAMEOLDPASSWORDPOPUP_TEXT="Yeni şifreniz mevcut şifrenizden farklı olmalıdır."
 NOTFOUNDEMAILPOPUP_TEXT = "Kullanıcı bulunamadı."
 PASSWORDNOTMATCHEDPOPUP_TEXT = "• Şifreler Eşleşmedi"
+INVALIDMAILPOPUP_XPATH = "• Girdiğiniz e-posta geçersizdir."
 
 
 #-----------------------------------------TEST My Personal Information------------------------------------
@@ -238,6 +246,7 @@ SAVE_SCREENSHOT_PATH = "images//experienceViewing.png"
 city_border_color_text = "rgb(179, 166, 192)"
 
 
+
 #XPATH
 EXPERIENCEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[1]/div/a[2]/span[2]"
 INPUTORGANIZATIONNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/input"
@@ -291,7 +300,9 @@ EDUCATIONUNIVERSITYNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[
 profileTitleText= "Profilini oluştur"
 universityNameText = "Gebze Teknik Üniversitesi"
 education_section_name = "Bilgisayar Mühendisliği"
-
+DELETEBUTTONCLICK_TEXT ="Seçilen sertifikayı silmek istediğinize emin misiniz?"
+TXTFILEUPLOADALERT_TEXT = "Sadece image/jpeg, image/png, application/pdf yükleyebilirsiniz"
+TWOFILEUPLOADALERT_TEXT = "Sadece 1 dosya yükleyebilirsiniz"
 
 
 
@@ -304,8 +315,14 @@ SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
 UPLOAD_XPATH="(//input[@type='file'])[1]"
 UPLOAD_AREA_XPATH2="/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div"
 UPLOAD_FILE_BUTTON_XPATH="//button[@class='uppy-u-reset uppy-c-btn uppy-StatusBar-actionBtn uppy-StatusBar-actionBtn--upload uppy-c-btn-primary']"
-CERTIFICATES = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
-
+CERTIFICATES_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
+CLICKXBUTTON_XPATH = "//*[@id='uppy_uppy-tobeto/pdf-1e-application/pdf-3578407-1713434434961']/div[2]/div[2]/button"
+DOWNLOADFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[1]"
+DELETEFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]"
+DELETEFILEYESBUTTON = "/html/body/div[4]/div/div/div/div/div/div[2]/button[2]"
+DELETEBUTTONCLICKTEXT_XPATH ="/html/body/div[4]/div/div/div/div/div/p[1]"
+TXTFILEUPLOADALERT_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div[2]/span/div/p"
+TWOFILEUPLOADALERT_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[2]/span/div/p"
 
 
 

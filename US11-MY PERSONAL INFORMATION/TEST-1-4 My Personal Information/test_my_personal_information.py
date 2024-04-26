@@ -38,7 +38,7 @@ class Test_my_personal_information:
         alert_quit.click()
 
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
-        assert profileTitleText.text == "Profilini oluştur"
+        assert profileTitleText.text == profileTitleText
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
     #TC 1

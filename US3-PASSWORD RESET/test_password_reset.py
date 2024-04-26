@@ -49,23 +49,23 @@ class Test_password_reset:
         alert_quit.click()
 
         self.driver.get(SIGN_IN)    
-        sign_in_email = self.waitForElementVisible((By.ID,"identifierId"))
+        sign_in_email = self.waitForElementVisible((By.ID,SIGNINEMAIL_ID))
         sign_in_email.send_keys(input_forgot_email)
-        next_button = self.waitForElementVisible((By.XPATH,"//*[@id='identifierNext']/div/button/span"))
+        next_button = self.waitForElementVisible((By.XPATH,LOGINNEXTBUTTON_XPATH))
         next_button.click()
-        sign_in_password = self.waitForElementVisible((By.XPATH,"//*[@id='password']/div[1]/div/div[1]/input"))
+        sign_in_password = self.waitForElementVisible((By.XPATH,))
         sign_in_password.send_keys(input_sign_in_password)
-        sign_in_button = self.waitForElementVisible((By.CSS_SELECTOR, ".VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d"))
+        sign_in_button = self.waitForElementVisible((By.CSS_SELECTOR,LOGINSINGINBUTTON_XPATH))
         sign_in_button.click()
         #Last mail click
-        last_mail_link = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".zA.zE:nth-child(1)"))) 
+        last_mail_link = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, LASTMAILLINK_CSS))) 
         last_mail_link.click()
         sleep(4)
         #Açılan sayfaya geçer
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
         #Mail içerisindeki linke tıklar.
-        email_content_xpath = "/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div"
+        email_content_xpath = EMAILCONTENT_XPATH
         email_content_element = self.waitForElementVisible((By.XPATH,email_content_xpath))
         email_content = email_content_element.text
         link_start_index = email_content.find("https://")  # Linkin başlangıç indeksi
@@ -142,7 +142,7 @@ class Test_password_reset:
         sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
         sendButton.click()
         invalid_mail_popup = self.waitForElementVisible((By.XPATH,INVALIDMAILPOPUP_XPATH))
-        assert invalid_mail_popup.text == "• Girdiğiniz e-posta geçersizdir."
+        assert invalid_mail_popup.text == INVALIDMAILPOPUP_XPATH
 
     #TC 6
     def test_user_not_found_warning_message(self):
