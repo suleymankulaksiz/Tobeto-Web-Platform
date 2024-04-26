@@ -34,7 +34,7 @@ class Test_Announcement_And_News:
         sleep(2)
         show_more_btn.click()  
         sleep(2)
-        existing_folder_path= "US07- ANNOUNCEMENT_AND_NEWS/screenshots"
+        existing_folder_path= "images"
         self.folderPath= existing_folder_path#str("screenshots") 
         Path(self.folderPath).mkdir(parents=True, exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield

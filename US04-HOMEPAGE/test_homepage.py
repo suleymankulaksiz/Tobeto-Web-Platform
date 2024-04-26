@@ -17,7 +17,7 @@ class Test_Homepage:
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()                
         self.driver.get(LOGIN_URL)
-        existing_folder_path= "US04-HOMEPAGE/screenshots"
+        existing_folder_path= "images"
         self.folderPath= existing_folder_path#str("screenshots") 
         Path(self.folderPath).mkdir(parents=True, exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield

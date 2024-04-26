@@ -29,7 +29,7 @@ class Test_Languages:
         sleep(2)
         my_language_sidebar=self.waitForElementVisible((By.XPATH, MY_LANGUAGE_SIDEBAR_XPATH))
         my_language_sidebar.click()
-        existing_folder_path= "US11- MY_FOREİGN_LANGUAGES/screenshots"
+        existing_folder_path= "images"
         self.folderPath= existing_folder_path#str("screenshots") 
         Path(self.folderPath).mkdir(parents=True, exist_ok=True) #klasörü oluşturmak için ve o klasördeki veriyi korumak için
         yield
