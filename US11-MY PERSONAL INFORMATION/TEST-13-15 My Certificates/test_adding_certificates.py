@@ -74,7 +74,7 @@ class Test_adding_certificates:
         login_button.click()
         # popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
         # assert popupMessage.text == POPUP_MESSAGE_TEXT
-        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_ALERTQUIT_XPATH))
         alert_quit.click()
         #Profilimi oluştur
         #profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
@@ -85,7 +85,6 @@ class Test_adding_certificates:
         #Eğitimlerim bölümü
         certificates= self.waitForElementVisible((By.XPATH,CERTIFICATES_XPATH))
         certificates.click()
-        #eksikler vardı**
 
     
     #TC 13
@@ -160,7 +159,7 @@ class Test_adding_certificates:
         #Tobeto.png ve Tobeto2.png dosyaları alana sürüklenir.
         self.UploadPathPng()
 
-        self.UploadPathPng2() 
+        # self.UploadPathPng2() 
 
         sleep(3) #Manuel olarak 2.dosya sürüklenmek zorunda
         

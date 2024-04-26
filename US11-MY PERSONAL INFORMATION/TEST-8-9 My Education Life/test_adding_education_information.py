@@ -38,12 +38,12 @@ class Test_adding_education_information:
         # popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
         # assert popupMessage.text == POPUP_MESSAGE_TEXT
 
-        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_ALERTQUIT_XPATH))
         alert_quit.click()
 
         #Profilimi oluştur
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
-        assert profileTitleText.text == profileTitleText
+        assert profileTitleText.text == PROFILETITLETEXT
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
         #Eğitimlerim bölümü
@@ -80,6 +80,7 @@ class Test_adding_education_information:
         self.save_buttons()
     #TC-9
     def test_warning_messages(self):
+        self.precondition()
         section_name = self.waitForElementVisible((By.XPATH,EDUCATIONSECTIONNAME_XPATH))
         section_name.send_keys("e")
 

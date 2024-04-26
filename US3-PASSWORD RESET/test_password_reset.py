@@ -42,10 +42,10 @@ class Test_password_reset:
         sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
         sendButton.click()
 
-        # popupMessage = self.waitForElementVisible((By.XPATH,FORGOT_EMAIL_POPUP_XPATH))
-        # assert popupMessage.text == FORGOT_EMAIL_POPUP_TEXT
-
-        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        popupMessage = self.waitForElementVisible((By.XPATH,FORGOT_EMAIL_POPUP_XPATH))
+        assert popupMessage.text == FORGOT_EMAIL_POPUP_TEXT
+        sleep(2)
+        alert_quit = self.waitForElementVisible((By.XPATH, FORGOT_EMAIL_POPUP_XPATH))
         alert_quit.click()
 
         self.driver.get(SIGN_IN)    
@@ -53,7 +53,7 @@ class Test_password_reset:
         sign_in_email.send_keys(input_forgot_email)
         next_button = self.waitForElementVisible((By.XPATH,LOGINNEXTBUTTON_XPATH))
         next_button.click()
-        sign_in_password = self.waitForElementVisible((By.XPATH,))
+        sign_in_password = self.waitForElementVisible((By.XPATH,SINGINPASSWORD_XPATH))
         sign_in_password.send_keys(input_sign_in_password)
         sign_in_button = self.waitForElementVisible((By.CSS_SELECTOR,LOGINSINGINBUTTON_XPATH))
         sign_in_button.click()
@@ -91,7 +91,7 @@ class Test_password_reset:
     def test_password_less_than_six_characters(self):
         self.precondition()
         #Ekran görüntüsü alır
-        self.driver.save_screenshot("images/sendButtonPassive.png")
+        self.driver.save_screenshot("images/test_password_less_than_six_characters.png")
         #Butonun pasif olma durumunu kontrol eder.
         try:
            reset_send_button = self.waitForElementVisible((By.XPATH,RESETSENDBUTTON_XPATH))
@@ -142,7 +142,9 @@ class Test_password_reset:
         sendButton = self.waitForElementVisible((By.XPATH,SENDBUTTON_XPATH))
         sendButton.click()
         invalid_mail_popup = self.waitForElementVisible((By.XPATH,INVALIDMAILPOPUP_XPATH))
-        assert invalid_mail_popup.text == INVALIDMAILPOPUP_XPATH
+        assert invalid_mail_popup.text == INVALIDMAILPOPUPXPATH_TEXT
+
+        
 
     #TC 6
     def test_user_not_found_warning_message(self):

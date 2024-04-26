@@ -34,11 +34,12 @@ class Test_my_personal_information:
         login_button.click()
         # popupMessage = self.waitForElementVisible((By.XPATH,LOGIN_POPUP_XPATH))
         # assert popupMessage.text == POPUP_MESSAGE_TEXT
-        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_XPATH))
+        alert_quit = self.waitForElementVisible((By.XPATH, LOGIN_POPUP_ALERTQUIT_XPATH))
         alert_quit.click()
 
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
-        assert profileTitleText.text == profileTitleText
+        assert profileTitleText.text == PROFILETITLETEXT
+
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
     #TC 1

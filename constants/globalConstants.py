@@ -97,7 +97,8 @@ profileTitleText= "Profilini oluştur"
 LOGIN_MAIL_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='email']"
 LOGIN_PASSWORD_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/input[@name='password']"
 LOGIN_BUTTON_XPATH = "/html//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form[@action='#']/button[.='Giriş Yap']"
-LOGIN_POPUP_XPATH = "//div[@id='__next']/div[@class='back-white']//div[@role='alert']//button[@type='button']"
+LOGIN_POPUP_XPATH = "//div[@id='__next']//div[@role='alert']/div[@class='toast-body']"
+LOGIN_POPUP_ALERTQUIT_XPATH = "//div[@id='__next']/div[@class='back-white']//div[@role='alert']//button[@type='button']"
 PROFILETITLE_TEXT_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/h1"
 PROFILEBUTTON_XPATH="//*[@id='__next']/div/main/div[1]/section[3]/div/div/div[1]/div/button"
 SIGNINEMAIL_ID="identifierId"
@@ -108,6 +109,10 @@ LASTMAILLINK_CSS = ".zA.zE:nth-child(1)"
 EMAILCONTENT_XPATH = "/html/body/div[7]/div[3]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div/div[3]/div/div/div/div/div/div[1]/div[2]/div[3]/div[3]/div/div[1]/div/div"
 
 
+
+REGISTER_URL = "https://tobeto.com/kayit-ol"
+LOGIN_URL = "https://tobeto.com/giris"
+SIGN_IN = "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=ARZ0qKLNZc5pRQzHoOzteY4CudTe8H6l8-KtvsTwhZph01Tk5xET568QYhi7ldsRXg71pdveoNSNLg&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1341264521%3A1713475719969411&theme=mn&ddm=0"
 
 
 
@@ -127,8 +132,9 @@ FORGOT_EMAIL_POPUP_TEXT="• Şifre sıfırlama linkini e-posta adresinize gönd
 RESET_PASSWORD_XPATH= "//*[@id='__next']/div/main/section/div/form/div/div/input[1]"
 RESET_PASSWORD_AGAIN_XPATH="//div[@id='__next']/div[@class='bg-front-dark bg-front-width']/main/section//form//input[@name='passwordConfirmation']"
 PASSWORDNOTMATCHEDPOPUP_XPATH="//*[@id='__next']/div/main/div[2]/div/div[2]"
-INVALIDMAILPOPUP_XPATH="//*[@id='__next']/div/main/div[2]/div/div[2]"
+INVALIDMAILPOPUP_XPATH="//div[@id='__next']/div[@class='bg-front-dark bg-front-width']//div[@role='alert']/div[@class='toast-body']"
 
+"//*[@id='__next']/div/main/div[2]/div/div[2]"
 #INPUT
 input_forgot_email ="tobetotest3@gmail.com" 
 input_not_found_email = "tobetokayıtsız@gmail.com"
@@ -147,7 +153,7 @@ INCORRECTPASSWORDPOPUP_TEXT ="Şifreniz en az 6 karakterden oluşmalıdır."
 SAMEOLDPASSWORDPOPUP_TEXT="Yeni şifreniz mevcut şifrenizden farklı olmalıdır."
 NOTFOUNDEMAILPOPUP_TEXT = "Kullanıcı bulunamadı."
 PASSWORDNOTMATCHEDPOPUP_TEXT = "• Şifreler Eşleşmedi"
-INVALIDMAILPOPUP_XPATH = "• Girdiğiniz e-posta geçersizdir."
+INVALIDMAILPOPUPXPATH_TEXT = "• Girdiğiniz e-posta geçersizdir."
 
 
 #-----------------------------------------TEST My Personal Information------------------------------------
@@ -316,7 +322,7 @@ UPLOAD_XPATH="(//input[@type='file'])[1]"
 UPLOAD_AREA_XPATH2="/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div"
 UPLOAD_FILE_BUTTON_XPATH="//button[@class='uppy-u-reset uppy-c-btn uppy-StatusBar-actionBtn uppy-StatusBar-actionBtn--upload uppy-c-btn-primary']"
 CERTIFICATES_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
-CLICKXBUTTON_XPATH = "//*[@id='uppy_uppy-tobeto/pdf-1e-application/pdf-3578407-1713434434961']/div[2]/div[2]/button"
+CLICKXBUTTON_XPATH = "/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div/div/div[2]/div[2]/button"
 DOWNLOADFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[1]"
 DELETEFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]"
 DELETEFILEYESBUTTON = "/html/body/div[4]/div/div/div/div/div/div[2]/button[2]"
