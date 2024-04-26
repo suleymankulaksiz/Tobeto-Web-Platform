@@ -442,14 +442,7 @@ ISTANBUL_KODLUYOR_LOGO_CSS_SELECTOR= ".p-4 > span > img"
 
 #-----------CLASS NAME
 X_BUTTON_CLASSNAME="css-8mmkcg"
-DROPDOWN_PROFILE_INFO_CLASS_NAME=  "dropdown-item"
-
-
-
-
-
-
-
+DROPDOWN_PROFİLE_INFO_CLASS_NAME=  "dropdown-item"
 
 
 
