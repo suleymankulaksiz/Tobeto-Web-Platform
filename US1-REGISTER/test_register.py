@@ -22,6 +22,32 @@ class Test_Register:
         yield
         self.driver.quit()
     def waitForElementVisible(self, locator, timeout=5):
+<<<<<<< HEAD
+        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
+
+   
+
+    def test_register(self):
+        emailrandom = generate_random_email()
+        firstname = self.waitForElementVisible((By.NAME, FIRSTNAME_NAME))
+        lastname = self.waitForElementVisible((By.NAME, LASTNAME_NAME))
+        email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
+        password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
+        password_again = self.waitForElementVisible((By.NAME, PASSWORDAGAIN_NAME))
+
+        firstname.send_keys(input_firstname)
+        lastname.send_keys(input_lastname)
+        email.send_keys(emailrandom)
+        password.send_keys(input_password)
+        password_again.send_keys(input_passwordagain)
+
+        
+        sign_up_button = self.waitForElementVisible((By.XPATH, SIGNUPBUTTON_XPATH))
+        sign_up_button.click()
+        
+
+
+=======
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)) 
     def take_and_show_screenshot(self, image_path):
         screenshot = Image.open(image_path)
@@ -31,6 +57,7 @@ class Test_Register:
             data = json.load(file) #JSON veriler Python veri yapısına dönüşür.
         return [(user['firstnamex'], user['lastnamex'], user['emailx'], user['passwordx'], user['passwordagainx']) for user in data['invalid_login_users']] #tuple list oluşturur.
     def checkboxs(self):
+>>>>>>> master
         checkbox1=self.waitForElementVisible((By.XPATH,CHECKBOX1_XPATH))
         checkbox1.click()
         checkbox2=self.waitForElementVisible((By.XPATH,CHECKBOX2_XPATH))
@@ -90,8 +117,16 @@ class Test_Register:
         self.driver.switch_to.default_content()
         continue_button =self.waitForElementVisible((By.XPATH,CONTINUEBUTTON_XPATH))       
         continue_button.click()
+<<<<<<< HEAD
+        
+
+       
+
+        sleep(2)
+=======
         wait_url = WAITREGISTER_URL
         WebDriverWait(self.driver, 10).until(EC.url_to_be(wait_url))
+>>>>>>> master
         alertMessage = self.waitForElementVisible((By.XPATH, REGISTERTEXT_XPATH))
         assert alertMessage.text == TRUEREGISTER_TEXT
 
