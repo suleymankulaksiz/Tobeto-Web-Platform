@@ -143,7 +143,7 @@ DROPDOWN_PROFILE_INFO_CLASS_NAME=  "dropdown-item"
 
 
 
-#sevda.
+#sevda..
 
 
 
