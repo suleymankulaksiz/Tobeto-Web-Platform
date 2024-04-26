@@ -1,5 +1,6 @@
 import json
 from time import sleep
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -24,6 +25,9 @@ class Test_my_personal_information:
     def waitForElementVisible(self, locator, timeout=10):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
+    def scroll(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
 
     def precondition(self):
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
@@ -40,7 +44,11 @@ class Test_my_personal_information:
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
         assert profileTitleText.text == PROFILETITLETEXT
 
-        profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
+
+
+        profileButton = self.waitForElementVisible((By.XPATH, PROFILEBUTTON_XPATH))
+        self.scroll()
+        # profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
         profileButton.click()
     #TC 1
     def test_updating_personal_information(self): 
@@ -51,31 +59,25 @@ class Test_my_personal_information:
         surnameTextBox=self.waitForElementVisible((By.XPATH,SURNAMETEXTBOX_XPATH))
         phoneTextBox=self.waitForElementVisible((By.ID,PHONETEXTBOX_ID))
         emailTextBox=self.waitForElementVisible((By.XPATH,EMAILNAMETEXTBOX_XPATH))
-
         # TextBox'ların içerisinin dolu olma durumunu assert ile kontrol etme
         assert {
         nameTextBox.get_attribute("value") and surnameTextBox.get_attribute("value") and phoneTextBox.get_attribute("value") and emailTextBox.get_attribute("value")
         }
-
         # Doğum tarihi girişi yapılır
         Dateofbirth_Box=self.waitForElementVisible((By.XPATH,DATEOFBIRTH_XPATH))
         Dateofbirth_Box.click()
         Dateofbirth_Box.send_keys(input_dateofbirth)
-
         #TC No girişi yapılır
         tcNo=self.waitForElementVisible((By.XPATH,TCNO_XPATH))
         tcNo.click()
         tcNo.send_keys(input_tcno)
-
         #Mail adresi kısmına tıklanma durumu
         mail_click = self.waitForElementVisible((By.XPATH,MAILCLICK_XPATH))
         mail_click.click()
-
         #Ülke girilme durumu
         countryBox = self.waitForElementVisible((By.XPATH,COUNTRYBOXCLICK_XPATH))
         countryBox.click()
         countryBox.send_keys(input_country)
-
         #Şehir seçilir
         dropdown_element_city = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, DROPDOWN_XPATH))
@@ -83,7 +85,6 @@ class Test_my_personal_information:
         dropdown = Select(dropdown_element_city)
         # indekse göre seçim yapın
         dropdown.select_by_index(40)
-
         #İlçe seçilir
         dropdown_element_town = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, TOWNBOX_XPATH))
@@ -92,8 +93,8 @@ class Test_my_personal_information:
         #indekse göre seçim 
         sleep(2)
         dropdown.select_by_index(10)
-
-        saveButton = self.waitForElementVisible((By.XPATH,SAVEBUTTON_XPATH))
+        saveButton = self.waitForElementVisible((By.XPATH, SAVEBUTTON_XPATH))
+        self.scroll()
         saveButton.click()
         sleep(2)
     #TC 2
@@ -102,7 +103,7 @@ class Test_my_personal_information:
         
         #TC No girişi yapılır
         tcNo=self.waitForElementVisible((By.XPATH,TCNO_XPATH))
-        tcNo.click()
+        sleep(2)
         tcNo.send_keys(input_incorrect_tcno)
 
         #Mahalle sokak girişi 
@@ -112,11 +113,13 @@ class Test_my_personal_information:
 
         #Hakkımda kısmı
         aboutmeBox= self.waitForElementVisible((By.XPATH,ABOUTME_XPATH))
+        self.scroll()
         aboutmeBox.click()
         aboutmeBox.send_keys(input_aboutme)
 
         #Kaydetme butonu
         saveButton = self.waitForElementVisible((By.XPATH,SAVEBUTTON_XPATH))
+        
         saveButton.click()
         sleep(2)
 
@@ -167,6 +170,8 @@ class Test_my_personal_information:
     #TC 3
     def test_add_profile_picture(self): 
         self.precondition()
+        time.sleep(2)
+        self.driver.execute_script("window.scrollTo(0, 0);")
 
         avatar_button=self.waitForElementVisible((By.XPATH,AVATARBUTTON_XPATH))
         avatar_button.click()

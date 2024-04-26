@@ -22,32 +22,6 @@ class Test_Register:
         yield
         self.driver.quit()
     def waitForElementVisible(self, locator, timeout=5):
-<<<<<<< HEAD
-        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
-
-   
-
-    def test_register(self):
-        emailrandom = generate_random_email()
-        firstname = self.waitForElementVisible((By.NAME, FIRSTNAME_NAME))
-        lastname = self.waitForElementVisible((By.NAME, LASTNAME_NAME))
-        email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
-        password = self.waitForElementVisible((By.NAME, PASSWORD_NAME))
-        password_again = self.waitForElementVisible((By.NAME, PASSWORDAGAIN_NAME))
-
-        firstname.send_keys(input_firstname)
-        lastname.send_keys(input_lastname)
-        email.send_keys(emailrandom)
-        password.send_keys(input_password)
-        password_again.send_keys(input_passwordagain)
-
-        
-        sign_up_button = self.waitForElementVisible((By.XPATH, SIGNUPBUTTON_XPATH))
-        sign_up_button.click()
-        
-
-
-=======
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)) 
     def take_and_show_screenshot(self, image_path):
         screenshot = Image.open(image_path)
@@ -57,7 +31,6 @@ class Test_Register:
             data = json.load(file) #JSON veriler Python veri yapısına dönüşür.
         return [(user['firstnamex'], user['lastnamex'], user['emailx'], user['passwordx'], user['passwordagainx']) for user in data['invalid_login_users']] #tuple list oluşturur.
     def checkboxs(self):
->>>>>>> master
         checkbox1=self.waitForElementVisible((By.XPATH,CHECKBOX1_XPATH))
         checkbox1.click()
         checkbox2=self.waitForElementVisible((By.XPATH,CHECKBOX2_XPATH))
@@ -103,8 +76,7 @@ class Test_Register:
 
 
 
-
-    # Kullanıcının kayıt olma işlemi
+# Kullanıcının kayıt olma işlemi
     def test_register(self):
         self.registerForm()
         self.checkboxs()
@@ -117,22 +89,11 @@ class Test_Register:
         self.driver.switch_to.default_content()
         continue_button =self.waitForElementVisible((By.XPATH,CONTINUEBUTTON_XPATH))       
         continue_button.click()
-<<<<<<< HEAD
-        
-
-       
-
-        sleep(2)
-=======
         wait_url = WAITREGISTER_URL
         WebDriverWait(self.driver, 10).until(EC.url_to_be(wait_url))
->>>>>>> master
         alertMessage = self.waitForElementVisible((By.XPATH, REGISTERTEXT_XPATH))
         assert alertMessage.text == TRUEREGISTER_TEXT
-
-    
-    
-    # Doldurulması zorunlu alanlarının boş bırakılma durumu
+# Doldurulması zorunlu alanlarının boş bırakılma durumu
     @pytest.mark.parametrize("firstnamex, lastnamex,emailx,passwordx,passwordagainx", readInvalidDataFromJSON())
     def test_loginPass_box(self, firstnamex, lastnamex,emailx,passwordx,passwordagainx):
         firstname = self.waitForElementVisible((By.NAME, FIRSTNAME_NAME))
@@ -147,19 +108,13 @@ class Test_Register:
         password_again.send_keys(passwordagainx)
         sign_up_button = self.waitForElementVisible((By.XPATH, SIGNUPBUTTON_XPATH))
         assert not  sign_up_button.is_enabled(), EMPTY_FIELDS_TEXT      
-
-    
-    
-    #  E-postanın geçersiz formatta girilmesi durumu       
+#  E-postanın geçersiz formatta girilmesi durumu       
     def test_wrongFormat_email(self):
         email = self.waitForElementVisible((By.NAME, EMAIL_NAME))
         email.send_keys(input_wronfFormat_email)
         wrongMail_alert=self.waitForElementVisible((By.XPATH,WRONG_EMAIL_ALERT_XPATH))
         assert wrongMail_alert.text ==WRONG_MAIL_TEXT     
-
-    
-    
-    #  "Şifre" ve "Şifre Tekrar" bölümlerinin eşleşmediği durumlar  
+#  "Şifre" ve "Şifre Tekrar" bölümlerinin eşleşmediği durumlar  
     def  test_passwordControl(self):
         emailrandom = generate_random_email()
         firstname = self.waitForElementVisible((By.NAME, FIRSTNAME_NAME))
@@ -181,10 +136,7 @@ class Test_Register:
         continue_button.click()
         passwordControl_alert=self.waitForElementVisible((By.CSS_SELECTOR,PASSWORDCONTROL_XPATH))
         assert passwordControl_alert.text ==PASSWORDCONTROL_TEXT
-
-
-    
-    # Kullanıcının sisteme kayıt olduğu e-posta adresinin sistemde mevcut olması
+# Kullanıcının sisteme kayıt olduğu e-posta adresinin sistemde mevcut olması
     def test_emailagain(self):
         firstname = self.waitForElementVisible((By.NAME, FIRSTNAME_NAME))
         lastname = self.waitForElementVisible((By.NAME, LASTNAME_NAME))
@@ -205,18 +157,12 @@ class Test_Register:
         continue_button.click()
         emailControl_alert =self.waitForElementVisible((By.CSS_SELECTOR,EMAILCONTROL_XPATH))
         assert emailControl_alert.text ==EMAILCONTROL_TEXT
-
-
-    
-    # Kullanıcının sözleşmeler sayfasını görüntüleyebilmesi
+# Kullanıcının sözleşmeler sayfasını görüntüleyebilmesi
     def test_contractsWindow(self):
         self.registerForm()
         contract_windows =self.waitForElementVisible((By.XPATH,CONTRACTWINDOWS_XPATH))
         assert contract_windows.text == CONTRACTWINDOWS_TEXT
-
-
-    
-    #Kullanıcının kayıt olabilmesi için gereken sözleşmeleri onaylamadan devam edememesi durumu      
+#Kullanıcının kayıt olabilmesi için gereken sözleşmeleri onaylamadan devam edememesi durumu      
     def test_contractsPermission(self):
         self.test_contractsWindow()
         self.driver.save_screenshot("images/buttonPasif.png")
@@ -233,10 +179,7 @@ class Test_Register:
            print("Button is visible")
         except Exception :
            print("Button is not visible")
-
-
-    
-    #Kullanıcının telefon numarasını belirlenen sınırdan az girmesi
+#Kullanıcının telefon numarasını belirlenen sınırdan az girmesi
     def test_phone_shortLeng(self):
        self.test_contractsWindow()
        self.checkboxs()
@@ -250,10 +193,7 @@ class Test_Register:
        continue_button.click()
        warning_phoneL= self.waitForElementVisible((By.XPATH,PHONE_LONG_SHORT_ALERT_XPATH))
        assert warning_phoneL.text == PHONE_SHORT_LENGTH_TEXT
-
-
-    
-    #Kullanıcının telefon numarasını belirlenen sınırdan fazla girmesi
+#Kullanıcının telefon numarasını belirlenen sınırdan fazla girmesi
     def test_phone_longLeng(self):
        self.test_contractsWindow()
        self.checkboxs()
@@ -267,10 +207,6 @@ class Test_Register:
        continue_button.click()
        warning_phoneLongL= self.waitForElementVisible((By.XPATH,PHONE_LONG_SHORT_ALERT_XPATH))
        assert warning_phoneLongL.text == PHONE_LONG_LENGTH_TEXT
-
-
-    
-    #Kullanıcının girdiği telefon numarasının sistemde kayıtlı olması
     def test_registeredNumber(self):
         self.test_contractsWindow()
         self.checkboxs()
@@ -291,10 +227,6 @@ class Test_Register:
         self.driver.save_screenshot("images/registeredNumber.png")
         self.take_and_show_screenshot("images/registeredNumber.png")
         assert False,REGISTER_NUMBER_TEXT 
-
-    
-    
-    #Captcha doğrulamasının geçersiz olduğu durum
     def test_faildCaptcha(self):
         self.test_contractsWindow()
         self.checkboxs()

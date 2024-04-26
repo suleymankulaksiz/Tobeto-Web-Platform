@@ -207,7 +207,7 @@ class Test_Homepage:
         assert {areaContol.text==AREA_CONTROL_BOTTOM_TEXT and
                 self.driver.current_url==PROFILE_INFO_URL and
                 self.driver.current_url==IMP_YOURSELF_URL and
-                self.driver.current_url==LESSONS_URL, f"{LESSONS_URL} değil https://tobeto.com/platform-egitimler adresi geliyor"  #fail done
+                self.driver.current_url==LESSONS_URL   #fail done
                }
       
 

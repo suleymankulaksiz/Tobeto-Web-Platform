@@ -11,12 +11,8 @@ import imaplib
 import email
 from email.header import decode_header
 from selenium.webdriver.common.action_chains import ActionChains
-import time
-import ctypes
-from imap_tools import MailBox
-from imap_tools import AND, OR, NOT
-import re
-import requests
+
+
 
 
 # user32 = ctypes.windll.user32
