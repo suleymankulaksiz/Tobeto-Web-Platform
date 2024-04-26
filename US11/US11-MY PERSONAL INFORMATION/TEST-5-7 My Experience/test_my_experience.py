@@ -1,5 +1,6 @@
 import json
 from time import sleep
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,6 +24,11 @@ class Test_my_personal_information:
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
+
+    def scroll(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
+    
     def precondition(self):
         #Login
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
@@ -43,8 +49,12 @@ class Test_my_personal_information:
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
         assert profileTitleText.text == PROFILETITLETEXT
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
+        profileButton = self.waitForElementVisible((By.XPATH, PROFILEBUTTON_XPATH))
+        self.scroll()
         profileButton.click()
         #Deneyimler bölümüne gidilir
+        self.driver.execute_script("window.scrollTo(0, 0);")
+        time.sleep(1)
         experienceButton  = self.waitForElementVisible((By.XPATH,EXPERIENCEBUTTON_XPATH))
         experienceButton.click()
 
@@ -108,7 +118,7 @@ class Test_my_personal_information:
         dropdown = Select(dropdown_element_city)
         # indekse göre seçim yapın
         dropdown.select_by_index(40)
-        sleep(1)
+        sleep(2)
         #İş başlangıç ve bitiş tarihleri seçilir
         self.test_job_start_end_date2()
         

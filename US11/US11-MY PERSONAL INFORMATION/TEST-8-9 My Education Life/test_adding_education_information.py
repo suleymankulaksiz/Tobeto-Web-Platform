@@ -1,5 +1,6 @@
 import json
 from time import sleep
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,6 +28,10 @@ class Test_adding_education_information:
         education_save_button = self.waitForElementVisible((By.XPATH,EDUCATIONSAVEBUTTON_XPATH))
         education_save_button.click()
 
+    def scroll(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
+
     def precondition(self):
         #Login
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
@@ -45,8 +50,11 @@ class Test_adding_education_information:
         profileTitleText=self.waitForElementVisible((By.XPATH,PROFILETITLE_TEXT_XPATH))
         assert profileTitleText.text == PROFILETITLETEXT
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
+        self.scroll()
         profileButton.click()
         #Eğitimlerim bölümü
+        self.driver.execute_script("window.scrollTo(0, 0);")
+        time.sleep(1)
         education_information= self.waitForElementVisible((By.XPATH,EDUCATIONSAVEBUTTON_XPATH))
         education_information.click()
 

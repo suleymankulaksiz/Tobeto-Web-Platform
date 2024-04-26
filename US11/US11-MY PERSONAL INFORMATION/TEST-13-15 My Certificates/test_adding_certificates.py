@@ -1,5 +1,6 @@
 import json
 from time import sleep
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -65,6 +66,10 @@ class Test_adding_certificates:
         uploadFileButton.click()
         sleep(2)
 
+    def scroll(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
+
     def precondition(self):
         login_email = self.waitForElementVisible((By.XPATH,LOGIN_MAIL_XPATH))
         login_email.send_keys(input_personal_mail)
@@ -81,9 +86,14 @@ class Test_adding_certificates:
         #assert profileTitleText.text != "Profilini oluştur"
         self.driver.execute_script("window.scrollBy(0, 500);")
         profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
+        profileButton = self.waitForElementVisible((By.XPATH, PROFILEBUTTON_XPATH))
+        #Aşağı scroll
+        self.scroll()
         profileButton.click()
         #Eğitimlerim bölümü
-        certificates= self.waitForElementVisible((By.XPATH,CERTIFICATES_XPATH))
+        #Yukarı scroll
+        self.driver.execute_script("window.scrollTo(0, 0);")
+        certificates= self.waitForElementVisible((By.XPATH,CERTIFICATESNAME_XPATH))
         certificates.click()
 
     
