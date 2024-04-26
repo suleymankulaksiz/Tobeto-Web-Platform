@@ -221,7 +221,7 @@ UPLOAD_AREA_CLASS="uppy-Dashboard-overlay"
 UPLOAD_FILE_BUTTON_XPATH1="//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[4]/div[1]/div[2]/button"
 
 #PATH
-avatar_photo_path = r"C:\Users\slyma\OneDrive\Masaüstü\Pair3-Tobeto-Proje-1\images\tobeto.png"
+avatar_photo_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto.png"
 tobeto_png_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto.png"
 tobeto_png2_path = "C:/Users/Admin/Desktop/Tobeto Pair 3 Proje/Pair3-Tobeto-Proje/images/tobeto2.png"
 
@@ -280,7 +280,7 @@ city_border_color_text = "rgb(179, 166, 192)"
 
 
 #XPATH
-EXPERIENCEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[1]/div/a[2]/span[2]"
+EXPERIENCEBUTTON_XPATH="//span[contains(.,'Deneyimlerim')]"
 INPUTORGANIZATIONNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[1]/input"
 POSITIONNAMEXPATH_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[2]/input"
 SECTORNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[3]/input"
@@ -291,7 +291,6 @@ DROPDOWNELEMENTDATEMONTH_XPATH = "//*[@id='__next']/div/main/section/div/div/div
 SELECTDAY_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]"
 EXPERIENCECHECKBOX_XPATH ="//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[6]/label[2]/input"
 JOBDESCRIPTION_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/div/div[7]/textarea"
-EXPERIENCEBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[2]/span[2]"
 EXPERIENCESAVEBUTTON_XPATH = "//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
 
 #CSS SELECTOR
@@ -347,7 +346,7 @@ SAVEBUTTON_XPATH="//*[@id='__next']/div/main/section/div/div/div[2]/form/button"
 UPLOAD_XPATH="(//input[@type='file'])[1]"
 UPLOAD_AREA_XPATH2="/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div"
 UPLOAD_FILE_BUTTON_XPATH="//button[@class='uppy-u-reset uppy-c-btn uppy-StatusBar-actionBtn uppy-StatusBar-actionBtn--upload uppy-c-btn-primary']"
-CERTIFICATES_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
+CERTIFICATESNAME_XPATH = "//*[@id='__next']/div/main/section/div/div/div[1]/div/a[5]/span[2]"
 CLICKXBUTTON_XPATH = "/html/body/div[1]/div/main/section/div/div/div[2]/div/div[2]/div/div/div/div[2]/div/div/div/div[2]/div/div[3]/div/div/div[2]/div[2]/button"
 DOWNLOADFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[1]"
 DELETEFILEBUTTON = "//*[@id='__next']/div/main/section/div/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]"

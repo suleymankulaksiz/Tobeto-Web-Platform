@@ -45,7 +45,6 @@ class Test_my_personal_information:
         assert profileTitleText.text == PROFILETITLETEXT
 
 
-
         profileButton = self.waitForElementVisible((By.XPATH, PROFILEBUTTON_XPATH))
         self.scroll()
         # profileButton=self.waitForElementVisible((By.XPATH,PROFILEBUTTON_XPATH))
