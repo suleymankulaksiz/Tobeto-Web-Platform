@@ -203,11 +203,12 @@ class Test_Homepage:
         sleep(2)
         start_to_learn_btn=self.waitForElementVisible((By.XPATH, START_TO_LEARN_BTN_XPATH))
         start_to_learn_btn.click()
+        expected_url= "https://tobeto.com/egitimlerim"
         
         assert {areaContol.text==AREA_CONTROL_BOTTOM_TEXT and
                 self.driver.current_url==PROFILE_INFO_URL and
                 self.driver.current_url==IMP_YOURSELF_URL and
-                self.driver.current_url==LESSONS_URL, f"{LESSONS_URL} değil https://tobeto.com/platform-egitimler adresi geliyor"  #fail done
+                self.driver.current_url==expected_url 
                }
       
 
