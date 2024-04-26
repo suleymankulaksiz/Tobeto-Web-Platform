@@ -1,1 +1,0 @@
-Merhaba arkadaşlar. ben emir
