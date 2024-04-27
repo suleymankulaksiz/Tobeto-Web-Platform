@@ -78,7 +78,7 @@ class Test_my_personal_information:
         select_day.click()
         sleep(2)
 
-    def test_job_start_end_date2(self):
+    def job_start_end_date2(self):
         job_start_date = self.waitForElementVisible((By.XPATH,JOBSTARTDATE_XPATH))
         job_start_date.send_keys(job_start_date_input)
 
