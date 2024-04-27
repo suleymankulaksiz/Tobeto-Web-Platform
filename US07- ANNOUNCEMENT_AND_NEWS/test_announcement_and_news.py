@@ -145,6 +145,10 @@ class Test_Announcement_And_News:
     
     
     def test_filder_hide_and_show(self): 
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        sleep(2)
+        page3=self.waitForElementVisible((By.XPATH, "//*[@id='__next']/div/main/div[2]/div[2]/ul/li[4]"))
+        page3.click()
         no_read = self.driver.find_elements(By.XPATH, NO_READ_XPATH)
         found_button = False
         for i in no_read:
