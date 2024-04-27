@@ -538,6 +538,7 @@ ASSESSMENT_URL = "https://tobeto.com/profilim/degerlendirmeler/tobeto-iste-basar
 #-------------------------------------LOCATORS------------------------------------
 assessments_xpath = "//*[@id='__next']/div/nav/div[1]/ul/li[3]/a" 
 assessments_header_xpath= "//*[@id='__next']/div/main/section[1]/div/div[2]/div/h3"
+assessments_header_text_visible_xpath=  "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
 assessment_element_xpath = "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div"
 assessmentStart_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
 assessmentStart2_xpath= "//*[@id='__next']/div/main/section/div/div/div/div[3]/a"
