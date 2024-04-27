@@ -38,6 +38,7 @@ class Test_Assessments():
     def test_assessment(self):
         self.login()
         assessments_header= self.waitForElementVisible((By.XPATH, assessments_header_xpath))
+        self.waitForElementVisible((By.XPATH, assessments_header_text_visible_xpath))
         assessments_element= self.waitForElementVisible((By.XPATH, assessment_element_xpath))
         assert assessments_header.text == assessmentsHeader_text 
         assert assessments_element.text== assessment_element_text
