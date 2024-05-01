@@ -11,6 +11,7 @@ from constants.globalConstants import *
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
+
 #Deneyimlerim TC 5-7
 class Test_my_personal_information:
     @pytest.fixture(autouse=True)
@@ -21,6 +22,7 @@ class Test_my_personal_information:
         yield
         self.driver.quit()
 
+
     def waitForElementVisible(self, locator, timeout=5):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
     
@@ -28,6 +30,8 @@ class Test_my_personal_information:
     def scroll(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(1)
+
+    
     
     def precondition(self):
         #Login
@@ -57,7 +61,7 @@ class Test_my_personal_information:
         time.sleep(1)
         experienceButton  = self.waitForElementVisible((By.XPATH,EXPERIENCEBUTTON_XPATH))
         experienceButton.click()
-
+    
 
     def test_job_start_end_date(self):
         self.precondition()
