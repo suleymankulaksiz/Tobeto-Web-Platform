@@ -7,11 +7,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import openpyxl
 from selenium.webdriver.common.action_chains import ActionChains
-from ChatboxPage import *
 from constants.globalConstants import *
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from constants.globalConstants import *
 
 
 
