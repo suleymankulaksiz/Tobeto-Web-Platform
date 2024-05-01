@@ -7,7 +7,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import openpyxl
 from selenium.webdriver.common.action_chains import ActionChains
-from profilSosyalMediaPage import *
 from constants.globalConstants import *
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
