@@ -62,6 +62,22 @@ class Test_my_personal_information:
         experienceButton  = self.waitForElementVisible((By.XPATH,EXPERIENCEBUTTON_XPATH))
         experienceButton.click()
     
+    def job_start_end_date2(self):
+        job_start_date = self.waitForElementVisible((By.XPATH,JOBSTARTDATE_XPATH))
+        job_start_date.send_keys(job_start_date_input)
+
+        dropdown_element_date = self.waitForElementVisible((By.XPATH, DROPDOWNELEMENTDATE_XPATH))
+        dropdown_element_date.click()
+        #İş bitiş takviminden ay seçilir
+        dropdown_element_date_month = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, DROPDOWNELEMENTDATEMONTH_XPATH))
+        )
+        dropdown = Select(dropdown_element_date_month)
+        # indekse göre seçim yapın
+        dropdown.select_by_index(4)
+        select_day = self.waitForElementVisible((By.XPATH, SELECTDAY_XPATH))
+        select_day.click()
+        sleep(2)
 
     def test_job_start_end_date(self):
         self.precondition()
@@ -81,23 +97,7 @@ class Test_my_personal_information:
         select_day = self.waitForElementVisible((By.XPATH, SELECTDAY_XPATH))
         select_day.click()
         sleep(2)
-
-    def job_start_end_date2(self):
-        job_start_date = self.waitForElementVisible((By.XPATH,JOBSTARTDATE_XPATH))
-        job_start_date.send_keys(job_start_date_input)
-
-        dropdown_element_date = self.waitForElementVisible((By.XPATH, DROPDOWNELEMENTDATE_XPATH))
-        dropdown_element_date.click()
-        #İş bitiş takviminden ay seçilir
-        dropdown_element_date_month = WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, DROPDOWNELEMENTDATEMONTH_XPATH))
-        )
-        dropdown = Select(dropdown_element_date_month)
-        # indekse göre seçim yapın
-        dropdown.select_by_index(4)
-        select_day = self.waitForElementVisible((By.XPATH, SELECTDAY_XPATH))
-        select_day.click()
-        sleep(2)
+ 
 
     #TC 5
     def test_adding_experience(self):
@@ -124,7 +124,7 @@ class Test_my_personal_information:
         dropdown.select_by_index(40)
         sleep(2)
         #İş başlangıç ve bitiş tarihleri seçilir
-        self.test_job_start_end_date2()
+        self.job_start_end_date2()
         
         # Onay kutusu tıklanma durumu kontrolü
         experience_checkbox = self.driver.find_element(By.XPATH, EXPERIENCECHECKBOX_XPATH)
@@ -164,7 +164,7 @@ class Test_my_personal_information:
         dropdown.select_by_index(40)
 
         #İş başlangıç ve bitiş tarihleri seçilir
-        self.test_job_start_end_date2()
+        self.job_start_end_date2()
 
         #İş açıklaması
         job_description = self.waitForElementVisible((By.XPATH,JOBDESCRIPTION_XPATH))
@@ -204,7 +204,7 @@ class Test_my_personal_information:
         sector_name.send_keys(sector_name_text)
 
         #İş başlangıç ve bitiş tarihleri seçilir
-        self.test_job_start_end_date2()
+        self.job_start_end_date2()
         
         #İş açıklaması
         job_description = self.waitForElementVisible((By.XPATH,JOBDESCRIPTION_XPATH))

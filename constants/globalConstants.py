@@ -20,6 +20,19 @@ def generate_random_email():
         return emailrandom
 
 
+def readSubtitleInformationSubtitle1DataFromTxt():
+        with open('data/information1Text.txt', 'r', encoding='utf-8') as reportInformationText1:
+            INFORMATION_TEXT = reportInformationText1.read()
+        return INFORMATION_TEXT
+
+def readSubtitleInformationSubtitle2DataFromTxt():
+        with open ('data/information2Text.txt', 'r', encoding='utf-8') as reportInformationText2:
+                INFORMATION_TEXT2= reportInformationText2.read()
+        return INFORMATION_TEXT2
+
+
+
+
 
 #--------------------URL-----------------------
 REGISTER_URL = "https://tobeto.com/kayit-ol"
@@ -503,14 +516,18 @@ invalidLoginError_xpath= "//div[@id='__next']/div/main/div[2]/div/div[2]"
 loginEmptyEmail_xpath="//*[@id='__next']/div/main/section/div/div/div[1]/div/form/p[1]"
 loginEmptyPassword_xpath= "//*[@id='__next']/div/main/section/div/div/div[1]/div/form/p[2]"
 loginSignUp_xpath= "//*[@id='__next']/div/main/section/div/div/div[1]/div/div[2]/label/small/a"
+unverifiedLoginError_xpath= "//div[@id='__next']/div/main/div[2]/div/div[2]"
 #-------------------------------------INPUTS------------------------------------
 input_loginEmail= "kvsyilmaz98@gmail.com"
 input_loginPassword= "201618"
 input_empty= ""
+input_unverified_email= "sevdyilmz@gmail.com"
+input_unverified_password= "123456"
 
 #------------------------------------TEXTS---------------------------------------
 login_invalidLogin_text= "• Geçersiz e-posta veya şifre."
 empty_fields_text= "Doldurulması zorunlu alan*"
+login_unverifiedLogin_text= "• Henüz e-posta adresinizi doğrulamadınız."
 
 
 #------------------------------------US8-----------------------------------------
@@ -521,6 +538,7 @@ ASSESSMENT_URL = "https://tobeto.com/profilim/degerlendirmeler/tobeto-iste-basar
 #-------------------------------------LOCATORS------------------------------------
 assessments_xpath = "//*[@id='__next']/div/nav/div[1]/ul/li[3]/a" 
 assessments_header_xpath= "//*[@id='__next']/div/main/section[1]/div/div[2]/div/h3"
+assessments_header_text_visible_xpath=  "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
 assessment_element_xpath = "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div"
 assessmentStart_xpath= "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
 assessmentStart2_xpath= "//*[@id='__next']/div/main/section/div/div/div/div[3]/a"
@@ -570,11 +588,12 @@ COMPETENCIES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[3]/div
 FOREIGNLANGUAGES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[4]/div"
 CERTIFICATES_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[5]/div"
 SOCIALMEDIA_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[6]/div"
+SHOWACTIVITY_CLASSNAME= "hm5-color"
 SEEICON_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[3]/div/div[1]/div/span[2]"
 OPENCOMPETENCIESCONTROL_XPATH= "/html/body/div[4]/div/div/div[1]"
 COMPETENCIESCLOSE_XPATH= "/html/body/div[4]/div/div/div[1]/button"
 DOWNLOADCERTIFICATE_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[5]/div/div[2]/div"
-SHOWSOCIALMEDIA_XPATH= "//div[@id='__next']/div/main/div/div[2]/div/div/div[6]/div/div[2]/a"
+SHOWSOCIALMEDIA_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[1]/div/div[6]/div/div[2]/a"
 PROFILERIGHTPART_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]"
 EDUCATIONLIFEELEMENT_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]/div/div[5]/div/div[2]"
 PROFILETESTSTARTBUTTON_XPATH= "//*[@id='__next']/div/main/div/div[2]/div[2]/div/div[1]/div/div[2]/div/a"
@@ -603,10 +622,18 @@ TESTREPORT_URL= "https://tobeto.com/profilim/degerlendirmeler/rapor/tobeto-iste-
 SHOWREPORT_XPATH= "//*[@id='__next']/div/main/section[2]/div/div/div[1]/div/a"
 REPORTHEADER_XPATH= "//*[@id='__next']/div/main/div/div"
 REPORTINFORMATION_CLASSNAME= "legendName"
+REPORT_SUBHEADING_XPATH= "//*[@id='heading8']/button"
+REPORT_SUBHEADING_INFORMATION_XPATH= "//*[@id='collapse8']/div/div"
+SUBHEADING_INFORMATION_LAST_XPATH= "//*[@id='collapse8']/div/div/p[3]/span"
+REPORT_SUBHEADING2_XPATH= "//*[@id='heading28']/button"
+REPORT_SUBHEADING2_INFORMATION_XPATH= "//*[@id='collapse28']/div"
+SUBHEADING2_INFORMATION_LAST_XPATH= "//*[@id='collapse28']/div/div/ul/li[13]"
 #REPORTVIEWCONTROL_XPATH= "//*[@id='__next']/div/main/section/div/div"
 #REPORTINFORMATION_XPATH= "//*[@id='__next']/div/main/section/div/div/div/div/div[2]/div"
 #---------------------------------------TEXTS------------------------------------
 REPORTINFORMATIONS_TEXTS= ['Yeni dünyaya hazırlanıyorum', 'Profesyonel duruşumu geliştiriyorum', 'Kendimi tanıyor ve yönetiyorum', 'Yaratıcı ve doğru çözümler geliştiriyorum', 'Başkaları ile birlikte çalışıyorum', 'Kendimi sürekli geliştiriyorum', 'Sonuç ve başarı odaklıyım', 'Anlıyorum ve anlaşılıyorum']
+REPORTHEADER_TEXT= "Tobeto ”İşte Başarı Modeli”\nAnaliz Raporum"
+
 
 #---------------------------------------------US11-----------------------------
 #------------------------------------------URL---------------------------------
@@ -631,9 +658,6 @@ COMPETENCEDELETEDALERT_XPATH= "//div[@id='__next']/div/div[2]/div/div[2]"
 COMPETENCIES_SAVED_CONTROL_TEXT= "• Yetenek eklendi."
 EMPTYCOMPETENCEALERT_TEXT= "• Herhangi bir yetenek seçmediniz!"
 COMPETENCEDELETEDALERT_TEXT= "• Yetenek kaldırıldı."
-
-
-
 
 
 
