@@ -12,7 +12,6 @@ from PIL import Image
 from selenium.webdriver.support.ui import Select
 
 
-
 class Test_Register:
     @pytest.fixture(autouse=True)
     def setup(self):
