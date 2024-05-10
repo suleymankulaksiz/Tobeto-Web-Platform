@@ -55,9 +55,7 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
 </div>
 
  
-**-Proje Sunum Dosyası**
-
-[bu linkten](https://drive.google.com/file/d/1QBiqmm1p6xZxPBpz53xYKNqtNI3PeMzx/view?usp=sharing)
+**-[Proje Sunum Dosyası](https://drive.google.com/file/d/1QBiqmm1p6xZxPBpz53xYKNqtNI3PeMzx/view?usp=sharing)**
 
 
 **-İletişim**
