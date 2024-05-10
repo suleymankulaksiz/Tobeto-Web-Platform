@@ -63,7 +63,11 @@ https://drive.google.com/file/d/1QBiqmm1p6xZxPBpz53xYKNqtNI3PeMzx/view
 **-İletişim**
 
 Emir Yılmaz: [https://www.linkedin.com/in/emiryılmaz/](https://www.linkedin.com/in/emiry%C4%B1lmaz/)
+
 Süleyman Kulaksız: https://www.linkedin.com/in/suleymankulaksiz/
+
 Kevser Yılmaz: [https://www.linkedin.com/in/kevser-yılmaz/](https://www.linkedin.com/in/kevser-y%C4%B1lmaz/)
+
 Sevda Yılmaz: https://www.linkedin.com/in/sevdyilmz/
+
 Meryem Özgün: https://www.linkedin.com/in/meryem-ozgun/
