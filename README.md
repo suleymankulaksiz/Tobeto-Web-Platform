@@ -23,8 +23,26 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
 - Proje başarılı bir şekilde tamamlandı.
 
 **-Kullandığımız Araçlar**
+<div align="left">
+  <img src="https://jmeter.apache.org/images/logo.svg" height="40" alt="jmeter logo"  />
+  <img width="12" />
+  <img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Devops/jenkins-icon.svg" height="40" alt="jenkins logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" height="40" alt="selenium logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" height="40" alt="pytest logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/postman/FF6C37" height="40" alt="postman logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/jira/0052CC" height="40" alt="jira logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
+</div>
+  
 
-Excel, JIRA, Xray, Github, , VSCode, Python, Pytest, Selenium, Selenium IDE, Swagger, Postman, HTML Report, Jenkins, Jmeter
+Excel, Xray, VSCode,  Selenium IDE, Swagger,  HTML Report, 
 
 **-İletişim**
 
