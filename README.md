@@ -1,7 +1,7 @@
 # Pair3-Tobeto-Proje
 **-Proje Amacı**
 
-Tobeto web platformunun arayüzü ve işlevselliği testleri gerçekleştirmek. 
+Tobeto web platformunun arayüzü ve işlevselliği testlerini gerçekleştirmek. 
 
 **-Proje Hakkında**
 
