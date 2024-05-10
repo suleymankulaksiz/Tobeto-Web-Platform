@@ -68,7 +68,7 @@ Emir Yılmaz: [https://www.linkedin.com/in/emiryılmaz/](https://www.linkedin.co
 
 Süleyman Kulaksız: https://www.linkedin.com/in/suleymankulaksiz/
 
-Kevser Yılmaz: [https://www.linkedin.com/in/kevser-yılmaz/](https://www.linkedin.com/in/kevser-y%C4%B1lmaz/)
+Kevser Yılmaz: https://www.linkedin.com/in/kevser-yilmaz/
 
 Sevda Yılmaz: https://www.linkedin.com/in/sevdyilmz/
 
