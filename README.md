@@ -53,7 +53,9 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img src ="https://assets-global.website-files.com/5aa7081220a301f2a3644f3b/5c3639861d25ef24879c9e84_Website_Output%20Icons_HTML.png" height="40" alt="html report" />
 </div>
  
+**-Proje Sunum Dosyası**
 
+https://drive.google.com/file/d/1QBiqmm1p6xZxPBpz53xYKNqtNI3PeMzx/view
 
 
 **-İletişim**
