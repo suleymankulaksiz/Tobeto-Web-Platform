@@ -42,7 +42,7 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img width="12" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" height="40" alt="excel"/>
   <img width="12" />
-  <img src ="https://en.wikipedia.org/wiki/Swagger_%28software%29#/media/File:Swagger-logo.png" height="40" alt="swagger"/>
+  <img src ="https://miro.medium.com/v2/resize:fit:1400/1*C_u3RtbZnYzRI10IUWbPfg.png" height="40" alt="swagger"/>
   <img width="12" />
   <img src ="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vscode_icon_130084.png" height="40" alt="vscode" />
   <img width="12" />
