@@ -21,6 +21,8 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
 - **Smoke** testler Jenkins ortamına aktarıldı.
 - **Back-end** kısmında **API** testleri yapıldı.
 - Proje başarılı bir şekilde tamamlandı.
+  
+  <br> 
 
 **-Kullandığımız Araçlar**
 
