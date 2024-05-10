@@ -42,9 +42,15 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img width="12" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" height="40" alt="excel"/>
   <img width="12" />
-  <img src ="file:///C:/Users/slyma/Downloads/swagger-svgrepo-com.svg" height="40" alt="swagger"/>
+  <img src ="https://en.wikipedia.org/wiki/Swagger_%28software%29#/media/File:Swagger-logo.png" height="40" alt="swagger"/>
   <img width="12" />
-  <img src ="file:///C:/Users/slyma/Downloads/vscode-svgrepo-com.svg" height="40" alt="vscode"
+  <img src ="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vscode_icon_130084.png" height="40" alt="vscode" />
+  <img width="12" />
+  <img src ="https://s3.eu-west-1.amazonaws.com/matrix.assets/k3huxfe9vfbic6vuvurwtsvu5ggz" height="40" alt="xray" />
+  <img width="12" />
+  <img src ="https://www.selenium.dev/selenium-ide/img/selenium-ide128.png" height="40" alt="selenium IDE" />
+  <img width="12" />
+  <img src ="https://assets-global.website-files.com/5aa7081220a301f2a3644f3b/5c3639861d25ef24879c9e84_Website_Output%20Icons_HTML.png" height="40" alt="html report" />
 </div>
  
 
