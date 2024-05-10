@@ -40,9 +40,9 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img width="12" />
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
   <img width="12" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" height="40" alt="excel"/>
 </div>
-  ![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-  
+ 
 
 Excel, Xray, VSCode,  Selenium IDE, Swagger,  HTML Report, 
 
