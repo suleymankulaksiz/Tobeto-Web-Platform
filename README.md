@@ -23,6 +23,7 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
 - Proje başarılı bir şekilde tamamlandı.
 
 **-Kullandığımız Araçlar**
+
 <div align="left">
   <img src="https://jmeter.apache.org/images/logo.svg" height="40" alt="jmeter logo"  />
   <img width="12" />
@@ -52,6 +53,7 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img width="12" />
   <img src ="https://assets-global.website-files.com/5aa7081220a301f2a3644f3b/5c3639861d25ef24879c9e84_Website_Output%20Icons_HTML.png" height="40" alt="html report" />
 </div>
+
  
 **-Proje Sunum Dosyası**
 
@@ -61,11 +63,7 @@ https://drive.google.com/file/d/1QBiqmm1p6xZxPBpz53xYKNqtNI3PeMzx/view
 **-İletişim**
 
 Emir Yılmaz: [https://www.linkedin.com/in/emiryılmaz/](https://www.linkedin.com/in/emiry%C4%B1lmaz/)
-
 Süleyman Kulaksız: https://www.linkedin.com/in/suleymankulaksiz/
-
 Kevser Yılmaz: [https://www.linkedin.com/in/kevser-yılmaz/](https://www.linkedin.com/in/kevser-y%C4%B1lmaz/)
-
 Sevda Yılmaz: https://www.linkedin.com/in/sevdyilmz/
-
 Meryem Özgün: https://www.linkedin.com/in/meryem-ozgun/
