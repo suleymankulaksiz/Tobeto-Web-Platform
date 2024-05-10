@@ -39,6 +39,8 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img src="https://cdn.simpleicons.org/jira/0052CC" height="40" alt="jira logo"  />
   <img width="12" />
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
+  <img width="12" />
+  <a href="https://github.com/" title="GitHub"><img src="icons/github.png" /></a>
 </div>
   
 
