@@ -41,7 +41,10 @@ Performans testlerini JMeter kullanarak gerçekleştirdik ve platformun yük alt
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
   <img width="12" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" height="40" alt="excel"/>
-  <img src ="https://miro.medium.com/v2/resize:fit:720/format:webp/1*ROkppzyy5CI9oruKJIhyQw.png" height="40" alt="xray"/>
+  <img width="12" />
+  <img src ="file:///C:/Users/slyma/Downloads/swagger-svgrepo-com.svg" height="40" alt="swagger"/>
+  <img width="12" />
+  <img src ="file:///C:/Users/slyma/Downloads/vscode-svgrepo-com.svg" height="40" alt="vscode"
 </div>
  
 
