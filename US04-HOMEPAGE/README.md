@@ -5,7 +5,6 @@
 
 
 <b>Test Case 1 :</b> Anasayfaya yönlendirilme bildirimi
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/dc581bc6-f159-4d10-b45d-dd54fc7de87a)
 
 <b>Description :</b> Kullanıcının platforma giriş işleminin ardından doğru sayfaya yönlendirildiğine dair uyarı mesajının gösterilmesi test edilecektir.<br>
 <b>Pre-condition :</b> Test ortamı çalısır ve hazır durumda olmalıdır. 
@@ -25,7 +24,6 @@ Test Data:https://tobeto.com/giris<br>
 
 
 <b>Test Case 2 :</b> Üst menü panelinin kontrolü 
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7f6bb511-df12-4cb6-9187-0bd120592436)
 
 <b>Description :</b>Üst menü panelinin içinde bulunan başlıkların tıklanabilir buton olduğu test edilecektir.<br>
 <b>Pre-condition :</b> Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
@@ -47,7 +45,6 @@ Test Data:https://tobeto.com/giris<br>
 <b>Expected Result:</b>https://tobeto.com/istanbul-kodluyor sayfasına yönlendirilmelidir.<br>
 
 <b>Test Case 3 :</b>Ana sayfada yer alan Hoş geldin ve İstanbul Kodluyor panelinin metinleri kontrolü
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/8af54863-24f6-4442-8e08-e26ffeaaf307)
 
 <b>Description :</b>Ana sayfadaki gerekli metinlerin görüntülendiği kontrol edilecektir. <br>
 <b>Pre-condition :</b> Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
@@ -66,7 +63,6 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 <img src="https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/c2be6af5-0476-4619-a25d-349b9a488d90" width="500" height="450"><br>
 
 <b>Test Case 4 :</b> İstanbul Kodluyor panel içeriğinin kontrolü
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7727ee40-8aff-41cf-a178-b941329fd2b6)
 
 <b>Description :</b>İstanbul Kodluyor panel içeriği kontrol edilecektir.<br>
 <b>Pre-condition :</b>Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
@@ -92,7 +88,6 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 
 
 <b>Test Case 5 :</b>Anasayfada yer alan "Eğitimlerim" bölümünün kontrolü
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7faff93b-c9ed-41d5-b362-f55613daee04)
 
 <b>Description :</b>Eğitimlerim bölümünde "Daha Fazla Göster" ve "Eğitime Git" butonlarının işlevi ve ilgili sayfaya yönlendirilmesi test edilecektir. <br>
 <b>Pre-condition :</b> Sayfanın hazır ve çalışır durumda olmasıhttps://tobeto.com/platform adresine gidilmelidir.
@@ -126,8 +121,6 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 <b>Expected Result:</b>İlgili Duyuru/Haber detaylarının görüntülendiği sayfaya yönlendirilmelidir.
 
 <b>Test Case 7 :</b>Anasayfada yer alan "Sınavlarım" bölümünün kontrolü
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/63acdabb-5116-496b-93be-a566526ffcca)
-
 
 <b>Description :</b>"Sınavlarım" bölümündeki sınav detaylarına erişebilme ve rapor görüntüleme penceresi kontrol edilecektir.<br>
 <b>Pre-condition :</b>Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
@@ -144,8 +137,6 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 
 
 <b>Test Case 8 :</b>Anasayfanın en altında yer alan "Profilini Oluştur","Kendini Değerlendir" ve "Öğrenmeye Başla" bölümlerinin ve "Başla" butonunun kontrolü
-![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7058ad41-2bac-494d-8196-c620ff984f25)
-
 
 
 <b>Description :</b>Anasayfanın en altında yer alan "Profilini Oluştur","Kendini Değerlendir" ve "Öğrenmeye Başla" bölümlerinin ve "Başla" butonunun kontrolü test edilecektir.<br>
