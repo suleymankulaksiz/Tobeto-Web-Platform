@@ -8,7 +8,7 @@
 ![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/dc581bc6-f159-4d10-b45d-dd54fc7de87a)
 
 <b>Description :</b> Kullanıcının platforma giriş işleminin ardından doğru sayfaya yönlendirildiğine dair uyarı mesajının gösterilmesi test edilecektir.<br>
-<b>Ön koşul :</b> Test ortamı çalısır ve hazır durumda olmalıdır. 
+<b>Pre-condition :</b> Test ortamı çalısır ve hazır durumda olmalıdır. 
 
 <b>Adımlar:</b>
 
@@ -27,8 +27,8 @@ Test Data:https://tobeto.com/giris<br>
 <b>Test Case 2 :</b> Üst menü panelinin kontrolü 
 ![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7f6bb511-df12-4cb6-9187-0bd120592436)
 
-<b>Description :</b>Üst menü panelinin içinde bulunan başlıkların tıklanabilir buton olduğu test edilecektir.
-<b>Ön koşul :</b> Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
+<b>Description :</b>Üst menü panelinin içinde bulunan başlıkların tıklanabilir buton olduğu test edilecektir.<br>
+<b>Pre-condition :</b> Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
 
 
 <b>Adımlar:</b>
@@ -68,7 +68,7 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 <b>Test Case 4 :</b> İstanbul Kodluyor panel içeriğinin kontrolü
 ![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/7727ee40-8aff-41cf-a178-b941329fd2b6)
 
-<b>Description :</b>İstanbul Kodluyor panel içeriği kontrol edilecektir.
+<b>Description :</b>İstanbul Kodluyor panel içeriği kontrol edilecektir.<br>
 <b>Pre-condition :</b>Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
 
 
@@ -129,7 +129,7 @@ Test Data:Kayıt yapılan hesabın ismi olmalıdır.<br>
 ![image](https://github.com/suleymankulaksiz/Pair3-Tobeto-Proje/assets/137040573/63acdabb-5116-496b-93be-a566526ffcca)
 
 
-<b>Description :</b>"Sınavlarım" bölümündeki sınav detaylarına erişebilme ve rapor görüntüleme penceresi kontrol edilecektir.
+<b>Description :</b>"Sınavlarım" bölümündeki sınav detaylarına erişebilme ve rapor görüntüleme penceresi kontrol edilecektir.<br>
 <b>Pre-condition :</b>Sayfanın hazır ve çalışır durumda olması https://tobeto.com/platform adresine gidilmelidir.
 
 
