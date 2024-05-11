@@ -1,0 +1,20 @@
+{
+    "users": {
+      "valid_user": {
+        "identifier":"denemehesabi292@outlook.com",
+        "password":"333333"
+      },
+      "invalid_user": {
+        "identifier":"denemehesabi@outlook.com",
+        "password":"333333"
+      }
+    },
+    "passwords": {
+        "invalid_password": {"currentPassword":"333336","password":"123456","passwordConfirmation":"123456"},
+        "short_password": {"currentPassword":"333333","password":"12345","passwordConfirmation":"12345"},
+        "unmatched_password": {"currentPassword":"333333","password":"12345","passwordConfirmation":"12346"},
+        "old_password": {"currentPassword":"333333","password":"333333","passwordConfirmation":"333333"},
+        "empty_password": {"currentPassword":"","password":"","passwordConfirmation":""}
+      }
+  }
+  
